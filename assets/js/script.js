@@ -254,6 +254,49 @@ function initScrollAnimations() {
   });
 }
 
+// ---- Dashboard Auto-updating ----
+async function updateDashboardStats() {
+  const weekValue = document.getElementById('dashboard-week-value');
+  const progressBar = document.getElementById('dashboard-progress-bar');
+  const reportsValue = document.getElementById('dashboard-reports-value');
+  const projectsValue = document.getElementById('dashboard-projects-value');
+  
+  if (!weekValue) return; // Not on the dashboard page
+
+  try {
+    // 1. Fetch reports.html and count completed weeks
+    const reportRes = await fetch('reports.html');
+    if (reportRes.ok) {
+      const text = await reportRes.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const completedWeeks = doc.querySelectorAll('.status-badge.completed').length;
+      const totalWeeks = 12; // Static length of the course
+      
+      if (completedWeeks > 0) {
+        weekValue.textContent = `Week ${completedWeeks}`;
+        const percentage = Math.round((completedWeeks / totalWeeks) * 100);
+        progressBar.style.width = `${percentage}%`;
+        reportsValue.textContent = completedWeeks;
+      }
+    }
+
+    // 2. Fetch projects.html and count completed projects
+    const projRes = await fetch('projects.html');
+    if (projRes.ok) {
+      const text = await projRes.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const completedProjects = doc.querySelectorAll('.status-badge.completed').length;
+      if (completedProjects > 0) {
+        projectsValue.textContent = completedProjects;
+      }
+    }
+  } catch (error) {
+    console.error("Could not fetch reports/projects for dashboard update", error);
+  }
+}
+
 // ---- Initialize Everything ----
 document.addEventListener('DOMContentLoaded', () => {
   applyRandomPalette();
@@ -261,4 +304,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   setActiveNavLink();
   initScrollAnimations();
+  updateDashboardStats();
 });
