@@ -1,0 +1,160 @@
+TASK TITLE
+
+TIMELINE
+
+LEARNING OUTCOMES
+
+ASSIGNMENT
+
+1 Module 1: Introduction to Embedded Systems I
+1.1 Project Management and Documentation
+1.2 Introduction to embedded systems
+1.3 Distribution of Student Kits
+1.4 Overview of RP2040 and RPi Pico, including GPIOs
+1.5 Introduction to IDEs - Thonny, Arduino, Pico C/C++ SDK
+1.6 Installation of Thonny IDE and micropython
+
+Week 1 - Week 2
+
+1. Communicate and document current academy progress (Ongoing)
+2.
+utilizean
+version
+control
+protocols
+1. Identify
+Understand what
+emdedded
+system
+is and it's various properties
+2. Understand Kit components and operating principles
+
+Week 3
+
+1. Basic understanding of IDEs and their uses
+2. Install Thonny
+3. Learn Python programming basics
+
+1.7 Blink Pico LED using MicroPython
+1.8 Blink LED using Pico C/C++ SDK
+
+1. Build a personal website describing yourself
+Research Kit components
+Python programming basics
+
+Change and adapt the blink LED code and introduce variation, using Python
+
+2 Module 2: Introduction to Embedded Systems II
+2.1 Understanding electronic circuits and components
+2.2 Interfacing external LEDs, switches, and pushbuttons with RP2040
+2.3 Interfacing external LEDs, switches, and pushbuttons with RP2040
+2.4 Introduction to sensors and actuators
+
+Week 4
+Week 5
+Week 6
+
+1. Understand basic electrical circuit principles
+2.
+basic LED
+circuit onPico
+breadboard
+1. Build
+Incorporate
+RaspberryPi
+in LED circuit
+2.
+Usevarious
+resistors
+in based
+their various
+capacities
+in a curcuit
+Build
+LED
+projects
+including:
+1. Traffic lights
+
+Interface the LED with a push button
+How to use a resistor to do the following:
+Build a traffic light project using different LEDs
+Project: Build a simple embedded system i
+Inputs: PIR Sensor
+Ultrasonic Sensor
+Outputs: Led 1 - comes on when motion is detected
+Led 2 - changes brightnes with how close an object is
+
+2.5 Ultrasonic sensor
+2.6 PIR sensor
+3 Module 3: Introduction to Embedded Systems III
+3.1 Introduction to the Arduino IDE and programming the ESP32
+
+Week 7 - Week 8
+
+1. Understand NodeMCU ESP-32S
+2. Update firmware on ESP-32S chip
+3. Connect to board using Arduino IDE
+
+Build a traffic light project on the ESP32 using different LEDs
+
+3.2 Building simple LED-based projects
+
+4 Module 4: Microcontroller Programming and Access Control Systems II
+4.1 Communication Protocols in Embedded systems
+Week 9
+4.1 Working with communication protocols (I2C, UART, SPI)
+4.2 Interfacing the RPi Pico and ESP32 using SPI
+4.3 Interfacing the RPi Pico and ESP32 using I2C
+4.4 Interfacing the RPi Pico and ESP32 using Serial Communication
+
+1. C/C++ programming basics
+2. Arduino programming basics
+3. Blinking an onboard LED on the ESP32
+
+Week 10
+
+Understand the different communication protocols in embedded systems
+Understand comms protocols, advantages and disadvantages and
+applications of each protocol
+1. Send data from Raspberry Pi to ESP32 Via serial and vice-versa
+
+Project: Build a simple embedded system ii
+1. Controller + AHT10 (temperature and humidity) + RFID
+2. Sensor and RFID results to be displayed on OLED
+3. Results sent via serial to another controller i.e. if system controller is ESP32,
+data should be sent via serial to Raspberry Pi pico and vice versa. Both
+scenarios shouldbe built and documented
+4. Build a simple ESP32 as a web server.
+
+Understand how an ESP32 connects to internet and acts as web server
+
+4.5 ESP32 as a Web Server
+
+5 Module 5: Microcontroller Programming and Access Control Systems III
+5.1 Interfacing the RPi Pico with a Relay
+5.2 Types of Electrick Door Locks in the Market
+
+Week 11
+1. Different types of door lock systems existing in the market,
+their working principle(Including current and voltage specs),
+advantages and disadvantages of each lock
+
+5.3 Assignment: Creating an end-to-end RFID Access Control System
+5.4 End of Module Assessment - Access Control Systems
+
+6 Module 6: Student Project
+6.1 Student Project
+
+Week 12 - Week 13
+
+Ability to design and built custom access control systems
+
+Other Important Materials
+
+1
+
+Design and build your own access control system using the components
+available in the kit
+
+
