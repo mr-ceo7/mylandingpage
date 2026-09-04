@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RFID Student Attendance System final project by Kassim Musa Abass.">
+  <title>RFID Student Attendance System — Kassim Musa Abass</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">⚡</span>
+      KMA
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="reports.html">Reports</a>
+      <a href="projects.html">Projects</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="project-detail">
+        <div class="section-header animate-on-scroll">
+          <h2>RFID Student Attendance System</h2>
+          <p>A more efficient alternative to paper-based attendance marking in universities</p>
+        </div>
+
+        <div class="glass-card animate-on-scroll">
+          <h3>How it works</h3>
+          <p>Students tap their registered RFID attendance card on the reader. The Raspberry Pi Pico W identifies the card, records the student's attendance status, and sends the result and present-student count to the Arduino display controller.</p>
+          <p>Lecturers use the local Wi-Fi dashboard to register new students, view registered students and their latest attendance status, configure a late-attendance cutoff, and remove student records when necessary.</p>
+
+          <div class="tech-tags project-detail-tags">
+            <span class="tech-tag">Raspberry Pi Pico W</span>
+            <span class="tech-tag">MFRC522 RFID</span>
+            <span class="tech-tag">Arduino Uno</span>
+            <span class="tech-tag">LittleFS</span>
+            <span class="tech-tag">Wi-Fi Access Point</span>
+            <span class="tech-tag">LED Matrix</span>
+          </div>
+
+          <div class="project-links">
+            <a class="status-badge completed" href="final-project-RFID-students-attendance-system/pico_attendance.ino" download>Download Pico W code</a>
+            <a class="status-badge completed" href="final-project-RFID-students-attendance-system/DGTclock-animated.ino" download>Download Arduino code</a>
+            <a class="status-badge completed" href="projects.html">Back to Projects</a>
+          </div>
+        </div>
+
+        <div class="section-header animate-on-scroll">
+          <h2>Project Gallery</h2>
+          <p>Hardware development, testing, demonstration, and final presentation</p>
+        </div>
+
+        <div class="project-gallery">
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260710-WA0009.jpg" alt="RFID attendance hardware assembly with Arduino and RFID reader">
+            <figcaption>Integrated RFID attendance prototype</figcaption>
+          </figure>
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260705-WA0012.jpg" alt="LED matrix display and electronics during testing">
+            <figcaption>LED matrix and electronics testing</figcaption>
+          </figure>
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260709-WA0024.jpg" alt="RFID reader, display, controller, and wiring">
+            <figcaption>RFID reader, display, and controller wiring</figcaption>
+          </figure>
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260709-WA0009.jpg" alt="Students testing the attendance system">
+            <figcaption>System testing and demonstration</figcaption>
+          </figure>
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260709-WA0010.jpg" alt="Final project demonstration in a meeting room">
+            <figcaption>Final project demonstration</figcaption>
+          </figure>
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260709-WA0050.jpg" alt="Project team presenting the RFID attendance system">
+            <figcaption>Project presentation</figcaption>
+          </figure>
+          <figure class="gallery-item animate-on-scroll">
+            <img src="final-project-RFID-students-attendance-system/IMG-20260710-WA0008~2.jpg" alt="Project team and evaluators during the final presentation">
+            <figcaption>Final evaluation and presentation</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 Kassim Musa Abass — Gearbox Academy Embedded Systems Intro</p>
+    </footer>
+  </main>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
