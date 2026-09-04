@@ -254,6 +254,63 @@ function initScrollAnimations() {
   });
 }
 
+// ---- Final Project Hero Carousel ----
+function initHeroCarousel() {
+  const carousel = document.getElementById('hero-carousel');
+  if (!carousel) return;
+
+  const slides = [...carousel.querySelectorAll('.hero-slide')];
+  const dots = [...carousel.querySelectorAll('.carousel-dot')];
+  const previousButton = carousel.querySelector('.carousel-control-prev');
+  const nextButton = carousel.querySelector('.carousel-control-next');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let currentIndex = 0;
+  let intervalId;
+
+  const showSlide = (index) => {
+    currentIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle('is-active', slideIndex === currentIndex);
+    });
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === currentIndex;
+      dot.classList.toggle('is-active', isActive);
+      dot.setAttribute('aria-selected', String(isActive));
+    });
+  };
+
+  const restartAutoPlay = () => {
+    window.clearInterval(intervalId);
+    if (!reduceMotion) {
+      intervalId = window.setInterval(() => showSlide(currentIndex + 1), 5000);
+    }
+  };
+
+  previousButton.addEventListener('click', () => {
+    showSlide(currentIndex - 1);
+    restartAutoPlay();
+  });
+  nextButton.addEventListener('click', () => {
+    showSlide(currentIndex + 1);
+    restartAutoPlay();
+  });
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      restartAutoPlay();
+    });
+  });
+
+  carousel.addEventListener('mouseenter', () => window.clearInterval(intervalId));
+  carousel.addEventListener('mouseleave', restartAutoPlay);
+  carousel.addEventListener('focusin', () => window.clearInterval(intervalId));
+  carousel.addEventListener('focusout', (event) => {
+    if (!carousel.contains(event.relatedTarget)) restartAutoPlay();
+  });
+
+  restartAutoPlay();
+}
+
 // ---- Dashboard Auto-updating ----
 async function updateDashboardStats() {
   const weekValue = document.getElementById('dashboard-week-value');
@@ -304,5 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   setActiveNavLink();
   initScrollAnimations();
+  initHeroCarousel();
   updateDashboardStats();
 });
