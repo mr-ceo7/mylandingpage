@@ -1,5 +1,5 @@
 /* ============================================
-   Gearbox Academy — Dynamic Palette & Effects
+   Gearbox Academy | Dynamic Palette & Effects
    ============================================ */
 
 // ---- Dynamic Dark Color Palettes ----
