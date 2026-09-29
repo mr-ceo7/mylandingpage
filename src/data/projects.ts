@@ -44,31 +44,37 @@ export const PROJECTS: Project[] = [
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/screenshots/galvaniy-dashboard.png",
+    screenshot: "/projects/galvaniy-labs-virtual/slide_1.png",
     carouselSlides: [
       {
-        src: "/screenshots/galvaniy-dashboard.png",
-        caption: "Main laboratory experiments dashboard with report generator and active modules.",
-        alt: "Galvaniy Labs Experiment Dashboard",
-        tag: "LAB DASHBOARD"
+        src: "/projects/galvaniy-labs-virtual/slide_1.png",
+        caption: "Authenticated lab report generator indexing University of Nairobi Physics experiments (A-2, B-6, C-9).",
+        alt: "Galvaniy Labs Report Generator",
+        tag: "REPORT GENERATOR"
       },
       {
-        src: "/screenshots/galvaniy-virtuallab.png",
-        caption: "Virtual Physics Laboratory simulator workbench featuring live circuits and interactive apparatus.",
-        alt: "Virtual Physics Lab Workbench",
-        tag: "VIRTUAL LAB SIMULATOR"
+        src: "/projects/galvaniy-labs-virtual/slide_3.png",
+        caption: "Virtual Labs hub featuring 20 interactive physics apparatus simulations across Measurement and Mechanics.",
+        alt: "Virtual Labs Physics Engine",
+        tag: "VIRTUAL PHYSICS ENGINE"
+      },
+      {
+        src: "/projects/galvaniy-labs-virtual/slide_4.png",
+        caption: "Interactive apparatus workbench with live variable controls and simulation readouts.",
+        alt: "Simulation apparatus workbench",
+        tag: "EXPERIMENT SIMULATOR"
       },
       {
         src: "/screenshots/galvaniy-api-store.png",
-        caption: "Galvaniy API Store developer marketplace for model endpoints and API keys.",
+        caption: "Galvaniy API Store developer marketplace for model endpoints, credit quotas, and API tokens.",
         alt: "Developer API Store",
-        tag: "DEVELOPER STORE"
+        tag: "API STORE"
       },
       {
-        src: "/screenshots/galvaniy-labs.png",
-        caption: "Secure student authentication portal and Google OAuth gateway.",
-        alt: "Authentication Gateway",
-        tag: "AUTH PORTAL"
+        src: "/projects/galvaniy-labs-virtual/slide_2.png",
+        caption: "Student authentication portal with institutional Google SSO and offline PWA installation.",
+        alt: "Student authentication portal",
+        tag: "STUDENT GATEWAY"
       }
     ]
   },
@@ -122,43 +128,49 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "sharpboyz-v3",
-    title: "Sharpboyz Production Platform",
-    subtitle: "Modern React 19 Web Architecture & Automated SEO Pipeline",
+    title: "Sharpboyz calcOS Platform & Emulator",
+    subtitle: "Campus AI Calculator Web Experience, Store & In-Browser Emulator",
     category: "web",
     categoryLabel: "Production Web Platforms",
     description:
-      "A high-traffic web platform built with React 19, TypeScript, and Tailwind CSS v4. Features automated build-time static SEO page generation, Python backend integration test harnesses, and sub-second Largest Contentful Paint.",
+      "The official production web platform and hardware store for calcOS—the modified Casio scientific calculator with integrated campus AI. Features an interactive in-browser emulator, tactile hardware showcase, and streamlined order checkout.",
     architectureDetails: [
-      "Custom static site generation scripts written in Node.js for programmatic landing pages",
-      "Backend verification suite utilizing Python unittest for contract testing",
-      "Performance-tuned bundle splitting delivering 100% Core Web Vitals",
-      "Deep integration with Vercel Web Analytics for performance telemetry"
+      "In-browser Casio fx-991ES Plus emulator running client-side simulated calcOS firmware",
+      "Responsive product showcase highlighting stealth anodized aluminum chassis and tactile keys",
+      "High-performance React 19 architecture with sub-second LCP and zero hydration overhead",
+      "Integrated campus ordering pipeline and FAQ documentation system"
     ],
-    techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Python Unittest", "Vercel"],
+    techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Canvas Emulator", "Vercel"],
     liveUrl: "https://sharpboyz-v3.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/screenshots/sharpboyz-v3.png",
+    screenshot: "/projects/calcos-website/slide_1.png",
     carouselSlides: [
       {
-        src: "/screenshots/sharpboyz-v3.png",
-        caption: "Main hero interface and responsive navigation running on React 19.",
-        alt: "Sharpboyz v3 Hero Interface",
-        tag: "DESKTOP HERO"
+        src: "/projects/calcos-website/slide_1.png",
+        caption: "calcOS Campus AI Calculator hero interface and hardware highlights.",
+        alt: "calcOS Campus AI Calculator hero interface",
+        tag: "HERO LANDING"
       },
       {
-        src: "/screenshots/sharpboyz-full.png",
-        caption: "Full page layout showing product architecture, feature grid, and dynamic styling.",
-        alt: "Sharpboyz full page view",
-        tag: "PRODUCT CATALOG"
+        src: "/projects/calcos-website/slide_2.png",
+        caption: "Hardware craftsmanship breakdown showing stealth chassis and tactile prompting keys.",
+        alt: "calcOS hardware craftsmanship view",
+        tag: "HARDWARE CRAFT"
       },
       {
-        src: "/screenshots/sharpboyz-mobile.png",
-        caption: "Mobile-optimized responsive viewport with touch navigation and sub-second paint.",
-        alt: "Sharpboyz mobile view",
-        tag: "MOBILE VIEWPORT"
+        src: "/projects/calcos-website/slide_3.png",
+        caption: "In-browser live Casio fx-991ES Plus interactive emulator running calcOS.",
+        alt: "In-browser calcOS emulator",
+        tag: "WEB EMULATOR"
+      },
+      {
+        src: "/projects/calcos-website/slide_4.png",
+        caption: "Campus store order workflow and hardware specification matrix.",
+        alt: "calcOS order and store page",
+        tag: "STORE & CHECKOUT"
       }
     ]
   },
@@ -230,25 +242,31 @@ export const PROJECTS: Project[] = [
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/screenshots/tambuatips.png",
+    screenshot: "/projects/tambua-tips/slide_1.png",
     carouselSlides: [
       {
-        src: "/screenshots/tambuatips.png",
-        caption: "Tambua Tips desktop dashboard with live fixture probabilities and form ratings.",
-        alt: "Tambua Tips platform",
+        src: "/projects/tambua-tips/slide_1.png",
+        caption: "Desktop sports predictive dashboard featuring latest news and live match telemetry.",
+        alt: "Tambua Tips desktop dashboard",
         tag: "DESKTOP ANALYTICS"
       },
       {
-        src: "/screenshots/tambuatips-mobile.png",
-        caption: "Mobile view of fixture outcomes and live match status tables.",
-        alt: "Tambua Tips mobile view",
-        tag: "MOBILE FIXTURES"
+        src: "/projects/tambua-tips/slide_2.png",
+        caption: "Mobile match feed with real-time status and quick prediction access.",
+        alt: "Tambua Tips mobile feed",
+        tag: "MOBILE FEED"
       },
       {
-        src: "/screenshots/bettertips.png",
-        caption: "BetterTips specialized prediction and risk distribution interface.",
-        alt: "BetterTips platform",
-        tag: "RISK MODELING"
+        src: "/projects/tambua-tips/slide_3.png",
+        caption: "League-filtered fixture browser covering Premier League, Champions League, and continental tournaments.",
+        alt: "Tambua Tips fixture browser",
+        tag: "FIXTURE MATRIX"
+      },
+      {
+        src: "/projects/tambua-tips/slide_4.png",
+        caption: "Editorial football news portal with trending stories and match preview digests.",
+        alt: "Tambua Tips football news hub",
+        tag: "EDITORIAL NEWS"
       }
     ]
   },
@@ -307,19 +325,31 @@ export const PROJECTS: Project[] = [
     isFlagship: false,
     deploymentPlatform: "Vercel CLI + Custom Domain",
     year: "2025",
-    screenshot: "/screenshots/royal-mint.png",
+    screenshot: "/projects/smart-exam-timetable/slide_1.png",
     carouselSlides: [
       {
-        src: "/screenshots/royal-mint.png",
-        caption: "University timetable landing portal with live semester schedule search.",
-        alt: "Royal Mint timetable portal",
-        tag: "SCHEDULE SEARCH"
+        src: "/projects/smart-exam-timetable/slide_1.png",
+        caption: "Multi-university portal selection interface supporting Catholic University, DeKUT, JKUAT, KU, and Maseno.",
+        alt: "Smart Exam Timetable institution selector",
+        tag: "INSTITUTION SELECTOR"
       },
       {
-        src: "/screenshots/royalmint-timetable.png",
-        caption: "Parsed course examination schedule grid with real-time venue lookups.",
-        alt: "Timetable examination grid",
-        tag: "TIMETABLE GRID"
+        src: "/projects/smart-exam-timetable/slide_2.png",
+        caption: "Dense academic examination schedule matrix parsed by department and date.",
+        alt: "Academic examination schedule grid",
+        tag: "EXAM SCHEDULE MATRIX"
+      },
+      {
+        src: "/projects/smart-exam-timetable/slide_3.png",
+        caption: "Mobile department and course code search view with venue allocations.",
+        alt: "Mobile timetable search view",
+        tag: "MOBILE TIMETABLE"
+      },
+      {
+        src: "/projects/smart-exam-timetable/slide_4.png",
+        caption: "Live exam session filtering and classroom seat distribution.",
+        alt: "Exam session room allocations",
+        tag: "SESSION ALLOCATIONS"
       }
     ]
   },
@@ -360,24 +390,51 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "student-affairs",
-    title: "Student Affairs Information Portal",
-    subtitle: "Institutional Communications & Resource Registry",
+    title: "University Academic Claims & Grievance Clearinghouse",
+    subtitle: "Missing Marks, Grade Verification & Administrative Resolution Portal",
     category: "web",
     categoryLabel: "Production Web Platforms",
     description:
-      "A central hub for campus announcements, student welfare resources, and administrative notifications, designed for instant mobile loading.",
+      "An institutional grievance clearinghouse engineered for the University of Nairobi. Streamlines academic claim submissions, missing marks resolution, and student clearance processes with role-based lecturer and registrar workflows.",
     architectureDetails: [
-      "Lightweight semantic layout with zero layout shifts on mobile",
-      "Structured categorization for bursary, housing, and academic notices",
-      "Edge-cached assets delivering sub-200ms initial response times"
+      "Integrated Google SSO authentication supporting official institutional domain accounts",
+      "End-to-end claim ticket lifecycle tracking from submission through department verification",
+      "Role-based views for students, course lecturers, and department registrars",
+      "High-performance edge-cached interface optimized for sub-second mobile response times"
     ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI"],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Google OAuth SSO", "Vercel"],
     liveUrl: "https://studentaffairs-six.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
-    screenshot: "/screenshots/student-affairs.png"
+    screenshot: "/projects/uon-student-affairs/slide_1.png",
+    carouselSlides: [
+      {
+        src: "/projects/uon-student-affairs/slide_1.png",
+        caption: "Clearinghouse portal landing interface with instant institutional Google SSO.",
+        alt: "Student Affairs portal landing with SSO",
+        tag: "INSTITUTIONAL SSO"
+      },
+      {
+        src: "/projects/uon-student-affairs/slide_2.png",
+        caption: "Student dashboard with ONUSS grade claims status and active ticket verification.",
+        alt: "Student claims verification dashboard",
+        tag: "STUDENT PORTAL"
+      },
+      {
+        src: "/projects/uon-student-affairs/slide_3.png",
+        caption: "Academic grievance claim ticket submission form and progress lifecycle tracker.",
+        alt: "Academic claim ticket submission tracker",
+        tag: "TICKET TRACKING"
+      },
+      {
+        src: "/projects/uon-student-affairs/slide_4.png",
+        caption: "Departmental registrar administrative queue for missing marks verification.",
+        alt: "Registrar missing marks review queue",
+        tag: "ADMIN CLEARINGHOUSE"
+      }
+    ]
   },
   {
     id: "chama-yetu",
@@ -403,57 +460,112 @@ export const PROJECTS: Project[] = [
   {
     id: "edu-metric-ai",
     title: "Edu Metric AI",
-    subtitle: "Academic Performance Telemetry & Diagnostic Analytics",
+    subtitle: "Academic Telemetry, OMR Scanning & Gemini-Powered Diagnostics",
     category: "ai",
     categoryLabel: "AI & Developer Platforms",
     description:
-      "An analytical dashboard that aggregates institutional student test scores, identifying subject difficulty bottlenecks and providing tailored learning interventions.",
+      "An end-to-end educational analytics platform that turns exam data into actionable learning interventions. Features automated OMR assessment scoring, statistical grade distributions, and deep cognitive gap detection driven by Gemini 3.",
     architectureDetails: [
-      "Statistical quartile computation and visual bell-curve distribution plots",
-      "Automated performance report card generator with actionable feedback metrics",
-      "Strict data sanitization compliant with student privacy practices"
+      "AI diagnostic engine powered by Gemini 3 detecting hidden cognitive learning bottlenecks",
+      "Optical Mark Recognition (OMR) scanner pipeline converting mobile camera sheets into scorecards",
+      "Multi-tier school registration portal integrated with Google Workspace",
+      "Mobile-first PWA interface for teachers and administrators in field environments"
     ],
-    techStack: ["React", "TypeScript", "Chart Engines", "Tailwind CSS", "Vercel"],
+    techStack: ["React", "TypeScript", "Gemini 3 API", "OMR Engine", "Tailwind CSS", "Vercel"],
     liveUrl: "https://edu-metric-ai.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
-    screenshot: "/screenshots/edu-metric-ai.png"
+    screenshot: "/projects/edu-metric-ai/slide_1.png",
+    carouselSlides: [
+      {
+        src: "/projects/edu-metric-ai/slide_1.png",
+        caption: "Edu-Metric AI platform landing: assessment blueprinting and diagnostic analytics.",
+        alt: "Edu-Metric AI landing dashboard",
+        tag: "DESKTOP SUITE"
+      },
+      {
+        src: "/projects/edu-metric-ai/slide_2.png",
+        caption: "Institutional school registration workflow with Google Workspace integration.",
+        alt: "School registration onboarding",
+        tag: "SCHOOL ONBOARDING"
+      },
+      {
+        src: "/projects/edu-metric-ai/slide_3.jpeg",
+        caption: "Mobile AI Diagnostic Engine analyzing class exam results with Gemini 3.",
+        alt: "Mobile Gemini 3 AI diagnostic engine",
+        tag: "GEMINI 3 DIAGNOSTICS"
+      },
+      {
+        src: "/projects/edu-metric-ai/slide_4.jpeg",
+        caption: "Mobile teacher terminal showing OMR test scoring and competency grade sheets.",
+        alt: "Mobile teacher grade terminal",
+        tag: "MOBILE OMR GRADES"
+      }
+    ]
   },
   {
     id: "nubianfit",
-    title: "NubianFit Wellness Engine",
-    subtitle: "Caloric Tracking & Progressive Overload Training Portal",
+    title: "NubianFit Coaching Suite",
+    subtitle: "Athlete Performance Telemetry & Progressive Overload Engine",
     category: "web",
     categoryLabel: "Production Web Platforms",
     description:
-      "A client-focused fitness tracking application calculating basal metabolic rates, macro splits, and progressive training log progressions.",
+      "A comprehensive coaching and athletic management portal designed for trainers. Tracks athlete rosters, compliance metrics, progressive overload programming, and video-based check-in evaluations.",
     architectureDetails: [
-      "Custom macronutrient calculator with regional meal preset entries",
-      "Interactive workout log maintaining exercise set histories in IndexedDB",
-      "Responsive touch-optimized workout timer and counter"
+      "Coach overview dashboard monitoring active athlete roster compliance and training schedules",
+      "Interactive workout program builder with progressive overload volume calculators",
+      "Client 1-on-1 messaging suite and video check-in feedback review queue",
+      "Responsive dual desktop/mobile coaching interface with offline caching"
     ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI"],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "IndexedDB", "Vercel CLI"],
     liveUrl: "https://nubianfit.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
-    screenshot: "/screenshots/nubianfit.png"
+    screenshot: "/projects/nubianfit/slide_1.png",
+    carouselSlides: [
+      {
+        src: "/projects/nubianfit/slide_1.png",
+        caption: "Coach overview dashboard with athlete performance compliance metrics and schedule.",
+        alt: "NubianFit coach dashboard overview",
+        tag: "COACH DASHBOARD"
+      },
+      {
+        src: "/projects/nubianfit/slide_2.png",
+        caption: "Mobile coach interface displaying active roster, daily workouts, and check-in alerts.",
+        alt: "NubianFit mobile coach interface",
+        tag: "MOBILE COACH ROSTER"
+      },
+      {
+        src: "/projects/nubianfit/slide_3.png",
+        caption: "Athlete workout prescription matrix with progressive overload volume tracking.",
+        alt: "Athlete workout prescription view",
+        tag: "TRAINING PROTOCOL"
+      },
+      {
+        src: "/projects/nubianfit/slide_4.png",
+        caption: "Comprehensive exercise movement library and athlete 1-on-1 messenger.",
+        alt: "Exercise library and client chat",
+        tag: "CLIENT COMMUNICATIONS"
+      }
+    ]
   },
   {
     id: "global-orators",
-    title: "Global Orators Project",
-    subtitle: "Public Speaking & Youth Leadership Organization Platform",
+    title: "Global Orators Coach & Debate Suite",
+    subtitle: "Speaker Management, Fluency Telemetry & Public Speaking Platform",
     category: "web",
     categoryLabel: "Production Web Platforms",
     description:
-      "The official web presence for an international public speaking initiative. Showcases speech archives, workshop registrations, and speaker biographies.",
+      "The operational command suite and international presence for the Global Orators initiative. Powers speaker onboarding, rehearsal scheduling, fluency tracking, and speech curriculum distribution across competitive tracks.",
     architectureDetails: [
-      "Custom domain deployment with edge routing and DNS hardening",
-      "Optimized media delivery for high-resolution event photography",
-      "Accessible navigation with full ARIA keyboard compliance"
+      "Speaker & Debater Command dashboard tracking rehearsal volume, reviews, and average fluency",
+      "Multi-track speaker roster filtering between Academy and Foundation debaters",
+      "Curriculum builder and speech drill library for competitive tournament preparation",
+      "Touch-optimized mobile roster for on-the-ground debate coaching"
     ],
     techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI + Custom DNS"],
     liveUrl: "https://globaloratorsproject.com",
@@ -461,28 +573,75 @@ export const PROJECTS: Project[] = [
     isFlagship: false,
     deploymentPlatform: "Vercel CLI + Custom Domain",
     year: "2026",
-    screenshot: "/screenshots/global-orators.png"
+    screenshot: "/projects/global-orators/slide_1.png",
+    carouselSlides: [
+      {
+        src: "/projects/global-orators/slide_1.png",
+        caption: "Speaker & Debater Command dispatch desk showing fluency metrics and coaching tips.",
+        alt: "Speaker & Debater Command dispatch desk",
+        tag: "DEBATER COMMAND"
+      },
+      {
+        src: "/projects/global-orators/slide_2.png",
+        caption: "Mobile speaker roster management with track filtering and onboarding actions.",
+        alt: "Mobile speaker roster management",
+        tag: "MOBILE ROSTER"
+      },
+      {
+        src: "/projects/global-orators/slide_3.png",
+        caption: "Public speaking organization portal and international event registration page.",
+        alt: "Global Orators public portal",
+        tag: "PUBLIC PLATFORM"
+      }
+    ]
   },
   {
     id: "jeffytab",
-    title: "JeffyTab Browser Workspace",
-    subtitle: "High-Focus Minimalist New-Tab Productivity Dashboard",
+    title: "JeffyTab Debate Adjudication Suite",
+    subtitle: "AI-Assisted Tournament Tabulation, Pairing Engine & Live Matrix",
     category: "web",
     categoryLabel: "Production Web Platforms",
     description:
-      "A zero-latency new tab replacement featuring world clocks, custom terminal quick-launch shortcuts, and ephemeral scratchpad notes.",
+      "A high-precision British Parliamentary debate tournament management system. Delivers sub-second power-pairings, zero institutional clash verification, live WebSocket tab room synchronization, and digital ballot adjudication.",
     architectureDetails: [
-      "Sub-50ms cold startup time with zero third-party tracking scripts",
-      "Customizable keyboard shortcuts for rapid navigation",
-      "Local state synchronized with browser storage"
+      "Sub-second draw generation algorithm enforcing strict institutional clash prevention",
+      "Live WebSocket sync for real-time tab room motion releases and ballot submissions",
+      "Multi-tier tournament hub handling British Parliamentary team draws and adjudicator pools",
+      "Responsive tab director command console with light/dark tournament modes"
     ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI"],
+    techStack: ["React", "TypeScript", "WebSockets", "Tailwind CSS", "Vercel CLI"],
     liveUrl: "https://jeffytab.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/screenshots/jeffytab.png"
+    screenshot: "/projects/jeffytab/slide_1.png",
+    carouselSlides: [
+      {
+        src: "/projects/jeffytab/slide_1.png",
+        caption: "JeffyTab adjudication landing interface and Director login portal.",
+        alt: "JeffyTab director login portal",
+        tag: "DIRECTOR PORTAL"
+      },
+      {
+        src: "/projects/jeffytab/slide_2.png",
+        caption: "Tournament dashboard showing active competitions, team registrations, and judge pools.",
+        alt: "Tournament dashboard overview",
+        tag: "TOURNAMENT HUB"
+      },
+      {
+        src: "/projects/jeffytab/slide_3.png",
+        caption: "Live WebSocket Tab Room Command releasing Round 4 Outround motions.",
+        alt: "Live Tab Room Command round view",
+        tag: "LIVE TAB ROOM"
+      },
+      {
+        src: "/projects/jeffytab/slide_4.png",
+        caption: "Tournament navigation drawer showing draw allocations, ballots, and break standings.",
+        alt: "Tournament draw and ballot allocations menu",
+        tag: "BALLOT ALLOCATIONS"
+      }
+    ]
   },
   {
     id: "ksef-display-board",
@@ -811,6 +970,61 @@ export const PROJECTS: Project[] = [
         caption: "Benchtop validation of rapid sequential card authentication.",
         alt: "Benchtop card authentication test",
         tag: "BENCH VALIDATION"
+      }
+    ]
+  },
+  {
+    id: "calcos-hardware",
+    title: "calcOS: Casio fx-991ES Plus AI Co-Processor Mod",
+    subtitle: "Hardware-Hacked Scientific Calculator with AI Prompting & Discrete Micro-OLED",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "A deep hardware modification of the Casio fx-991ES PLUS scientific calculator. Integrates a custom Wi-Fi co-processor concealed behind the solar cell bezel, retrofits a secondary discrete micro-OLED screen, and runs custom calcOS firmware featuring CalcoChat (AI math & physics assistant) and CalcoPlay media playback.",
+    architectureDetails: [
+      "Custom calcOS v1.43 embedded firmware running on low-power Wi-Fi co-processor",
+      "Discrete high-contrast micro-OLED retrofitted into the solar panel window cavity",
+      "CalcoChat AI prompting engine for calculus, physics, and complex problem derivation",
+      "CalcoPlay media playback engine rendering text and graphical files directly on-device",
+      "Precision key matrix tapping enabling native calculator keypad interaction"
+    ],
+    techStack: ["Casio fx-991ES Plus", "ESP8266/ESP32", "Micro-OLED", "C/C++", "Hardware Reverse-Engineering"],
+    liveUrl: "https://sharpboyz-v3.vercel.app",
+    githubUrl: "https://github.com/mr-ceo7",
+    isFlagship: true,
+    deploymentPlatform: "Custom Embedded Hardware Mod",
+    year: "2026",
+    screenshot: "/projects/calcos-hardware/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/calcos-hardware/slide_1.jpeg",
+        caption: "Casio fx-991ES Plus modified with discrete micro-OLED running calcOS v1.43 firmware.",
+        alt: "Casio fx-991ES Plus calcOS mod front view",
+        tag: "FIRMWARE BOOT"
+      },
+      {
+        src: "/projects/calcos-hardware/slide_2.jpeg",
+        caption: "CalcoPlay graphical media player and application browser running on the discrete display.",
+        alt: "CalcoPlay interface on calculator display",
+        tag: "CALCOPLAY ENGINE"
+      },
+      {
+        src: "/projects/calcos-hardware/slide_3.jpeg",
+        caption: "CalcoChat AI prompting engine running interactive math and science queries on-device.",
+        alt: "CalcoChat AI prompting interface",
+        tag: "CALCOCHAT AI"
+      },
+      {
+        src: "/projects/calcos-hardware/slide_4.jpeg",
+        caption: "Stealth casing design and precision bezel integration preserving original calculator aesthetics.",
+        alt: "Stealth hardware casing and display integration",
+        tag: "STEALTH CASING"
+      },
+      {
+        src: "/projects/calcos-hardware/slide_5.jpeg",
+        caption: "Internal co-processor wiring and solar cavity retrofitting bench examination.",
+        alt: "Internal co-processor hardware modification",
+        tag: "HARDWARE INTERNALS"
       }
     ]
   }
