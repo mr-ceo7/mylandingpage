@@ -1,12 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { Cpu, FileText, Download, ExternalLink, HardDrive, Zap } from "lucide-react";
+import { Cpu, FileText, Download, ExternalLink, HardDrive, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import { LAB_REPORTS, HARDWARE_PHOTOS, LabReport } from "../data/hardwareReports";
 
 export function HardwareLab() {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 40) {
+      setSelectedPhoto((prev) => (prev === HARDWARE_PHOTOS.length - 1 ? 0 : prev + 1));
+    } else if (diff < -40) {
+      setSelectedPhoto((prev) => (prev === 0 ? HARDWARE_PHOTOS.length - 1 : prev - 1));
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  const prevPhoto = () => {
+    setSelectedPhoto((prev) => (prev === 0 ? HARDWARE_PHOTOS.length - 1 : prev - 1));
+  };
+
+  const nextPhoto = () => {
+    setSelectedPhoto((prev) => (prev === HARDWARE_PHOTOS.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <section id="hardware" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-20 transition-colors">
@@ -31,14 +62,39 @@ export function HardwareLab() {
           {/* Left Column: Interactive Hardware Photo Gallery */}
           <div className="lg:col-span-7 space-y-4">
             <div className="border border-neutral-300 dark:border-neutral-800 p-3 bg-neutral-100/70 dark:bg-neutral-900/50">
-              <div className="relative aspect-[16/10] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-950">
+              <div
+                className="relative aspect-[16/10] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-950 touch-pan-y"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
                 <Image
                   src={HARDWARE_PHOTOS[selectedPhoto].src}
                   alt={HARDWARE_PHOTOS[selectedPhoto].alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 700px"
-                  className="object-cover"
+                  className="object-cover select-none"
                 />
+
+                {/* Arrow Controls */}
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={prevPhoto}
+                    aria-label="Previous hardware photograph"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center bg-neutral-950/85 hover:bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-700 transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={nextPhoto}
+                    aria-label="Next hardware photograph"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center bg-neutral-950/85 hover:bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-700 transition-colors"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               {/* Photo Caption */}

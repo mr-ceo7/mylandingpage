@@ -39,11 +39,11 @@ export function ProjectModal({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#faf9f5] dark:bg-[#0d0f11] border border-neutral-300 dark:border-neutral-700 shadow-2xl p-6 sm:p-8 space-y-6"
+        className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-[#faf9f5] dark:bg-[#0d0f11] border border-neutral-300 dark:border-neutral-700 shadow-2xl p-4 sm:p-8 space-y-5 sm:space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
-        <div className="flex items-start justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4">
+        <div className="flex items-start justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4 gap-3">
           <div>
             <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold">
               <span>SPECIFICATION SHEET</span>
@@ -52,7 +52,7 @@ export function ProjectModal({
             </div>
             <h3
               id="modal-project-title"
-              className="font-serif text-2xl sm:text-3xl text-neutral-950 dark:text-neutral-50 font-normal mt-1"
+              className="font-serif text-xl sm:text-3xl text-neutral-950 dark:text-neutral-50 font-normal mt-1"
             >
               {project.title}
             </h3>
@@ -65,7 +65,7 @@ export function ProjectModal({
             type="button"
             onClick={onClose}
             aria-label="Close specification sheet"
-            className="p-1.5 border border-neutral-300 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center border border-neutral-300 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex-shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
@@ -155,14 +155,14 @@ export function ProjectModal({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-neutral-200 dark:border-neutral-800">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-xs font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors"
               >
                 <span>OPEN DEPLOYMENT</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -173,7 +173,7 @@ export function ProjectModal({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>GITHUB REPO</span>
@@ -184,7 +184,7 @@ export function ProjectModal({
           <button
             type="button"
             onClick={onClose}
-            className="px-3 py-2 text-xs font-mono tracking-widest uppercase text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+            className="px-3 py-2.5 min-h-[44px] text-xs font-mono tracking-widest uppercase text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 text-center"
           >
             [CLOSE SPEC SHEET]
           </button>

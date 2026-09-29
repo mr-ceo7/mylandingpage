@@ -29,7 +29,7 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
           {flagships.map((project, idx) => (
             <article
               key={project.id}
-              className="border border-neutral-300 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/40 p-6 sm:p-8 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
+              className="border border-neutral-300 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/40 p-4 sm:p-8 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
             >
               {/* Dossier Meta Top Bar */}
               <div className="flex flex-wrap items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4 mb-6 gap-2">
@@ -61,13 +61,13 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
                   </p>
 
                   {/* Actions */}
-                  <div className="flex flex-wrap items-center gap-3 pt-3">
+                  <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-3">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors"
+                        className="inline-flex items-center justify-center gap-1.5 px-3 py-2 min-h-[40px] text-[11px] font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors"
                       >
                         <span>LIVE DEPLOYMENT</span>
                         <ExternalLink className="w-3 h-3" />
@@ -78,7 +78,7 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
+                        className="inline-flex items-center justify-center gap-1.5 px-3 py-2 min-h-[40px] text-[11px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
                       >
                         <GithubIcon className="w-3 h-3" />
                         <span>SOURCE CODE</span>
@@ -87,7 +87,7 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
                     <button
                       type="button"
                       onClick={() => onSelectProject(project)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 min-h-[40px] text-[11px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
                     >
                       <span>FULL SPEC</span>
                       <ArrowRight className="w-3 h-3" />

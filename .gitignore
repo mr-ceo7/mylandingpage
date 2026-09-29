@@ -58,3 +58,4 @@ next-env.d.ts
 /nubianfit-fitness-/
 /smart-exam-timetable-desktop-and-mobile-screens/
 /uon-student-affairs-website-portal/
+.env*.local

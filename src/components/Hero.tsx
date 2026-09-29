@@ -86,10 +86,10 @@ export function Hero() {
             </div>
 
             {/* Action Bar */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <a
                 href="#flagship"
-                className="inline-flex items-center gap-2 px-5 py-3 text-xs font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors w-full sm:w-auto"
               >
                 <span>EXPLORE FLAGSHIP ARCHITECTURES</span>
                 <ArrowDown className="w-3.5 h-3.5" />
@@ -97,9 +97,9 @@ export function Hero() {
 
               <a
                 href="#archive"
-                className="inline-flex items-center gap-2 px-5 py-3 text-xs font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors w-full sm:w-auto"
               >
-                <span>VERCEL DEPLOYMENT INDEX (18+)</span>
+                <span>VERCEL DEPLOYMENT INDEX (20+)</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>

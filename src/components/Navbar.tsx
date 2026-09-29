@@ -75,7 +75,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 border border-neutral-300 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200"
+            className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center border border-neutral-300 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -85,13 +85,13 @@ export function Navbar() {
 
       {/* Unified Mobile Drawer (No double stacked navigation bars) */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-neutral-300 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] px-4 py-4 space-y-3">
+        <div className="md:hidden border-b border-neutral-300 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] px-4 py-3 space-y-1">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-xs font-mono tracking-widest text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-neutral-50 py-1.5 border-b border-neutral-200/60 dark:border-neutral-800/60"
+              className="block text-xs font-mono tracking-widest text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-neutral-50 py-3 min-h-[44px] flex items-center border-b border-neutral-200/60 dark:border-neutral-800/60 active:bg-neutral-100 dark:active:bg-neutral-900 transition-colors"
             >
               {item.label}
             </a>
@@ -100,7 +100,7 @@ export function Navbar() {
             href="https://github.com/mr-ceo7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-neutral-900 dark:text-neutral-100 pt-2"
+            className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-neutral-900 dark:text-neutral-100 py-3 min-h-[44px]"
           >
             <GithubIcon className="w-4 h-4" />
             <span>GITHUB / MR-CEO7</span>

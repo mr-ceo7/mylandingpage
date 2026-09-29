@@ -57,13 +57,13 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
         {/* Filter Bar & Search */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 border border-neutral-300 dark:border-neutral-800 p-1 bg-white dark:bg-neutral-900">
+          <div className="flex items-center gap-1.5 border border-neutral-300 dark:border-neutral-800 p-1 bg-white dark:bg-neutral-900 overflow-x-auto no-scrollbar touch-pan-x flex-nowrap sm:flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id as CategoryFilter)}
-                className={`px-3 py-1.5 text-[10px] font-mono tracking-widest uppercase transition-colors ${
+                className={`px-3 py-2 sm:py-1.5 min-h-[36px] text-[10px] font-mono tracking-widest uppercase transition-colors flex-shrink-0 whitespace-nowrap ${
                   activeCategory === cat.id
                     ? "bg-neutral-900 text-neutral-50 dark:bg-neutral-100 dark:text-neutral-950 font-semibold"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
@@ -75,14 +75,14 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
           </div>
 
           {/* Search Box */}
-          <div className="relative min-w-[260px]">
-            <Search className="w-3.5 h-3.5 text-neutral-400 dark:text-neutral-500 absolute left-3 top-1/2 -translate-y-1/2" />
+          <div className="relative min-w-[240px] sm:min-w-[260px]">
+            <Search className="w-3.5 h-3.5 text-neutral-400 dark:text-neutral-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="SEARCH BY TECH, KEYWORD, PROTOCOL..."
-              className="w-full pl-9 pr-3 py-1.5 text-xs font-mono bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors"
+              className="w-full pl-9 pr-3 py-2 sm:py-1.5 min-h-[40px] text-xs font-mono bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors"
             />
           </div>
         </div>
@@ -163,22 +163,22 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                   <button
                     type="button"
                     onClick={() => onSelectProject(project)}
-                    className="text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4 flex items-center gap-1"
+                    className="text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4 flex items-center gap-1.5 py-2 min-h-[40px]"
                   >
                     <span>SPEC SHEET</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#b94a28] dark:text-[#e06d44]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#b94a28] dark:text-[#e06d44]" />
                   </button>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Open live deployment for ${project.title}`}
-                        className="p-1.5 text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
+                        className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <ExternalLink className="w-4 h-4" />
                       </a>
                     )}
                     {project.githubUrl && (
@@ -187,9 +187,9 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View source code for ${project.title}`}
-                        className="p-1.5 text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
+                        className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
                       >
-                        <GithubIcon className="w-3.5 h-3.5" />
+                        <GithubIcon className="w-4 h-4" />
                       </a>
                     )}
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Award, Users, BookOpen, Wrench, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -41,6 +41,29 @@ const MENTORSHIP_PHOTOS: MentorshipPhoto[] = [
 export function ScienceMentorship() {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
 
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 40) {
+      nextPhoto();
+    } else if (diff < -40) {
+      prevPhoto();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const prevPhoto = () => {
     setSelectedPhoto((prev) => (prev === 0 ? MENTORSHIP_PHOTOS.length - 1 : prev - 1));
   };
@@ -72,13 +95,18 @@ export function ScienceMentorship() {
           {/* Left Column: Photo Carousel with Editorial Frame */}
           <div className="lg:col-span-7 space-y-4">
             <div className="border border-neutral-300 dark:border-neutral-800 p-3 bg-neutral-100/70 dark:bg-neutral-900/50">
-              <div className="relative aspect-[4/3] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-950">
+              <div
+                className="relative aspect-[4/3] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-950 touch-pan-y"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
                 <Image
                   src={MENTORSHIP_PHOTOS[selectedPhoto].src}
                   alt={MENTORSHIP_PHOTOS[selectedPhoto].alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 700px"
-                  className="object-cover"
+                  className="object-cover select-none"
                   priority
                 />
 
@@ -93,17 +121,17 @@ export function ScienceMentorship() {
                     type="button"
                     onClick={prevPhoto}
                     aria-label="Previous photograph"
-                    className="p-1.5 bg-neutral-950/80 hover:bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-700 transition-colors"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center bg-neutral-950/85 hover:bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-700 transition-colors"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     type="button"
                     onClick={nextPhoto}
                     aria-label="Next photograph"
-                    className="p-1.5 bg-neutral-950/80 hover:bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-700 transition-colors"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center bg-neutral-950/85 hover:bg-neutral-900 text-neutral-300 hover:text-white border border-neutral-700 transition-colors"
                   >
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>

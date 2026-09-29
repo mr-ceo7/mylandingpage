@@ -45,23 +45,33 @@ export function Footer() {
               NAVIGATION & INDEX
             </span>
             <div>
-              <a href="#flagship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors">
+              <a href="#flagship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
                 → FLAGSHIP ARCHITECTURES
               </a>
             </div>
             <div>
-              <a href="#archive" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors">
+              <a href="#archive" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
                 → VERCEL DEPLOYMENT ARCHIVE
               </a>
             </div>
             <div>
-              <a href="#hardware" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors">
+              <a href="#hardware" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
                 → HARDWARE & FIELD REPORTS
               </a>
             </div>
             <div>
-              <a href="#philosophy" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors">
+              <a href="#mentorship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+                → STEM MENTORSHIP & YSK
+              </a>
+            </div>
+            <div>
+              <a href="#philosophy" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
                 → SYSTEMS PHILOSOPHY
+              </a>
+            </div>
+            <div>
+              <a href="#contact" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+                → DIRECT CONTACT
               </a>
             </div>
           </div>

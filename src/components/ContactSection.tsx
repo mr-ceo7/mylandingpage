@@ -47,12 +47,12 @@ export function ContactSection() {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-neutral-800 flex flex-wrap gap-4">
+            <div className="pt-4 border-t border-neutral-800 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="https://github.com/mr-ceo7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest bg-white text-black hover:bg-neutral-200 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] text-xs uppercase tracking-widest bg-white text-black hover:bg-neutral-200 transition-colors w-full sm:w-auto"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>GITHUB / MR-CEO7</span>
@@ -60,8 +60,8 @@ export function ContactSection() {
               </a>
 
               <a
-                href="mailto:kassim.abass@example.com"
-                className="inline-flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest border border-neutral-700 hover:border-white text-white transition-colors"
+                href="mailto:kassimmusa322@gmail.com"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[44px] text-xs uppercase tracking-widest border border-neutral-700 hover:border-white text-white transition-colors w-full sm:w-auto"
               >
                 <Mail className="w-3.5 h-3.5" />
                 <span>DIRECT EMAIL INQUIRY</span>
