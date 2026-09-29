@@ -14,6 +14,7 @@ export function Navbar() {
     { label: "FLAGSHIP SYSTEMS", href: "#flagship" },
     { label: "VERCEL ARCHIVE", href: "#archive" },
     { label: "HARDWARE LAB", href: "#hardware" },
+    { label: "MENTORSHIP", href: "#mentorship" },
     { label: "ENGINEERING PHILOSOPHY", href: "#philosophy" },
     { label: "CONTACT", href: "#contact" }
   ];

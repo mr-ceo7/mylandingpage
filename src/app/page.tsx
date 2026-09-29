@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { FlagshipProjects } from "@/components/FlagshipProjects";
 import { ProjectCatalog } from "@/components/ProjectCatalog";
 import { HardwareLab } from "@/components/HardwareLab";
+import { ScienceMentorship } from "@/components/ScienceMentorship";
 import { EngineeringPhilosophy } from "@/components/EngineeringPhilosophy";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
@@ -34,10 +35,13 @@ export default function Home() {
         {/* Section 03: Embedded Hardware & Gearbox Academy Lab Archive */}
         <HardwareLab />
 
-        {/* Section 04: Technical Manifesto & Engineering Invariants */}
+        {/* Section 04: Science Competitions & Field Mentorship (Young Scientists Kenya) */}
+        <ScienceMentorship />
+
+        {/* Section 05: Technical Manifesto & Engineering Invariants */}
         <EngineeringPhilosophy />
 
-        {/* Section 05: Direct Inquiries & Contact Terminal */}
+        {/* Section 06: Direct Inquiries & Contact Terminal */}
         <ContactSection />
       </main>
 

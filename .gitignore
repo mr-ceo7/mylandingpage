@@ -39,3 +39,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source material folders (raw WhatsApp photos/videos — large files, not for git)
+/iron-dom-air-defence-radar/
+/AI-powered-solar-tracker/
+/chroma-scan/
+/RFID-students-smart-attendance/
+/I-have-trained-and-mentored-highschool-kids-in-science-comp/
+/mini-lui-fire fighting bot/
+/LuiTheLabBot-fire-fighting-and-titration/
+/calcOS-hardware-project-AI-in-a-calculator-hardware-hacking/
+/calcOS-website-landing-store-and-emulator/
+/desktop-and-mobile-screenshots-of-the-tambuatips-site/
+/edu-metric-ai-/
+/galvaniy-labs-virtual-labs/
+/global-orators-desk-and-mobile-screens/
+/jeffytab-debate-tabbing-platform-AI-powered/
+/nubianfit-fitness-/
+/smart-exam-timetable-desktop-and-mobile-screens/
+/uon-student-affairs-website-portal/

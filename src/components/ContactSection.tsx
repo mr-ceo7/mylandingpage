@@ -9,7 +9,7 @@ export function ContactSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
             <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
-              SECTION 05 / DISPATCH TERMINAL
+              SECTION 06 // DISPATCH TERMINAL
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
               Engineering Inquiries & Direct Line

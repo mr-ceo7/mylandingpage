@@ -54,7 +54,7 @@ export function EngineeringPhilosophy() {
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
             <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
-              SECTION 04 / TECHNICAL MANIFESTO
+              SECTION 05 // TECHNICAL MANIFESTO
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
               Systems Engineering Discipline

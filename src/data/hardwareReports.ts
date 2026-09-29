@@ -90,19 +90,29 @@ export const LAB_REPORTS: LabReport[] = [
 
 export const HARDWARE_PHOTOS: HardwarePhoto[] = [
   {
+    src: "/projects/rfid-attendance/slide_1.jpeg",
+    caption: "Full bench hardware layout: RC522 RFID scanner, cascaded MAX7219 8x8 LED matrices, audio buzzer, and microcontroller bus.",
+    alt: "Full RFID terminal hardware assembly on bench"
+  },
+  {
+    src: "/projects/rfid-attendance/slide_2.jpeg",
+    caption: "Card scan verification sequence with real-time dot-matrix status output.",
+    alt: "Card scan verification display"
+  },
+  {
+    src: "/projects/rfid-attendance/slide_3.jpeg",
+    caption: "SPI high-speed signal bus routing and multi-module interconnect cabling.",
+    alt: "SPI bus cabling and circuit wiring"
+  },
+  {
+    src: "/projects/rfid-attendance/slide_4.jpeg",
+    caption: "Benchtop validation of rapid sequential contactless badge authentication.",
+    alt: "Benchtop card authentication test"
+  },
+  {
     src: "/projects/rfid/IMG-20260710-WA0009.jpg",
     caption: "Integrated RFID attendance verification prototype in bench testing enclosure.",
     alt: "Integrated RFID attendance prototype enclosure"
-  },
-  {
-    src: "/projects/rfid/IMG-20260705-WA0012.jpg",
-    caption: "Digital display and core microcontroller bus communication validation.",
-    alt: "Display and electronics testing"
-  },
-  {
-    src: "/projects/rfid/IMG-20260709-WA0024.jpg",
-    caption: "RC522 SPI wiring, logic level translation, and breadboard circuit debugging.",
-    alt: "RC522 SPI wiring and circuit layout"
   },
   {
     src: "/projects/rfid/IMG-20260709-WA0050.jpg",

@@ -525,5 +525,293 @@ export const PROJECTS: Project[] = [
     deploymentPlatform: "Vercel CLI",
     year: "2025",
     screenshot: "/screenshots/report-labs.png"
+  },
+  {
+    id: "lui-the-lab-bot",
+    title: "Lui The Lab Bot",
+    subtitle: "Autonomous Fire-Fighting & Chemical Titration Mobile Platform",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "A dual-function autonomous mobile robot engineered for precision chemical titration dispensing and rapid fire-suppression response in laboratory environments. Features integrated optical flame arrays, H-bridge DC motor drivers, micro-servo liquid dispensers, and an onboard sensor telemetry bus.",
+    architectureDetails: [
+      "Precision servo-actuated titration dispenser for controlled reagent metering",
+      "Multi-channel optical flame sensor array for rapid 360-degree fire localization",
+      "H-bridge motor drive circuitry with differential steering algorithms",
+      "Microcontroller interrupt routines coordinating liquid handling and obstacle avoidance"
+    ],
+    techStack: ["C/C++", "Arduino Core", "L298N H-Bridge", "Flame Array", "Servos", "DC Gearmotors"],
+    liveUrl: "/reports.html",
+    githubUrl: "https://github.com/mr-ceo7/mylandingpage",
+    isFlagship: false,
+    deploymentPlatform: "Embedded Microcontroller + Motor Hardware",
+    year: "2026",
+    screenshot: "/projects/lui-the-lab-bot/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/lui-the-lab-bot/slide_1.jpeg",
+        caption: "Lui The Lab Bot fully assembled mobile chassis with sensor mast and liquid dispenser.",
+        alt: "Lui The Lab Bot mobile chassis",
+        tag: "MOBILE CHASSIS"
+      },
+      {
+        src: "/projects/lui-the-lab-bot/slide_2.jpeg",
+        caption: "Motor drive bridge and power distribution bus wiring during bench calibration.",
+        alt: "Motor drive bridge and wiring",
+        tag: "POWER BUS & DRIVER"
+      },
+      {
+        src: "/projects/lui-the-lab-bot/slide_3.jpeg",
+        caption: "Microcontroller control board and sensor interface pinouts.",
+        alt: "Microcontroller control board",
+        tag: "CONTROLLER BOARD"
+      },
+      {
+        src: "/projects/lui-the-lab-bot/slide_4.jpeg",
+        caption: "Chemical titration servo arm and nozzle assembly for precision dispensing.",
+        alt: "Chemical titration arm",
+        tag: "TITRATION MECHANISM"
+      }
+    ]
+  },
+  {
+    id: "mini-lui-fire-bot",
+    title: "Mini Lui Fire-Fighting Bot",
+    subtitle: "Compact Autonomous Rapid-Response Fire Suppression Unit",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "A compact mobile robotic platform dedicated to autonomous flame detection and extinguisher delivery. Built with high-torque gearmotors, infrared flame detection arrays, a submersible DC water pump, and autonomous search-and-extinguish navigation logic.",
+    architectureDetails: [
+      "Multi-quadrant infrared flame sensor array for rapid triangulation of heat sources",
+      "High-pressure DC submersible pump and directional extinguisher nozzle",
+      "Compact chassis tuned for navigating narrow corridors and confined test spaces",
+      "Autonomous state machine: Patrol, Triangulate, Approach, Extinguish, and Confirm"
+    ],
+    techStack: ["Embedded C", "Microcontroller", "IR Sensor Array", "Submersible Pump", "Differential Drive"],
+    liveUrl: "/reports.html",
+    githubUrl: "https://github.com/mr-ceo7/mylandingpage",
+    isFlagship: false,
+    deploymentPlatform: "Bare Metal Firmware + Actuators",
+    year: "2026",
+    screenshot: "/projects/mini-lui/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/mini-lui/slide_1.jpeg",
+        caption: "Mini Lui autonomous fire-suppression rover with multi-channel flame sensor array and directional pump.",
+        alt: "Mini Lui robot chassis",
+        tag: "FIRE BOT CHASSIS"
+      },
+      {
+        src: "/projects/mini-lui/slide_2.jpeg",
+        caption: "Active flame test: optical detection and closed-loop motor orientation toward an open lighter flame.",
+        alt: "Bench test flame detection with lighter",
+        tag: "FLAME ACQUISITION"
+      },
+      {
+        src: "/projects/mini-lui/slide_3.jpeg",
+        caption: "Autonomous roving deployment with dual 8x8 LED matrix status telemetry eyes active.",
+        alt: "Autonomous floor navigation",
+        tag: "AUTONOMOUS ROVING"
+      },
+      {
+        src: "/projects/mini-lui/slide_4.jpeg",
+        caption: "Electronics deck showing microcontroller, motor shield, and sensor routing.",
+        alt: "Electronics deck and wiring",
+        tag: "ELECTRONICS DECK"
+      }
+    ]
+  },
+  {
+    id: "iron-dome-radar",
+    title: "Autonomous Threat Tracking & Radar Turret",
+    subtitle: "RP2040 Pan-Tilt Ultrasonic & Optical Target Tracking System",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "An autonomous dual-axis tracking radar turret engineered on the Raspberry Pi Pico (RP2040). Combines ultrasonic distance ranging with multi-spectral optical detectors to acquire, track, and lock onto moving targets in real-time.",
+    architectureDetails: [
+      "Dual-axis pan-tilt servo mechanism with sub-degree angular positioning",
+      "HC-SR04 ultrasonic transducer for real-time proximity and vector calculation",
+      "Optical sensor array providing multi-quadrant line-of-sight tracking",
+      "Visual and acoustic alert telemetry with real-time target lock confirmation"
+    ],
+    techStack: ["RP2040", "C/C++", "HC-SR04 Ultrasonic", "Servo Pan-Tilt", "Optical Sensors", "PWM Control"],
+    liveUrl: "/reports.html",
+    githubUrl: "https://github.com/mr-ceo7/mylandingpage",
+    isFlagship: false,
+    deploymentPlatform: "RP2040 Firmware + Pan-Tilt Gimbal",
+    year: "2026",
+    screenshot: "/projects/iron-dome-radar/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/iron-dome-radar/slide_1.jpeg",
+        caption: "RP2040 breadboard controller bus and pan-tilt HC-SR04 ultrasonic sensor turret.",
+        alt: "RP2040 controller and sensor turret",
+        tag: "SENSOR TURRET"
+      },
+      {
+        src: "/projects/iron-dome-radar/slide_2.jpeg",
+        caption: "Dynamic object tracking: turret actively acquiring and following an approaching target.",
+        alt: "Turret tracking moving target",
+        tag: "TARGET TRACKING"
+      },
+      {
+        src: "/projects/iron-dome-radar/slide_3.jpeg",
+        caption: "Target acquisition state: telemetry LEDs indicating distance lock and azimuth alignment.",
+        alt: "Target lock confirmation",
+        tag: "TARGET LOCK"
+      },
+      {
+        src: "/projects/iron-dome-radar/slide_4.jpeg",
+        caption: "Servo pan-tilt gimbal mechanism executing sweep scan across the 180-degree sector.",
+        alt: "Pan-tilt gimbal mechanism",
+        tag: "SECTOR SWEEP"
+      }
+    ]
+  },
+  {
+    id: "chroma-scan",
+    title: "Galvaniy Chroma-Scan",
+    subtitle: "Digital Spectrophotometer & Optical Analytical Colorimeter",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "An embedded analytical instrument built for rapid biochemical sample analysis and colorimetric testing. Features a light-isolated optical cuvette chamber, calibrated photodetector array, SSD1306 OLED interface, and an ESP8266 WiFi module for direct cloud lab telemetry.",
+    architectureDetails: [
+      "Light-isolated optical transmission chamber for standard laboratory cuvettes",
+      "Calibrated optical photodetector with multi-wavelength absorbance calculation",
+      "SSD1306 graphical OLED user interface with multi-level calibration menus",
+      "ESP8266 wireless telemetry bridge streaming absorbance data to laboratory cloud databases"
+    ],
+    techStack: ["Embedded C++", "Arduino Nano", "ESP8266 WiFi", "SSD1306 OLED", "Optical Sensor", "I2C/SPI"],
+    liveUrl: "/reports.html",
+    githubUrl: "https://github.com/mr-ceo7/mylandingpage",
+    isFlagship: false,
+    deploymentPlatform: "Galvaniy Technologies Analytical Firmware",
+    year: "2026",
+    screenshot: "/projects/chroma-scan/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/chroma-scan/slide_1.jpeg",
+        caption: "Chroma-Scan boot sequence on high-contrast OLED display by Galvaniy Technologies.",
+        alt: "Chroma-Scan OLED boot screen",
+        tag: "OLED INTERFACE"
+      },
+      {
+        src: "/projects/chroma-scan/slide_2.jpeg",
+        caption: "Measurement standby state with optical light chamber and calibrated sample cuvette.",
+        alt: "Optical test chamber and cuvette",
+        tag: "TEST CHAMBER"
+      },
+      {
+        src: "/projects/chroma-scan/slide_3.jpeg",
+        caption: "Analytical menu interface: preset wavelength values versus manual curve calibration.",
+        alt: "Calibration menu on OLED",
+        tag: "CALIBRATION MENU"
+      },
+      {
+        src: "/projects/chroma-scan/slide_4.jpeg",
+        caption: "Sensor processing breadboard: ESP8266 wireless telemetry bridge and analog conditioning circuit.",
+        alt: "ESP8266 and processing breadboard",
+        tag: "TELEMETRY BRIDGE"
+      }
+    ]
+  },
+  {
+    id: "ai-solar-tracker",
+    title: "Dual-Axis Closed-Loop Solar Tracker",
+    subtitle: "Autonomous Azimuth & Elevation Light-Optimizing PV Controller",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "A closed-loop dual-axis solar tracking platform engineered to maximize photovoltaic energy capture. Employs four directional light-dependent resistor (LDR) quadrants separated by shadow collimators to calculate differential flux and drive twin servo gimbals.",
+    architectureDetails: [
+      "Closed-loop differential light vector tracking eliminating static astrological lookups",
+      "Dual servo mechanical gimbal providing 180-degree azimuth and 90-degree elevation tracking",
+      "Real-time 16x2 LCD telemetry streaming differential lux, panel angle, and tracking status",
+      "Integrated sleep and dawn re-orientation state machines for energy conservation"
+    ],
+    techStack: ["Arduino Core", "C++", "Dual SG90 Servos", "LDR Quadrant Array", "16x2 I2C LCD", "Photovoltaic Panel"],
+    liveUrl: "/reports.html",
+    githubUrl: "https://github.com/mr-ceo7/mylandingpage",
+    isFlagship: false,
+    deploymentPlatform: "Arduino Firmware + Dual-Servo Gimbal",
+    year: "2026",
+    screenshot: "/projects/ai-solar-tracker/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/ai-solar-tracker/slide_1.jpeg",
+        caption: "Dual-axis solar tracking assembly with quadrant collimators and PV panel.",
+        alt: "Solar tracker assembly and PV panel",
+        tag: "PV GIMBAL"
+      },
+      {
+        src: "/projects/ai-solar-tracker/slide_2.jpeg",
+        caption: "Tracking sweep: twin servo gimbals reorienting panel toward highest lux vector.",
+        alt: "Servo gimbal reorientation sweep",
+        tag: "ACTIVE TRACKING"
+      },
+      {
+        src: "/projects/ai-solar-tracker/slide_3.jpeg",
+        caption: "Telemetry station: 16x2 LCD display streaming instantaneous differential lux and angle data.",
+        alt: "LCD telemetry display",
+        tag: "LCD TELEMETRY"
+      },
+      {
+        src: "/projects/ai-solar-tracker/slide_4.jpeg",
+        caption: "Elevation actuator holding panel at optimal incident angle under changing lighting conditions.",
+        alt: "Elevation actuator holding angle",
+        tag: "OPTIMAL INCIDENCE"
+      }
+    ]
+  },
+  {
+    id: "rfid-smart-attendance-station",
+    title: "RFID Smart Student Attendance Terminal",
+    subtitle: "MIFARE 1K Authentication & Dual-Core Wireless Gateway",
+    category: "hardware",
+    categoryLabel: "Hardware & IoT",
+    description:
+      "A contactless student attendance terminal designed for university lecture halls. Integrates an MFRC522 RFID reader over high-speed SPI, an 8x8 LED matrix visual confirmation display, an audio annunciator, and an ESP-based cloud synchronization gateway.",
+    architectureDetails: [
+      "Contactless MIFARE Classic 1K card interrogation over 13.56 MHz SPI interface",
+      "MAX7219 cascaded 8x8 LED dot-matrix visual confirmation displays",
+      "Dual-core task separation: core 0 handles card interrupts, core 1 handles network queues",
+      "Autonomous offline caching with automatic cloud sync when network reconnects"
+    ],
+    techStack: ["RP2040", "ESP32", "MFRC522 RFID", "MAX7219 Matrix", "SPI/UART", "C++"],
+    liveUrl: "/final-project-rfid-attendance.html",
+    githubUrl: "https://github.com/mr-ceo7/mylandingpage",
+    isFlagship: false,
+    deploymentPlatform: "RP2040 + ESP32 Hybrid Hardware",
+    year: "2026",
+    screenshot: "/projects/rfid-attendance/slide_1.jpeg",
+    carouselSlides: [
+      {
+        src: "/projects/rfid-attendance/slide_1.jpeg",
+        caption: "Full hardware layout: RC522 RFID scanner, MAX7219 8x8 LED matrices, buzzer, and controller.",
+        alt: "Full RFID terminal hardware assembly",
+        tag: "HARDWARE LAYOUT"
+      },
+      {
+        src: "/projects/rfid-attendance/slide_2.jpeg",
+        caption: "Card scan verification sequence and visual status display layout.",
+        alt: "Card scan verification display",
+        tag: "SCAN VERIFICATION"
+      },
+      {
+        src: "/projects/rfid-attendance/slide_3.jpeg",
+        caption: "SPI bus routing and multi-module interconnect cabling on test chassis.",
+        alt: "SPI bus cabling and circuit wiring",
+        tag: "CIRCUIT ROUTING"
+      },
+      {
+        src: "/projects/rfid-attendance/slide_4.jpeg",
+        caption: "Benchtop validation of rapid sequential card authentication.",
+        alt: "Benchtop card authentication test",
+        tag: "BENCH VALIDATION"
+      }
+    ]
   }
 ];
