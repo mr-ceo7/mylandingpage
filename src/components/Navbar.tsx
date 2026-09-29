@@ -37,7 +37,7 @@ export function Navbar() {
               Kassim Musa Abass
             </span>
             <span className="text-[10px] font-mono tracking-widest text-neutral-500 dark:text-neutral-400 uppercase">
-              @mr-ceo7 · Systems & Web
+              @MR-CEO7 // SYSTEMS & WEB
             </span>
           </div>
         </Link>

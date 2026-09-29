@@ -45,7 +45,7 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
 
                 <div className="flex items-center gap-4 text-[10px] font-mono text-neutral-500 dark:text-neutral-400">
                   <span>TIMELINE: {project.year}</span>
-                  <span className="text-neutral-300 dark:text-neutral-700">·</span>
+                  <span className="text-neutral-300 dark:text-neutral-700">/</span>
                   <span>PLATFORM: {project.deploymentPlatform}</span>
                 </div>
               </div>

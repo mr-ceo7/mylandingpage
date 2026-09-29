@@ -56,13 +56,8 @@ export function ProjectCarousel({
     >
       {/* Top Browser / Terminal Header */}
       <div className="flex flex-wrap items-center justify-between px-3.5 py-2.5 border-b border-neutral-200 dark:border-neutral-800 text-[10px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 gap-2">
-        <div className="flex items-center gap-2.5">
-          <div className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-none bg-neutral-300 dark:bg-neutral-700 inline-block" />
-            <span className="w-2 h-2 rounded-none bg-neutral-300 dark:bg-neutral-700 inline-block" />
-            <span className="w-2 h-2 rounded-none bg-neutral-300 dark:bg-neutral-700 inline-block" />
-          </div>
-          <span className="text-neutral-400 dark:text-neutral-600">|</span>
+        <div className="flex items-center gap-2">
+          <span className="text-[9px] font-mono tracking-widest text-neutral-400 dark:text-neutral-500 uppercase">SYS //</span>
           <span className="uppercase tracking-widest text-neutral-800 dark:text-neutral-200 font-semibold truncate max-w-[220px] sm:max-w-none">
             {liveUrl ? liveUrl.replace("https://", "") : `${projectTitle.toLowerCase()} // architecture`}
           </span>

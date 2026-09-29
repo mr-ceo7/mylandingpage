@@ -19,7 +19,7 @@ export function Hero() {
 
           <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
             <span>VERCEL CLI DEPLOYMENTS: 20+</span>
-            <span className="text-neutral-300 dark:text-neutral-700">·</span>
+            <span className="text-neutral-300 dark:text-neutral-700">/</span>
             <span>HARDWARE CAPSTONES: ACTIVE</span>
           </div>
         </div>
