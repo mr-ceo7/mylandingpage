@@ -26,12 +26,12 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: "galvaniy-labs",
-    title: "Galvaniy Labs & AI API Store",
-    subtitle: "Virtual Physics Laboratory, Simulator Workbench & Developer Portal",
+    title: "Galvaniy Labs — Virtual Physics Laboratory",
+    subtitle: "Virtual Physics Laboratory, Simulator Workbench & Automated Reports",
     category: "ai",
     categoryLabel: "AI & Developer Platforms",
     description:
-      "An intelligent scientific experimentation workspace and developer platform. Features an interactive Virtual Physics Laboratory simulator, automated report analysis with AI assistants, structured laboratory manuals, and a developer API store for programmatic endpoints.",
+      "An intelligent scientific experimentation workspace. Features an interactive Virtual Physics Laboratory simulator, automated report analysis with AI assistants, structured laboratory manuals, and dynamic PDF credential generation.",
     architectureDetails: [
       "Virtual physics laboratory simulator with interactive circuit and instrument panels",
       "AI laboratory assistant (Dr. Vance) providing real-time experimental guidance",
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["React 19", "TypeScript", "Vite", "OpenAPI", "IndexedDB", "Tailwind CSS", "Vercel"],
     liveUrl: "https://galvaniy-labs.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7/galvaniy-ai-api-store",
+    githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
@@ -65,64 +65,10 @@ export const PROJECTS: Project[] = [
         tag: "EXPERIMENT SIMULATOR"
       },
       {
-        src: "/screenshots/galvaniy-api-store.png",
-        caption: "Galvaniy API Store developer marketplace for model endpoints, credit quotas, and API tokens.",
-        alt: "Developer API Store",
-        tag: "API STORE"
-      },
-      {
         src: "/projects/galvaniy-labs-virtual/slide_2.png",
         caption: "Student authentication portal with institutional Google SSO and offline PWA installation.",
         alt: "Student authentication portal",
         tag: "STUDENT GATEWAY"
-      }
-    ]
-  },
-  {
-    id: "pochipay-console",
-    title: "PochiPay Console",
-    subtitle: "Automated Mobile Money Processing & Client Failover Daemon",
-    category: "fintech",
-    categoryLabel: "Fintech & Core Rails",
-    description:
-      "A high-reliability transaction processing console and background daemon built for automated M-Pesa payment verification and reconciliation. Engineered with client-side event queues, local cryptographic validation, and persistent failover buffers to survive network degradation.",
-    architectureDetails: [
-      "Client failover protocol with local SQLite buffering for offline transaction queuing",
-      "Automated SMS/M-Pesa notification parser operating via an Android accessibility daemon",
-      "Secure webhook dispatcher with exponential backoff and replay attack prevention",
-      "Clean real-time telemetry console for transaction reconciliation and audit trails"
-    ],
-    techStack: ["Kotlin", "Python Async", "React", "TypeScript", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://pochipay-console.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7/pochi-pay",
-    isFlagship: true,
-    deploymentPlatform: "Vercel CLI + Android Daemon",
-    year: "2025 – 2026",
-    screenshot: "/screenshots/pochipay-console.png",
-    carouselSlides: [
-      {
-        src: "/screenshots/pochipay-console.png",
-        caption: "Live production web telemetry & reconciliation console deployed on Vercel Edge.",
-        alt: "PochiPay Console web dashboard",
-        tag: "WEB CONSOLE"
-      },
-      {
-        src: "/screenshots/pochi-mobile/sc2.jpeg",
-        caption: "Android accessibility daemon monitoring incoming M-Pesa push notifications.",
-        alt: "Android accessibility daemon listener",
-        tag: "MOBILE DAEMON"
-      },
-      {
-        src: "/screenshots/pochi-mobile/sc7.jpeg",
-        caption: "Local SQLite transaction queue and network failover buffer for offline resiliency.",
-        alt: "Transaction failover queue",
-        tag: "FAILOVER QUEUE"
-      },
-      {
-        src: "/screenshots/pochi-mobile/sc1.jpeg",
-        caption: "Automated payment detection and SMS receipt cryptographic parsing.",
-        alt: "Receipt parsing",
-        tag: "RECEIPT PARSER"
       }
     ]
   },
@@ -222,90 +168,7 @@ export const PROJECTS: Project[] = [
       }
     ]
   },
-  {
-    id: "tambuatips",
-    title: "Tambua Tips & BetterTips",
-    subtitle: "Sports Predictive Modeling & Fixture Probability Engine",
-    category: "ai",
-    categoryLabel: "AI & Developer Platforms",
-    description:
-      "A high-volume statistical analysis application that evaluates historical fixture datasets to compute outcome probabilities, form coefficients, and expected value distributions.",
-    architectureDetails: [
-      "Statistical algorithms calculating weighted historical team performance indices",
-      "Google GenAI integration for dynamic qualitative game previews and summaries",
-      "Responsive interactive fixture tables with custom client-side search and sorting",
-      "Optimized static build output with rapid client-side hydration"
-    ],
-    techStack: ["React", "TypeScript", "Google GenAI SDK", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://tambua-tips-preview.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
-    deploymentPlatform: "Vercel CLI",
-    year: "2026",
-    screenshot: "/projects/tambua-tips/slide_1.png",
-    carouselSlides: [
-      {
-        src: "/projects/tambua-tips/slide_1.png",
-        caption: "Desktop sports predictive dashboard featuring latest news and live match telemetry.",
-        alt: "Tambua Tips desktop dashboard",
-        tag: "DESKTOP ANALYTICS"
-      },
-      {
-        src: "/projects/tambua-tips/slide_2.png",
-        caption: "Mobile match feed with real-time status and quick prediction access.",
-        alt: "Tambua Tips mobile feed",
-        tag: "MOBILE FEED"
-      },
-      {
-        src: "/projects/tambua-tips/slide_3.png",
-        caption: "League-filtered fixture browser covering Premier League, Champions League, and continental tournaments.",
-        alt: "Tambua Tips fixture browser",
-        tag: "FIXTURE MATRIX"
-      },
-      {
-        src: "/projects/tambua-tips/slide_4.png",
-        caption: "Editorial football news portal with trending stories and match preview digests.",
-        alt: "Tambua Tips football news hub",
-        tag: "EDITORIAL NEWS"
-      }
-    ]
-  },
-  {
-    id: "trojancrypto",
-    title: "TrojanCrypto Forensic Recovery",
-    subtitle: "Cryptographic Asset Intake & On-Chain Audit Pipeline",
-    category: "fintech",
-    categoryLabel: "Fintech & Core Rails",
-    description:
-      "A high-trust intake terminal and investigation platform for tracing compromised cryptocurrency transactions. Collects deterministic victim evidence, validates EVM transaction hashes, and formats structured forensic dossiers.",
-    architectureDetails: [
-      "Deterministic transaction hash validation against multiple block explorers",
-      "Multi-stage intake wizard with client-side cryptographic payload sanitization",
-      "Python REST backend paired with React TypeScript frontend for real-time case triage",
-      "Strict data isolation and encrypted client evidence attachments"
-    ],
-    techStack: ["React", "TypeScript", "Python REST", "Web3 EVM APIs", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://trojancrypto.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
-    deploymentPlatform: "Vercel CLI",
-    year: "2025",
-    screenshot: "/screenshots/trojancrypto.png",
-    carouselSlides: [
-      {
-        src: "/screenshots/trojancrypto.png",
-        caption: "TrojanCrypto intake terminal with cryptographic transaction verification.",
-        alt: "TrojanCrypto live intake interface",
-        tag: "INTAKE TERMINAL"
-      },
-      {
-        src: "/screenshots/trojancrypto-mobile.png",
-        caption: "Mobile responsive case submission wizard for rapid evidence triage.",
-        alt: "TrojanCrypto mobile view",
-        tag: "MOBILE WIZARD"
-      }
-    ]
-  },
+
   {
     id: "royal-mint",
     title: "Royal Mint (Exam Timetable Portal)",
@@ -405,7 +268,7 @@ export const PROJECTS: Project[] = [
     techStack: ["React", "TypeScript", "Tailwind CSS", "Google OAuth SSO", "Vercel"],
     liveUrl: "https://studentaffairs-six.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
+    isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
     screenshot: "/projects/uon-student-affairs/slide_1.png",
@@ -522,7 +385,7 @@ export const PROJECTS: Project[] = [
     techStack: ["React", "TypeScript", "Tailwind CSS", "IndexedDB", "Vercel CLI"],
     liveUrl: "https://nubianfit.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
+    isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
     screenshot: "/projects/nubianfit/slide_1.png",

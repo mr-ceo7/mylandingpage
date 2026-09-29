@@ -26,15 +26,14 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Kassim Musa Abass (@mr-ceo7) — Full-Stack Software & Systems/IoT Engineer",
   description:
-    "Engineering portfolio and systems monograph of Kassim Musa Abass (@mr-ceo7). Featuring M-Pesa automated transaction daemons, RP2040/ESP32 embedded firmware, and production web applications deployed via Vercel.",
+    "Engineering portfolio and systems monograph of Kassim Musa Abass (@mr-ceo7). Featuring RP2040/ESP32 embedded firmware, institutional platforms, and production web applications deployed via Vercel.",
   keywords: [
     "Kassim Musa Abass",
     "mr-ceo7",
     "Systems Engineer",
     "Full-Stack Developer",
-    "PochiPay",
     "Galvaniy Labs",
-    "TrojanCrypto",
+    "calcOS",
     "Embedded Systems",
     "RP2040",
     "ESP32",
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kassim Musa Abass (@mr-ceo7) — Systems & Full-Stack Engineer",
     description:
-      "Distributed financial rails, bare-metal microcontroller firmware, and production cloud applications.",
+      "Institutional platforms, bare-metal microcontroller firmware, and production cloud applications.",
     type: "website",
     locale: "en_US",
   },

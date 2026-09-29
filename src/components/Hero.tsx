@@ -40,7 +40,7 @@ export function Hero() {
             <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed font-sans max-w-3xl">
               I am Kassim Musa Abass (<span className="font-mono text-neutral-900 dark:text-neutral-100 font-semibold">@mr-ceo7</span>). 
               My work spans both sides of the physical-digital boundary: from low-level C/C++ firmware and SPI bus protocols on Raspberry Pi Pico and ESP32 hardware, 
-              to fault-tolerant fintech daemons handling automated M-Pesa transaction reconciliation, and high-frequency web platforms deployed worldwide via Vercel.
+              to institutional platforms, community financial ledgers, and high-frequency web applications deployed worldwide via Vercel.
             </p>
 
             {/* Direct Architecture Metric Cards (Micro-Mono Editorial Grid) */}
@@ -48,13 +48,13 @@ export function Hero() {
               <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/40">
                 <div className="flex items-center gap-2 mb-2 text-neutral-500 dark:text-neutral-400">
                   <Terminal className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-mono tracking-widest uppercase">FINTECH & CLOUD</span>
+                  <span className="text-[10px] font-mono tracking-widest uppercase">ACADEMIC CLEARINGHOUSE</span>
                 </div>
                 <div className="font-serif text-xl font-medium text-neutral-900 dark:text-neutral-100">
-                  PochiPay Daemon
+                  UoN Student Portal
                 </div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                  Local SQLite failover queues, accessibility SMS parsing & edge webhooks.
+                  Institutional grade claims, administrative resolution queues & Google SSO.
                 </div>
               </div>
 

@@ -6,7 +6,7 @@ export function EngineeringPhilosophy() {
       num: "01",
       title: "Failover by Default in Transactional Systems",
       description:
-        "Networks in the field are fundamentally erratic. Whether handling mobile money webhooks (M-Pesa) or microsecond socket telemetry, systems must never presume remote availability. PochiPay is architected with local SQLite buffers on Android and idempotency keys on the server so that dropped packets simply trigger exponential retries without corrupting financial state."
+        "Networks in the field are fundamentally erratic. Whether handling asynchronous payment webhooks or microsecond telemetry streams, systems must never presume remote availability. Distributed architectures are engineered with local failover buffers and idempotency keys on the server so that dropped packets simply trigger deterministic retries without corrupting data or state."
     },
     {
       num: "02",
@@ -24,7 +24,7 @@ export function EngineeringPhilosophy() {
       num: "04",
       title: "Cryptographic Integrity Over Trust Assumptions",
       description:
-        "From digital asset incident analysis on TrojanCrypto to MIFARE 1K Sector authentication in RFID card readers, identity and ledger data must be verified mathematically rather than assumed via trusting endpoints."
+        "From deterministic cryptographic validation across distributed community ledgers to MIFARE 1K Sector authentication in RFID card readers, identity and record data must be verified mathematically rather than assumed via trusting endpoints."
     }
   ];
 
