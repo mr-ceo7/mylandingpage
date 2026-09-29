@@ -5,6 +5,7 @@ import Image from "next/image";
 import { X, ExternalLink, Terminal, CheckCircle2, Cpu } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { Project } from "../data/projects";
+import { ProjectCarousel } from "./ProjectCarousel";
 
 export function ProjectModal({
   project,
@@ -70,21 +71,22 @@ export function ProjectModal({
           </button>
         </div>
 
-        {/* Live Screenshot Frame in Modal */}
-        <div className="relative aspect-[16/10] w-full border border-neutral-300 dark:border-neutral-800 bg-neutral-950 overflow-hidden">
-          <Image
-            src={project.screenshot}
-            alt={project.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 650px"
-            className="object-cover object-top"
+        {/* Multi-Screen Slideshow Carousel in Modal */}
+        <div>
+          <ProjectCarousel
+            slides={
+              project.carouselSlides || [
+                {
+                  src: project.screenshot,
+                  caption: `Production capture of ${project.title} running on ${project.deploymentPlatform}.`,
+                  alt: project.title,
+                  tag: "PRIMARY VIEW"
+                }
+              ]
+            }
+            projectTitle={project.title}
+            liveUrl={project.liveUrl}
           />
-          <div className="absolute inset-x-0 bottom-0 py-1.5 px-3 bg-neutral-950/85 backdrop-blur-xs flex items-center justify-between text-[10px] font-mono text-neutral-300 border-t border-neutral-800">
-            <span className="truncate max-w-[280px]">
-              {project.liveUrl ? project.liveUrl : "Embedded Bare-Metal Station"}
-            </span>
-            <span className="uppercase text-[#e06d44] font-medium">PRODUCTION CAPTURE</span>
-          </div>
         </div>
 
         {/* Runtime & Deployment Specs */}

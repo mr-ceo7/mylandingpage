@@ -2,6 +2,7 @@ export interface CarouselSlide {
   src: string;
   caption: string;
   alt: string;
+  tag?: string;
 }
 
 export interface Project {
@@ -23,6 +24,54 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  {
+    id: "galvaniy-labs",
+    title: "Galvaniy Labs & AI API Store",
+    subtitle: "Virtual Physics Laboratory, Simulator Workbench & Developer Portal",
+    category: "ai",
+    categoryLabel: "AI & Developer Platforms",
+    description:
+      "An intelligent scientific experimentation workspace and developer platform. Features an interactive Virtual Physics Laboratory simulator, automated report analysis with AI assistants, structured laboratory manuals, and a developer API store for programmatic endpoints.",
+    architectureDetails: [
+      "Virtual physics laboratory simulator with interactive circuit and instrument panels",
+      "AI laboratory assistant (Dr. Vance) providing real-time experimental guidance",
+      "Dynamic client-side PDF credential and invoice generator using jsPDF & QRCode",
+      "Multi-tenant student and administrator role isolation with IndexedDB manual storage"
+    ],
+    techStack: ["React 19", "TypeScript", "Vite", "OpenAPI", "IndexedDB", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://galvaniy-labs.vercel.app",
+    githubUrl: "https://github.com/mr-ceo7/galvaniy-ai-api-store",
+    isFlagship: true,
+    deploymentPlatform: "Vercel CLI",
+    year: "2026",
+    screenshot: "/screenshots/galvaniy-dashboard.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/galvaniy-dashboard.png",
+        caption: "Main laboratory experiments dashboard with report generator and active modules.",
+        alt: "Galvaniy Labs Experiment Dashboard",
+        tag: "LAB DASHBOARD"
+      },
+      {
+        src: "/screenshots/galvaniy-virtuallab.png",
+        caption: "Virtual Physics Laboratory simulator workbench featuring live circuits and interactive apparatus.",
+        alt: "Virtual Physics Lab Workbench",
+        tag: "VIRTUAL LAB SIMULATOR"
+      },
+      {
+        src: "/screenshots/galvaniy-api-store.png",
+        caption: "Galvaniy API Store developer marketplace for model endpoints and API keys.",
+        alt: "Developer API Store",
+        tag: "DEVELOPER STORE"
+      },
+      {
+        src: "/screenshots/galvaniy-labs.png",
+        caption: "Secure student authentication portal and Google OAuth gateway.",
+        alt: "Authentication Gateway",
+        tag: "AUTH PORTAL"
+      }
+    ]
+  },
   {
     id: "pochipay-console",
     title: "PochiPay Console",
@@ -47,52 +96,69 @@ export const PROJECTS: Project[] = [
     carouselSlides: [
       {
         src: "/screenshots/pochipay-console.png",
-        caption: "Live production web reconciliation console deployed on Vercel Edge.",
-        alt: "PochiPay Console web dashboard"
+        caption: "Live production web telemetry & reconciliation console deployed on Vercel Edge.",
+        alt: "PochiPay Console web dashboard",
+        tag: "WEB CONSOLE"
       },
       {
         src: "/screenshots/pochi-mobile/sc2.jpeg",
-        caption: "Android daemon monitoring M-Pesa push notifications and transaction payloads.",
-        alt: "Android accessibility daemon notification listener"
+        caption: "Android accessibility daemon monitoring incoming M-Pesa push notifications.",
+        alt: "Android accessibility daemon listener",
+        tag: "MOBILE DAEMON"
       },
       {
         src: "/screenshots/pochi-mobile/sc7.jpeg",
-        caption: "Local SQLite transaction queue and network failover buffer.",
-        alt: "Transaction failover queue"
+        caption: "Local SQLite transaction queue and network failover buffer for offline resiliency.",
+        alt: "Transaction failover queue",
+        tag: "FAILOVER QUEUE"
       },
       {
-        src: "/screenshots/pochi-mobile/branding.jpeg",
-        caption: "Client terminal branding and secure daemon runtime status.",
-        alt: "PochiPay client runtime status"
+        src: "/screenshots/pochi-mobile/sc1.jpeg",
+        caption: "Automated payment detection and SMS receipt cryptographic parsing.",
+        alt: "Receipt parsing",
+        tag: "RECEIPT PARSER"
       }
     ]
   },
   {
-    id: "galvaniy-labs",
-    title: "Galvaniy Labs & AI API Store",
-    subtitle: "Developer API Gateway, Usage Accounting & Credential Portal",
-    category: "ai",
-    categoryLabel: "AI & Developer Platforms",
+    id: "sharpboyz-v3",
+    title: "Sharpboyz Production Platform",
+    subtitle: "Modern React 19 Web Architecture & Automated SEO Pipeline",
+    category: "web",
+    categoryLabel: "Production Web Platforms",
     description:
-      "An intelligent developer platform providing unified access to specialized AI model endpoints. Features programmable token budgeting, automated invoice and receipt rendering with jsPDF and QR verification, and granular API key permission controls.",
+      "A high-traffic web platform built with React 19, TypeScript, and Tailwind CSS v4. Features automated build-time static SEO page generation, Python backend integration test harnesses, and sub-second Largest Contentful Paint.",
     architectureDetails: [
-      "Interactive API playground with live request/response schema validation",
-      "Dynamic client-side PDF credential and invoice generator using jsPDF & QRCode",
-      "Real-time token utilization tracking and rate-limit mitigation policies",
-      "Modular routing architecture designed for multi-tenant developer teams"
+      "Custom static site generation scripts written in Node.js for programmatic landing pages",
+      "Backend verification suite utilizing Python unittest for contract testing",
+      "Performance-tuned bundle splitting delivering 100% Core Web Vitals",
+      "Deep integration with Vercel Web Analytics for performance telemetry"
     ],
-    techStack: ["React 19", "TypeScript", "Vite", "OpenAPI", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://galvaniy-labs.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7/galvaniy-ai-api-store",
+    techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Python Unittest", "Vercel"],
+    liveUrl: "https://sharpboyz-v3.vercel.app",
+    githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/screenshots/galvaniy-labs.png",
+    screenshot: "/screenshots/sharpboyz-v3.png",
     carouselSlides: [
       {
-        src: "/screenshots/galvaniy-labs.png",
-        caption: "Galvaniy Labs developer workspace and live API endpoint catalog.",
-        alt: "Galvaniy Labs Developer Portal"
+        src: "/screenshots/sharpboyz-v3.png",
+        caption: "Main hero interface and responsive navigation running on React 19.",
+        alt: "Sharpboyz v3 Hero Interface",
+        tag: "DESKTOP HERO"
+      },
+      {
+        src: "/screenshots/sharpboyz-full.png",
+        caption: "Full page layout showing product architecture, feature grid, and dynamic styling.",
+        alt: "Sharpboyz full page view",
+        tag: "PRODUCT CATALOG"
+      },
+      {
+        src: "/screenshots/sharpboyz-mobile.png",
+        caption: "Mobile-optimized responsive viewport with touch navigation and sub-second paint.",
+        alt: "Sharpboyz mobile view",
+        tag: "MOBILE VIEWPORT"
       }
     ]
   },
@@ -121,80 +187,26 @@ export const PROJECTS: Project[] = [
       {
         src: "/projects/rfid/IMG-20260710-WA0009.jpg",
         caption: "Integrated RFID attendance verification prototype in bench testing enclosure.",
-        alt: "RFID attendance hardware assembly"
+        alt: "RFID attendance hardware assembly",
+        tag: "HARDWARE PROTOTYPE"
       },
       {
         src: "/projects/rfid/IMG-20260705-WA0012.jpg",
         caption: "LED matrix display and core microcontroller bus communication validation.",
-        alt: "Display and electronics testing"
+        alt: "Display and electronics testing",
+        tag: "CIRCUIT BENCH TEST"
       },
       {
         src: "/projects/rfid/IMG-20260709-WA0024.jpg",
         caption: "RC522 SPI wiring, logic level translation, and breadboard circuit debugging.",
-        alt: "RC522 reader and controller wiring"
+        alt: "RC522 reader and controller wiring",
+        tag: "SPI WIRING"
       },
       {
         src: "/projects/rfid/IMG-20260709-WA0050.jpg",
         caption: "Capstone project presentation and live hardware demonstration at Gearbox Academy.",
-        alt: "Project presentation at Gearbox Academy"
-      }
-    ]
-  },
-  {
-    id: "trojancrypto",
-    title: "TrojanCrypto Forensic Recovery",
-    subtitle: "Cryptographic Asset Intake & On-Chain Audit Pipeline",
-    category: "fintech",
-    categoryLabel: "Fintech & Core Rails",
-    description:
-      "A high-trust intake terminal and investigation platform for tracing compromised cryptocurrency transactions. Collects deterministic victim evidence, validates EVM transaction hashes, and formats structured forensic dossiers.",
-    architectureDetails: [
-      "Deterministic transaction hash validation against multiple block explorers",
-      "Multi-stage intake wizard with client-side cryptographic payload sanitization",
-      "Python REST backend paired with React TypeScript frontend for real-time case triage",
-      "Strict data isolation and encrypted client evidence attachments"
-    ],
-    techStack: ["React", "TypeScript", "Python REST", "Web3 EVM APIs", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://trojancrypto.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
-    deploymentPlatform: "Vercel CLI",
-    year: "2025",
-    screenshot: "/screenshots/trojancrypto.png",
-    carouselSlides: [
-      {
-        src: "/screenshots/trojancrypto.png",
-        caption: "TrojanCrypto asset intake interface and deterministic case verification portal.",
-        alt: "TrojanCrypto live intake interface"
-      }
-    ]
-  },
-  {
-    id: "sharpboyz-v3",
-    title: "Sharpboyz Production Platform",
-    subtitle: "Modern React 19 Web Architecture & Automated SEO Pipeline",
-    category: "web",
-    categoryLabel: "Production Web Platforms",
-    description:
-      "A high-traffic web platform built with React 19, TypeScript, and Tailwind CSS v4. Features automated build-time static SEO page generation, Python backend integration test harnesses, and sub-second Largest Contentful Paint.",
-    architectureDetails: [
-      "Custom static site generation scripts written in Node.js for programmatic landing pages",
-      "Backend verification suite utilizing Python unittest for contract testing",
-      "Performance-tuned bundle splitting delivering 100% Core Web Vitals",
-      "Deep integration with Vercel Web Analytics for performance telemetry"
-    ],
-    techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Python Unittest", "Vercel"],
-    liveUrl: "https://sharpboyz-v3.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
-    deploymentPlatform: "Vercel CLI",
-    year: "2026",
-    screenshot: "/screenshots/sharpboyz-v3.png",
-    carouselSlides: [
-      {
-        src: "/screenshots/sharpboyz-v3.png",
-        caption: "Sharpboyz v3 live application running on React 19 and Tailwind CSS v4.",
-        alt: "Sharpboyz v3 live application"
+        alt: "Project presentation at Gearbox Academy",
+        tag: "FIELD PRESENTATION"
       }
     ]
   },
@@ -222,13 +234,57 @@ export const PROJECTS: Project[] = [
     carouselSlides: [
       {
         src: "/screenshots/tambuatips.png",
-        caption: "Tambua Tips fixture analytics engine and probability distribution tables.",
-        alt: "Tambua Tips platform"
+        caption: "Tambua Tips desktop dashboard with live fixture probabilities and form ratings.",
+        alt: "Tambua Tips platform",
+        tag: "DESKTOP ANALYTICS"
+      },
+      {
+        src: "/screenshots/tambuatips-mobile.png",
+        caption: "Mobile view of fixture outcomes and live match status tables.",
+        alt: "Tambua Tips mobile view",
+        tag: "MOBILE FIXTURES"
       },
       {
         src: "/screenshots/bettertips.png",
-        caption: "BetterTips specialized analytics preview interface.",
-        alt: "BetterTips platform"
+        caption: "BetterTips specialized prediction and risk distribution interface.",
+        alt: "BetterTips platform",
+        tag: "RISK MODELING"
+      }
+    ]
+  },
+  {
+    id: "trojancrypto",
+    title: "TrojanCrypto Forensic Recovery",
+    subtitle: "Cryptographic Asset Intake & On-Chain Audit Pipeline",
+    category: "fintech",
+    categoryLabel: "Fintech & Core Rails",
+    description:
+      "A high-trust intake terminal and investigation platform for tracing compromised cryptocurrency transactions. Collects deterministic victim evidence, validates EVM transaction hashes, and formats structured forensic dossiers.",
+    architectureDetails: [
+      "Deterministic transaction hash validation against multiple block explorers",
+      "Multi-stage intake wizard with client-side cryptographic payload sanitization",
+      "Python REST backend paired with React TypeScript frontend for real-time case triage",
+      "Strict data isolation and encrypted client evidence attachments"
+    ],
+    techStack: ["React", "TypeScript", "Python REST", "Web3 EVM APIs", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://trojancrypto.vercel.app",
+    githubUrl: "https://github.com/mr-ceo7",
+    isFlagship: true,
+    deploymentPlatform: "Vercel CLI",
+    year: "2025",
+    screenshot: "/screenshots/trojancrypto.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/trojancrypto.png",
+        caption: "TrojanCrypto intake terminal with cryptographic transaction verification.",
+        alt: "TrojanCrypto live intake interface",
+        tag: "INTAKE TERMINAL"
+      },
+      {
+        src: "/screenshots/trojancrypto-mobile.png",
+        caption: "Mobile responsive case submission wizard for rapid evidence triage.",
+        alt: "TrojanCrypto mobile view",
+        tag: "MOBILE WIZARD"
       }
     ]
   },
@@ -251,7 +307,56 @@ export const PROJECTS: Project[] = [
     isFlagship: false,
     deploymentPlatform: "Vercel CLI + Custom Domain",
     year: "2025",
-    screenshot: "/screenshots/royal-mint.png"
+    screenshot: "/screenshots/royal-mint.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/royal-mint.png",
+        caption: "University timetable landing portal with live semester schedule search.",
+        alt: "Royal Mint timetable portal",
+        tag: "SCHEDULE SEARCH"
+      },
+      {
+        src: "/screenshots/royalmint-timetable.png",
+        caption: "Parsed course examination schedule grid with real-time venue lookups.",
+        alt: "Timetable examination grid",
+        tag: "TIMETABLE GRID"
+      }
+    ]
+  },
+  {
+    id: "smartify-notes",
+    title: "Smartify Notes",
+    subtitle: "Markdown Knowledge Graph & Contextual Study Tool",
+    category: "ai",
+    categoryLabel: "AI & Developer Platforms",
+    description:
+      "A distraction-free technical note-taking environment featuring instant markdown preview, tag-based knowledge indexing, and local-storage revision history.",
+    architectureDetails: [
+      "Real-time markdown AST parsing with code syntax highlighting",
+      "Encrypted browser storage persistence with export/import capabilities",
+      "Clean editorial typography optimized for long reading sessions"
+    ],
+    techStack: ["React", "TypeScript", "Markdown AST", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://smartify-notes.vercel.app",
+    githubUrl: "https://github.com/mr-ceo7",
+    isFlagship: false,
+    deploymentPlatform: "Vercel CLI",
+    year: "2025",
+    screenshot: "/screenshots/smartify-notes.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/smartify-notes.png",
+        caption: "Knowledge graph dashboard and interactive study notes list.",
+        alt: "Smartify Notes list",
+        tag: "NOTES DASHBOARD"
+      },
+      {
+        src: "/screenshots/smartify-editor.png",
+        caption: "Distraction-free markdown editor with dual live AST compiler view.",
+        alt: "Markdown editor",
+        tag: "MARKDOWN EDITOR"
+      }
+    ]
   },
   {
     id: "student-affairs",
@@ -294,27 +399,6 @@ export const PROJECTS: Project[] = [
     deploymentPlatform: "Vercel CLI",
     year: "2025",
     screenshot: "/screenshots/chama-yetu.png"
-  },
-  {
-    id: "smartify-notes",
-    title: "Smartify Notes",
-    subtitle: "Markdown Knowledge Graph & Contextual Study Tool",
-    category: "ai",
-    categoryLabel: "AI & Developer Platforms",
-    description:
-      "A distraction-free technical note-taking environment featuring instant markdown preview, tag-based knowledge indexing, and local-storage revision history.",
-    architectureDetails: [
-      "Real-time markdown AST parsing with code syntax highlighting",
-      "Encrypted browser storage persistence with export/import capabilities",
-      "Clean editorial typography optimized for long reading sessions"
-    ],
-    techStack: ["React", "TypeScript", "Markdown AST", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://smartify-notes.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
-    deploymentPlatform: "Vercel CLI",
-    year: "2025",
-    screenshot: "/screenshots/smartify-notes.png"
   },
   {
     id: "edu-metric-ai",
