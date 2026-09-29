@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import { Search, ExternalLink, Filter, Code2, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { PROJECTS, Project } from "../data/projects";
@@ -97,7 +98,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group border border-neutral-300 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/40 p-6 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
+              className="group border border-neutral-300 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
             >
               <div>
                 {/* Meta Header */}
@@ -108,23 +109,40 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                   <span>{project.year}</span>
                 </div>
 
+                {/* Actual Live Screenshot Preview Frame */}
+                <div className="relative aspect-[16/10] w-full border border-neutral-300 dark:border-neutral-800 bg-neutral-950 overflow-hidden mb-4 group/img">
+                  <Image
+                    src={project.screenshot}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover object-top transition-transform duration-300 group-hover/img:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 py-1 px-2.5 bg-neutral-950/85 backdrop-blur-xs flex items-center justify-between text-[9px] font-mono text-neutral-300 border-t border-neutral-800">
+                    <span className="truncate max-w-[180px]">
+                      {project.liveUrl ? project.liveUrl.replace("https://", "") : "telemetry station"}
+                    </span>
+                    <span className="uppercase text-[#e06d44]">SNAPSHOT</span>
+                  </div>
+                </div>
+
                 {/* Title */}
                 <h3 className="font-serif text-xl font-normal text-neutral-950 dark:text-neutral-50 group-hover:text-[#b94a28] dark:group-hover:text-[#e06d44] transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 mt-1 mb-4">
+                <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 mt-1 mb-3">
                   {project.subtitle}
                 </p>
 
                 {/* Summary */}
-                <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed line-clamp-3 mb-6">
+                <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed line-clamp-3 mb-4">
                   {project.description}
                 </p>
               </div>
 
               <div>
                 {/* Stack Chips */}
-                <div className="flex flex-wrap gap-1 mb-6 border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                <div className="flex flex-wrap gap-1 mb-4 border-t border-neutral-200 dark:border-neutral-800 pt-3">
                   {project.techStack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}

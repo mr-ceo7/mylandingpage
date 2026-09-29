@@ -1,3 +1,9 @@
+export interface CarouselSlide {
+  src: string;
+  caption: string;
+  alt: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -12,6 +18,8 @@ export interface Project {
   isFlagship?: boolean;
   deploymentPlatform: string;
   year: string;
+  screenshot: string;
+  carouselSlides?: CarouselSlide[];
 }
 
 export const PROJECTS: Project[] = [
@@ -34,7 +42,30 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7/pochi-pay",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI + Android Daemon",
-    year: "2025 – 2026"
+    year: "2025 – 2026",
+    screenshot: "/screenshots/pochipay-console.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/pochipay-console.png",
+        caption: "Live production web reconciliation console deployed on Vercel Edge.",
+        alt: "PochiPay Console web dashboard"
+      },
+      {
+        src: "/screenshots/pochi-mobile/sc2.jpeg",
+        caption: "Android daemon monitoring M-Pesa push notifications and transaction payloads.",
+        alt: "Android accessibility daemon notification listener"
+      },
+      {
+        src: "/screenshots/pochi-mobile/sc7.jpeg",
+        caption: "Local SQLite transaction queue and network failover buffer.",
+        alt: "Transaction failover queue"
+      },
+      {
+        src: "/screenshots/pochi-mobile/branding.jpeg",
+        caption: "Client terminal branding and secure daemon runtime status.",
+        alt: "PochiPay client runtime status"
+      }
+    ]
   },
   {
     id: "galvaniy-labs",
@@ -55,7 +86,15 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7/galvaniy-ai-api-store",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
-    year: "2026"
+    year: "2026",
+    screenshot: "/screenshots/galvaniy-labs.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/galvaniy-labs.png",
+        caption: "Galvaniy Labs developer workspace and live API endpoint catalog.",
+        alt: "Galvaniy Labs Developer Portal"
+      }
+    ]
   },
   {
     id: "rfid-attendance-system",
@@ -76,7 +115,30 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7/mylandingpage",
     isFlagship: true,
     deploymentPlatform: "Bare Metal Firmware + Edge Webhook",
-    year: "2026"
+    year: "2026",
+    screenshot: "/projects/rfid/IMG-20260710-WA0009.jpg",
+    carouselSlides: [
+      {
+        src: "/projects/rfid/IMG-20260710-WA0009.jpg",
+        caption: "Integrated RFID attendance verification prototype in bench testing enclosure.",
+        alt: "RFID attendance hardware assembly"
+      },
+      {
+        src: "/projects/rfid/IMG-20260705-WA0012.jpg",
+        caption: "LED matrix display and core microcontroller bus communication validation.",
+        alt: "Display and electronics testing"
+      },
+      {
+        src: "/projects/rfid/IMG-20260709-WA0024.jpg",
+        caption: "RC522 SPI wiring, logic level translation, and breadboard circuit debugging.",
+        alt: "RC522 reader and controller wiring"
+      },
+      {
+        src: "/projects/rfid/IMG-20260709-WA0050.jpg",
+        caption: "Capstone project presentation and live hardware demonstration at Gearbox Academy.",
+        alt: "Project presentation at Gearbox Academy"
+      }
+    ]
   },
   {
     id: "trojancrypto",
@@ -97,7 +159,15 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/trojancrypto.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/trojancrypto.png",
+        caption: "TrojanCrypto asset intake interface and deterministic case verification portal.",
+        alt: "TrojanCrypto live intake interface"
+      }
+    ]
   },
   {
     id: "sharpboyz-v3",
@@ -118,7 +188,15 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
-    year: "2026"
+    year: "2026",
+    screenshot: "/screenshots/sharpboyz-v3.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/sharpboyz-v3.png",
+        caption: "Sharpboyz v3 live application running on React 19 and Tailwind CSS v4.",
+        alt: "Sharpboyz v3 live application"
+      }
+    ]
   },
   {
     id: "tambuatips",
@@ -127,7 +205,7 @@ export const PROJECTS: Project[] = [
     category: "ai",
     categoryLabel: "AI & Developer Platforms",
     description:
-      "A high-volume statistical analysis application that evaluates historical football fixture datasets to compute outcome probabilities, form coefficients, and expected value distributions.",
+      "A high-volume statistical analysis application that evaluates historical fixture datasets to compute outcome probabilities, form coefficients, and expected value distributions.",
     architectureDetails: [
       "Statistical algorithms calculating weighted historical team performance indices",
       "Google GenAI integration for dynamic qualitative game previews and summaries",
@@ -139,7 +217,20 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Vercel CLI",
-    year: "2026"
+    year: "2026",
+    screenshot: "/screenshots/tambuatips.png",
+    carouselSlides: [
+      {
+        src: "/screenshots/tambuatips.png",
+        caption: "Tambua Tips fixture analytics engine and probability distribution tables.",
+        alt: "Tambua Tips platform"
+      },
+      {
+        src: "/screenshots/bettertips.png",
+        caption: "BetterTips specialized analytics preview interface.",
+        alt: "BetterTips platform"
+      }
+    ]
   },
   {
     id: "royal-mint",
@@ -159,7 +250,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI + Custom Domain",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/royal-mint.png"
   },
   {
     id: "student-affairs",
@@ -179,7 +271,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/student-affairs.png"
   },
   {
     id: "chama-yetu",
@@ -199,7 +292,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/chama-yetu.png"
   },
   {
     id: "smartify-notes",
@@ -219,7 +313,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/smartify-notes.png"
   },
   {
     id: "edu-metric-ai",
@@ -239,7 +334,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/edu-metric-ai.png"
   },
   {
     id: "nubianfit",
@@ -259,7 +355,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/nubianfit.png"
   },
   {
     id: "global-orators",
@@ -279,7 +376,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI + Custom Domain",
-    year: "2026"
+    year: "2026",
+    screenshot: "/screenshots/global-orators.png"
   },
   {
     id: "jeffytab",
@@ -299,7 +397,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2026"
+    year: "2026",
+    screenshot: "/screenshots/jeffytab.png"
   },
   {
     id: "ksef-display-board",
@@ -319,7 +418,8 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/ksef-display-board.png"
   },
   {
     id: "report-labs",
@@ -339,6 +439,7 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: false,
     deploymentPlatform: "Vercel CLI",
-    year: "2025"
+    year: "2025",
+    screenshot: "/screenshots/report-labs.png"
   }
 ];

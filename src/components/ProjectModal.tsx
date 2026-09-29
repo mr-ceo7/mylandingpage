@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { X, ExternalLink, Terminal, CheckCircle2, Cpu } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { Project } from "../data/projects";
@@ -67,6 +68,23 @@ export function ProjectModal({
           >
             <X className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Live Screenshot Frame in Modal */}
+        <div className="relative aspect-[16/10] w-full border border-neutral-300 dark:border-neutral-800 bg-neutral-950 overflow-hidden">
+          <Image
+            src={project.screenshot}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 650px"
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-x-0 bottom-0 py-1.5 px-3 bg-neutral-950/85 backdrop-blur-xs flex items-center justify-between text-[10px] font-mono text-neutral-300 border-t border-neutral-800">
+            <span className="truncate max-w-[280px]">
+              {project.liveUrl ? project.liveUrl : "Embedded Bare-Metal Station"}
+            </span>
+            <span className="uppercase text-[#e06d44] font-medium">PRODUCTION CAPTURE</span>
+          </div>
         </div>
 
         {/* Runtime & Deployment Specs */}
