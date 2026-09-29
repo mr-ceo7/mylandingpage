@@ -59,6 +59,7 @@ export function HardwareLab() {
                   key={photo.src}
                   type="button"
                   onClick={() => setSelectedPhoto(idx)}
+                  aria-label={`Select hardware photograph ${idx + 1}: ${photo.alt}`}
                   className={`relative aspect-[16/10] border overflow-hidden transition-colors ${
                     selectedPhoto === idx
                       ? "border-neutral-950 dark:border-neutral-50 ring-1 ring-neutral-950 dark:ring-neutral-50"

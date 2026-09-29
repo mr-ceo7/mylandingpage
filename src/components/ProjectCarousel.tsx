@@ -141,6 +141,7 @@ export function ProjectCarousel({
           alt={currentSlide.alt}
           fill
           priority={currentIndex === 0}
+          loading={currentIndex === 0 ? "eager" : "lazy"}
           sizes="(max-width: 1024px) 100vw, 850px"
           className="object-cover object-top transition-opacity duration-300"
         />
