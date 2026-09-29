@@ -6,7 +6,7 @@ import { Search, ExternalLink, Filter, Code2, ArrowUpRight } from "lucide-react"
 import { GithubIcon } from "./Icons";
 import { PROJECTS, Project } from "../data/projects";
 
-type CategoryFilter = "all" | "fintech" | "ai" | "web" | "hardware";
+type CategoryFilter = "all" | "ai" | "web" | "hardware";
 
 export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Project) => void }) {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
@@ -14,7 +14,6 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
 
   const categories = [
     { id: "all", label: "ALL SYSTEMS" },
-    { id: "fintech", label: "FINTECH & CORE RAILS" },
     { id: "ai", label: "AI & DEV PLATFORMS" },
     { id: "web", label: "PRODUCTION WEB PLATFORMS" },
     { id: "hardware", label: "HARDWARE & IOT" }
@@ -63,7 +62,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id as CategoryFilter)}
-                className={`px-3 py-2 sm:py-1.5 min-h-[36px] text-[10px] font-mono tracking-widest uppercase transition-colors flex-shrink-0 whitespace-nowrap ${
+                className={`px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-[36px] text-[10px] font-mono tracking-widest uppercase transition-colors flex-shrink-0 whitespace-nowrap flex items-center ${
                   activeCategory === cat.id
                     ? "bg-neutral-900 text-neutral-50 dark:bg-neutral-100 dark:text-neutral-950 font-semibold"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
@@ -82,7 +81,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="SEARCH BY TECH, KEYWORD, PROTOCOL..."
-              className="w-full pl-9 pr-3 py-2 sm:py-1.5 min-h-[40px] text-xs font-mono bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors"
+              className="w-full pl-9 pr-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-[40px] text-xs font-mono bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors"
             />
           </div>
         </div>
@@ -116,7 +115,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-top transition-transform duration-300 group-hover/img:scale-105"
+                    className="object-cover object-center transition-transform duration-300 group-hover/img:scale-105"
                   />
                   <div className="absolute inset-x-0 bottom-0 py-1 px-2.5 bg-neutral-950/85 backdrop-blur-xs flex items-center justify-between text-[9px] font-mono text-neutral-300 border-t border-neutral-800">
                     <span className="truncate max-w-[180px]">
@@ -163,7 +162,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                   <button
                     type="button"
                     onClick={() => onSelectProject(project)}
-                    className="text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4 flex items-center gap-1.5 py-2 min-h-[40px]"
+                    className="text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4 flex items-center gap-1.5 py-2 min-h-[44px]"
                   >
                     <span>SPEC SHEET</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-[#b94a28] dark:text-[#e06d44]" />
@@ -176,7 +175,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Open live deployment for ${project.title}`}
-                        className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
+                        className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
                       >
                         <ExternalLink className="w-4 h-4" />
                       </a>
@@ -187,7 +186,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View source code for ${project.title}`}
-                        className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
+                        className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50 transition-colors"
                       >
                         <GithubIcon className="w-4 h-4" />
                       </a>

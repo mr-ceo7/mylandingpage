@@ -241,9 +241,9 @@ export function HardwareLab() {
                     href={report.pdfPath}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] sm:min-h-[36px] text-[10px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900/80 text-neutral-900 dark:text-neutral-100 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors w-full justify-center"
                   >
-                    <Download className="w-3 h-3" />
+                    <Download className="w-3 h-3 text-[#b94a28] dark:text-[#e06d44]" />
                     <span>DOWNLOAD LAB REPORT (PDF)</span>
                   </a>
                 </div>

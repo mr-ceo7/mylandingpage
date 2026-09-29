@@ -40,37 +40,37 @@ export function Footer() {
           </div>
 
           {/* Colophon Nav Right */}
-          <div className="md:col-span-3 space-y-2 text-[11px] font-mono">
+          <div className="md:col-span-3 space-y-1 text-[11px] font-mono">
             <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 block mb-2">
               NAVIGATION & INDEX
             </span>
             <div>
-              <a href="#flagship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+              <a href="#flagship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → FLAGSHIP ARCHITECTURES
               </a>
             </div>
             <div>
-              <a href="#archive" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+              <a href="#archive" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → VERCEL DEPLOYMENT ARCHIVE
               </a>
             </div>
             <div>
-              <a href="#hardware" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+              <a href="#hardware" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → HARDWARE & FIELD REPORTS
               </a>
             </div>
             <div>
-              <a href="#mentorship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+              <a href="#mentorship" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → STEM MENTORSHIP & YSK
               </a>
             </div>
             <div>
-              <a href="#philosophy" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+              <a href="#philosophy" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → SYSTEMS PHILOSOPHY
               </a>
             </div>
             <div>
-              <a href="#contact" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-1 inline-block">
+              <a href="#contact" className="hover:text-[#b94a28] dark:hover:text-[#e06d44] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → DIRECT CONTACT
               </a>
             </div>
@@ -83,12 +83,12 @@ export function Footer() {
             © {new Date().getFullYear()} KASSIM MUSA ABASS (@MR-CEO7). ALL RIGHTS RESERVED.
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <a
               href="https://github.com/mr-ceo7"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1.5"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1.5 min-h-[44px] sm:min-h-[32px] px-2 py-1"
             >
               <GithubIcon className="w-3.5 h-3.5" />
               <span>GITHUB</span>
@@ -96,7 +96,7 @@ export function Footer() {
 
             <a
               href="#"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1.5"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1.5 min-h-[44px] sm:min-h-[32px] px-2 py-1"
             >
               <span>BACK TO TOP</span>
               <ArrowUp className="w-3 h-3" />

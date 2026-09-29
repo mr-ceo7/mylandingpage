@@ -145,13 +145,13 @@ export function Hero() {
                 <span className="text-neutral-500">HOSTING RUNTIME</span>
                 <span className="text-neutral-900 dark:text-neutral-100 font-medium">VERCEL EDGE & AWS ECS</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center py-0.5">
                 <span className="text-neutral-500">SOURCE CODE</span>
                 <a
                   href="https://github.com/mr-ceo7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-950 dark:text-neutral-50 font-semibold underline underline-offset-2 hover:text-[#b94a28]"
+                  className="text-neutral-950 dark:text-neutral-50 font-semibold underline underline-offset-2 hover:text-[#b94a28] inline-flex items-center min-h-[36px] py-1"
                 >
                   GITHUB.COM/MR-CEO7 ↗
                 </a>

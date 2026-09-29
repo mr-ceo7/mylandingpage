@@ -91,7 +91,7 @@ export function ProjectCarousel({
             <button
               type="button"
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 flex items-center gap-1 transition-colors py-1"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 flex items-center gap-1 transition-colors min-h-[36px] py-1 px-1"
               title={isAutoPlaying ? "Pause automatic slideshow" : "Play automatic slideshow"}
             >
               {isAutoPlaying ? (
@@ -119,7 +119,7 @@ export function ProjectCarousel({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-[#b94a28] dark:text-[#e06d44] py-1"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-[#b94a28] dark:text-[#e06d44] min-h-[36px] py-1 px-1"
             >
               <span>VISIT</span>
               <ExternalLink className="w-2.5 h-2.5" />
@@ -140,7 +140,7 @@ export function ProjectCarousel({
               key={idx}
               type="button"
               onClick={() => setCurrentIndex(idx)}
-              className={`px-2.5 py-1 text-[10px] font-mono tracking-wider uppercase transition-colors flex-shrink-0 min-h-[30px] flex items-center ${
+              className={`px-2.5 py-1 text-[10px] font-mono tracking-wider uppercase transition-colors flex-shrink-0 min-h-[36px] sm:min-h-[30px] flex items-center ${
                 currentIndex === idx
                   ? "bg-neutral-950 text-neutral-50 dark:bg-neutral-100 dark:text-neutral-950 font-semibold"
                   : "bg-white/80 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
@@ -217,7 +217,7 @@ export function ProjectCarousel({
                 type="button"
                 onClick={() => setCurrentIndex(idx)}
                 aria-label={`Switch to screen ${idx + 1}: ${slide.tag}`}
-                className={`relative w-11 h-7 sm:w-12 sm:h-8 border overflow-hidden transition-all flex-shrink-0 ${
+                className={`relative w-12 h-10 sm:w-14 sm:h-9 min-h-[40px] sm:min-h-[36px] border overflow-hidden transition-all flex-shrink-0 ${
                   currentIndex === idx
                     ? "border-neutral-950 dark:border-neutral-50 ring-1 ring-[#b94a28] dark:ring-[#e06d44] opacity-100"
                     : "border-neutral-300 dark:border-neutral-700 opacity-50 hover:opacity-100"
@@ -227,7 +227,7 @@ export function ProjectCarousel({
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  sizes="48px"
+                  sizes="56px"
                   className="object-cover object-top"
                 />
               </button>

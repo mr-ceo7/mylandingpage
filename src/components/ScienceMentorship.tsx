@@ -243,7 +243,7 @@ export function ScienceMentorship() {
                   href="https://ksef-display-board.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-mono text-[#b94a28] dark:text-[#e06d44] hover:underline uppercase"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-[36px] py-1 text-xs font-mono text-[#b94a28] dark:text-[#e06d44] hover:underline uppercase"
                 >
                   KSEF Display Board &rarr;
                 </a>

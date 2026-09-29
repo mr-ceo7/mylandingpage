@@ -16,7 +16,7 @@ export function ContactSection() {
             </h2>
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
-            Available for mission-critical backend architecture, fintech payment integrations, custom embedded firmware, and full-stack web builds.
+            Available for mission-critical systems architecture, distributed backend pipelines, custom embedded firmware, and full-stack web builds.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export function ContactSection() {
                       href="https://github.com/mr-ceo7"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-900 dark:text-neutral-100 hover:text-[#b94a28] font-medium underline underline-offset-2"
+                      className="text-neutral-900 dark:text-neutral-100 hover:text-[#b94a28] font-medium underline underline-offset-2 inline-flex items-center min-h-[36px] py-1"
                     >
                       github.com/mr-ceo7 ↗
                     </a>

@@ -9,7 +9,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: "fintech" | "ai" | "web" | "hardware";
+  category: "ai" | "web" | "hardware";
   categoryLabel: string;
   description: string;
   architectureDetails: string[];
@@ -298,27 +298,6 @@ export const PROJECTS: Project[] = [
         tag: "ADMIN CLEARINGHOUSE"
       }
     ]
-  },
-  {
-    id: "chama-yetu",
-    title: "Chama Yetu Pamoja",
-    subtitle: "Community Savings & Cooperative Contribution Ledger",
-    category: "fintech",
-    categoryLabel: "Fintech & Core Rails",
-    description:
-      "A transparent digital record-keeping system for community savings groups (chamas), providing share tracking, monthly dividend calculations, and member contribution histories.",
-    architectureDetails: [
-      "Double-entry bookkeeping validation on client and server transactions",
-      "Automated summary statements ready for export and distribution",
-      "Clear mobile view designed for non-technical users"
-    ],
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI"],
-    liveUrl: "https://chama-yetu-pamoja.vercel.app",
-    githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
-    deploymentPlatform: "Vercel CLI",
-    year: "2025",
-    screenshot: "/screenshots/chama-yetu.png"
   },
   {
     id: "edu-metric-ai",
