@@ -10,7 +10,7 @@ function StoryFrame({ photo, index }: { photo: (typeof MENTORSHIP_PHOTOS)[number
   const ref = useScrollScene<HTMLElement>();
   return (
     <figure ref={ref} className="story-frame relative">
-      <div className="relative aspect-[4/5] sm:aspect-[16/9] overflow-hidden">
+      <div className="story-wipe relative aspect-[4/5] sm:aspect-[16/9] overflow-hidden">
         <Image src={photo.src} alt={photo.alt} fill sizes="100vw" className="object-cover parallax-img" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0A2E22] via-[#0A2E22]/10 to-transparent" />
       </div>

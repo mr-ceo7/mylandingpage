@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, type CSSProperties } from "react";
+import { useScrollScene } from "../fx/useScrollScene";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PROJECTS, Project } from "../../data/projects";
 import { KineticHeading } from "../fx/KineticHeading";
@@ -12,6 +13,7 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
   const parts = PROJECTS.filter((p) => p.category === "hardware");
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const tapeRef = useScrollScene<HTMLDivElement>();
 
   const onScroll = () => {
     const el = ref.current;
@@ -45,7 +47,7 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
       </div>
 
       {/* Reel tape */}
-      <div className="relative mt-10">
+      <div ref={tapeRef} className="reel-tape relative mt-10">
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-5 bg-[#164536]" style={{ backgroundImage: "radial-gradient(circle, #0F3D2E 4px, transparent 4.5px)", backgroundSize: "26px 20px", backgroundPosition: "0 0" }} />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-5 bg-[#164536]" style={{ backgroundImage: "radial-gradient(circle, #0F3D2E 4px, transparent 4.5px)", backgroundSize: "26px 20px" }} />
         <div
@@ -59,7 +61,8 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
               key={p.id}
               type="button"
               onClick={() => (i === active ? onOpen(p) : step(i - active))}
-              className={`snap-center shrink-0 w-[72vw] sm:w-[340px] text-left cursor-pointer transition-all duration-300 ${i === active ? "scale-100 opacity-100" : "scale-[0.86] opacity-60"}`}
+              style={{ "--i": i } as CSSProperties}
+              className={`reel-chip snap-center shrink-0 w-[72vw] sm:w-[340px] text-left cursor-pointer ${i === active ? "is-active" : ""}`}
             >
               <div className="relative bg-[#0A2E22] text-[#F8F3E8] p-3 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                 {/* Pins */}

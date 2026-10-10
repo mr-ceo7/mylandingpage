@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { PROJECTS, Project } from "../../data/projects";
 import { KineticHeading } from "../fx/KineticHeading";
 import { Reveal } from "../fx/Reveal";
@@ -56,7 +56,7 @@ export function AppGrid({ onOpen }: { onOpen: (p: Project) => void }) {
             </div>
             <div className="mt-7 grid grid-cols-3 sm:grid-cols-4 gap-x-4 gap-y-7">
               {apps.map((p, i) => (
-                <button key={p.id} type="button" onClick={() => onOpen(p)} className="app-icon group flex flex-col items-center gap-2 cursor-pointer" style={{ animationDelay: `${i * 45}ms` }}>
+                <button key={p.id} type="button" onClick={() => onOpen(p)} className="app-icon group flex flex-col items-center gap-2 cursor-pointer" style={{ "--i": i } as CSSProperties}>
                   <span className="relative w-[68px] h-[68px] sm:w-20 sm:h-20 rounded-[20px] overflow-hidden shadow-[0_10px_22px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-active:scale-95">
                     <Image src={p.screenshot} alt="" fill sizes="80px" className="object-cover object-top scale-125" />
                     <span className={`absolute inset-0 ${p.category === "ai" ? "bg-[#E34F33]/70" : "bg-[#0147BA]/65"}`} />

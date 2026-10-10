@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { PROJECTS, Project } from "../../data/projects";
 import { KineticHeading } from "../fx/KineticHeading";
@@ -22,11 +22,25 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
   const [shot, setShot] = useState(0);
   const current = pairs[shot % pairs.length];
   const flip = index % 2 === 1;
+  // Desktop: the devices lean toward the mouse (touch is ignored so it never fights scrolling)
+  const rigRef = useRef<HTMLDivElement>(null);
+  const tilt = (e: PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse" || !rigRef.current) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    rigRef.current.style.setProperty("--ry", `${((e.clientX - r.left) / r.width - 0.5) * 10}deg`);
+    rigRef.current.style.setProperty("--rx", `${-((e.clientY - r.top) / r.height - 0.5) * 8}deg`);
+  };
+  const untilt = () => {
+    rigRef.current?.style.setProperty("--ry", "0deg");
+    rigRef.current?.style.setProperty("--rx", "0deg");
+  };
+  const stag = (i: number) => ({ "--si": i }) as CSSProperties;
 
   return (
     <div ref={ref} className="device-scene grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
       {/* Devices */}
-      <div className={`lg:col-span-7 relative pb-10 pr-8 sm:pr-14 ${flip ? "lg:order-2" : ""}`}>
+      <div onPointerMove={tilt} onPointerLeave={untilt} className={`device-stage lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
+      <div ref={rigRef} className="device-rig relative pb-10 pr-8 sm:pr-14">
         <button type="button" onClick={() => setShot((s) => s + 1)} aria-label={`Next screenshot of ${project.title}`} className="device-laptop block w-full text-left cursor-pointer">
           <div className="rounded-t-xl border-[8px] sm:border-[10px] border-[#01358C] bg-[#01358C] shadow-[0_26px_56px_rgba(1,53,140,0.3)]">
             <div className="relative aspect-[16/10] overflow-hidden bg-[#01358C]">
@@ -48,21 +62,22 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
           </div>
         </button>
       </div>
+      </div>
 
-      {/* Story */}
+      {/* Story: each line arrives in turn */}
       <div className={`lg:col-span-5 ${flip ? "lg:order-1" : ""}`}>
-        <div className="font-mono text-[11px] tracking-widest text-[#B23A21]">
+        <div className="stag font-mono text-[11px] tracking-widest text-[#B23A21]" style={stag(0)}>
           {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {project.categoryLabel}
         </div>
-        <h3 className="mt-2 font-serif text-3xl sm:text-4xl leading-tight text-[#01358C]">{project.title}</h3>
-        <p className="mt-2 font-mono text-xs text-[#2A4F96]">{project.subtitle}</p>
-        <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#01358C]">{project.description}</p>
-        <div className="mt-4 flex flex-wrap gap-1.5">
+        <h3 style={stag(1)} className="stag mt-2 font-serif text-3xl sm:text-4xl leading-tight text-[#01358C]">{project.title}</h3>
+        <p style={stag(2)} className="stag mt-2 font-mono text-xs text-[#2A4F96]">{project.subtitle}</p>
+        <p style={stag(3)} className="stag mt-4 text-sm sm:text-base leading-relaxed text-[#01358C]">{project.description}</p>
+        <div style={stag(4)} className="stag mt-4 flex flex-wrap gap-1.5">
           {project.techStack.slice(0, 6).map((t) => (
             <span key={t} className="px-2 py-0.5 font-mono text-[10px] tracking-wider uppercase bg-[#0147BA] text-[#F3E6CE]">{t}</span>
           ))}
         </div>
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div style={stag(5)} className="stag mt-6 flex flex-wrap gap-2">
           <button type="button" onClick={() => onOpen(project)} className="group inline-flex items-center gap-2 px-4 min-h-[44px] bg-[#E34F33] text-[#FCF8F0] font-mono text-[11px] tracking-widest uppercase cursor-pointer hover:bg-[#C93F25] transition-colors">
             Case study <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </button>
@@ -73,7 +88,7 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
           )}
         </div>
         {pairs.length > 1 && (
-          <div className="mt-5 flex flex-wrap gap-1.5" role="tablist" aria-label={`${project.title} screens`}>
+          <div style={stag(6)} className="stag mt-5 flex flex-wrap gap-1.5" role="tablist" aria-label={`${project.title} screens`}>
             {pairs.map((pg, i) => (
               <button
                 key={pg.label}

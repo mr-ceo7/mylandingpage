@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 import { PRINCIPLES, SKILLS } from "../../data/site";
 import { KineticHeading } from "../fx/KineticHeading";
 import { Reveal } from "../fx/Reveal";
@@ -86,7 +86,8 @@ export function RulesAndSkills() {
           className="mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-2"
         >
           {PRINCIPLES.map((p, i) => (
-            <article key={p.num} className="snap-start shrink-0 w-[86%] sm:w-[calc(50%-8px)] lg:w-[calc(33%-10px)] bg-[#FBF8F1] border border-[#CFC3A8] p-6 flex flex-col">
+            <Reveal key={p.num} variant="right" delay={i * 130} className="snap-start shrink-0 w-[86%] sm:w-[calc(50%-8px)] lg:w-[calc(33%-10px)]">
+            <article className="rule-card h-full bg-[#FBF8F1] border border-[#CFC3A8] p-6 flex flex-col">
               <span className="font-mono text-[11px] tracking-widest text-[#9A4E1C]">RULE {p.num}</span>
               <div className="mt-4 rounded-sm bg-[#0A2E22] px-3 py-2">
                 <RuleDiagram n={i} />
@@ -94,6 +95,7 @@ export function RulesAndSkills() {
               <h3 className="mt-5 font-serif text-2xl leading-snug text-[#0A2E22]">{p.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#39483E]">{p.description}</p>
             </article>
+            </Reveal>
           ))}
         </div>
         <div className="mt-4 flex items-center gap-2">
@@ -113,7 +115,7 @@ export function RulesAndSkills() {
                 <div key={s.domain}>
                   <div className="font-mono text-[10px] tracking-widest text-[#0147BA]">{s.domain}</div>
                   <div className="mt-2 flex flex-wrap gap-1.5 md:justify-end">
-                    {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] bg-[#0147BA] text-[#F3E6CE]">{it}</span>)}
+                    {s.items.map((it, li) => <span key={it} style={{ "--i": li } as CSSProperties} className="skill-leaf px-2 py-1 text-[11px] bg-[#0147BA] text-[#F3E6CE]">{it}</span>)}
                   </div>
                 </div>
               ))}
@@ -130,7 +132,7 @@ export function RulesAndSkills() {
                 <div key={s.domain}>
                   <div className="font-mono text-[10px] tracking-widest text-[#0F3D2E]">{s.domain}</div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
-                    {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] bg-[#0F3D2E] text-[#F8F3E8]">{it}</span>)}
+                    {s.items.map((it, li) => <span key={it} style={{ "--i": li } as CSSProperties} className="skill-leaf px-2 py-1 text-[11px] bg-[#0F3D2E] text-[#F8F3E8]">{it}</span>)}
                   </div>
                 </div>
               ))}
@@ -141,7 +143,7 @@ export function RulesAndSkills() {
             <div key={s.domain} className="mt-8 text-center">
               <div className="font-mono text-[10px] tracking-widest text-[#9A4E1C]">ROOTS · {s.domain}</div>
               <div className="mt-2 flex flex-wrap gap-1.5 justify-center">
-                {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] border border-[#C46A2B] text-[#9A4E1C]">{it}</span>)}
+                {s.items.map((it, li) => <span key={it} style={{ "--i": li } as CSSProperties} className="skill-leaf px-2 py-1 text-[11px] border border-[#C46A2B] text-[#9A4E1C]">{it}</span>)}
               </div>
             </div>
           ))}

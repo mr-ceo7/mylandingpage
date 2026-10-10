@@ -8,7 +8,7 @@ interface RevealProps {
   className?: string;
   /** Stagger in ms-style units (e.g. 120): starts the motion a little later in the scroll */
   delay?: number;
-  variant?: "up" | "left" | "right" | "scale" | "tilt";
+  variant?: "up" | "left" | "right" | "scale" | "tilt" | "flutter";
 }
 
 /** Scroll-linked entrance; plays in reverse when scrolling back up. Motion lives in globals.css (.reveal). */

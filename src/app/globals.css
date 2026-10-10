@@ -487,3 +487,90 @@ html:not(.intro-seen) .desk-photo { animation-delay: 1.8s; }
   .build-stamp { opacity: 0.95; transform: rotate(-8deg); transition: none; }
   .pin-chase, .tick-num, .card-nudge { animation: none; }
 }
+
+/* ==========================================================================
+   Themed entrances, staggers and hover life
+   ========================================================================== */
+
+/* Device showcase: the laptop lid opens, the phone slides in after it, the story lines follow */
+.device-scene { --o: clamp(0, calc((var(--enter, 1) - 0.05) / 0.6), 1); --ph: clamp(0, calc((var(--enter, 1) - 0.3) / 0.5), 1); }
+.device-stage { perspective: 1600px; }
+.device-rig {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.device-laptop {
+  transform-origin: 50% 100%;
+  transform: perspective(1200px) rotateX(calc((1 - var(--o)) * -62deg)) rotate(calc(var(--pass, 0) * -1deg));
+  opacity: clamp(0, calc(var(--o) * 2), 1);
+}
+.device-phone {
+  opacity: var(--ph);
+  transform: translate(calc((1 - var(--ph)) * 70px), calc(var(--pass, 0) * -28px)) rotate(calc(4deg - var(--pass, 0) * 3deg + (1 - var(--ph)) * 14deg));
+}
+.stag {
+  --s: clamp(0, calc((var(--enter, 1) - 0.15 - var(--si, 0) * 0.07) / 0.35), 1);
+  opacity: var(--s);
+  transform: translateY(calc((1 - var(--s)) * 22px));
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+}
+
+/* App home screen: icons fly up out of the dock one after another (tied to the screen's --t) */
+.app-icon {
+  animation: none;
+  --a: clamp(0, calc((var(--t, 1) - 0.2 - var(--i, 0) * 0.045) / 0.35), 1);
+  opacity: var(--a);
+  transform: translateY(calc((1 - var(--a)) * 70px)) scale(calc(0.6 + var(--a) * 0.4));
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+}
+
+/* Exploded build: plates drop onto the stack one by one before they separate */
+.explode-plate {
+  --dr: clamp(0, calc(var(--t) * 3 - var(--i) * 0.35), 1);
+  opacity: var(--dr);
+  transform: translateY(calc((1 - var(--dr)) * -60px));
+  transition: top 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Component reel: chips slide in along the tape; the centered one is enlarged */
+.reel-chip {
+  --r: clamp(0, calc((var(--enter, 1) - var(--i, 0) * 0.06) / 0.5), 1);
+  opacity: calc(var(--r) * 0.6);
+  transform: translateX(calc((1 - var(--r)) * 160px)) scale(0.86);
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.35s ease-out;
+}
+.reel-chip.is-active { opacity: var(--r); transform: translateX(calc((1 - var(--r)) * 160px)) scale(1); }
+.reel-chip:hover > div { box-shadow: 0 28px 50px rgba(0, 0, 0, 0.45); }
+
+/* Notebook page flutters down like a page caught in air */
+.reveal[data-reveal="flutter"] {
+  transform: translateY(calc((1 - var(--t)) * 90px)) rotate(calc((1 - var(--t)) * 6deg)) skewY(calc((1 - var(--t)) * -3deg));
+  transform-origin: 20% 0;
+}
+
+/* Photo story: each photo wipes open from the bottom as it arrives */
+.story-wipe {
+  clip-path: inset(calc((1 - clamp(0, calc((var(--enter, 1) - 0.05) / 0.5), 1)) * 100%) 0 0 0);
+  transition: clip-path 0.2s ease-out;
+}
+
+/* Rule cards lift on hover; their diagram brightens */
+.rule-card { transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s ease-out; }
+.rule-card:hover { transform: translateY(-6px); box-shadow: 0 22px 40px rgba(15, 61, 46, 0.18); }
+.rule-card svg { transition: transform 0.4s ease-out; }
+.rule-card:hover svg { transform: scale(1.05); }
+
+/* Skill leaves grow in turn within each branch */
+.skill-leaf {
+  --lf: clamp(0, calc((var(--t, 1) - var(--i, 0) * 0.06) / 0.4), 1);
+  opacity: var(--lf);
+  transform: translateY(calc((1 - var(--lf)) * 10px)) scale(calc(0.85 + var(--lf) * 0.15));
+}
+.skill-leaf:hover { transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .device-laptop, .device-phone, .stag, .app-icon, .explode-plate, .reel-chip, .skill-leaf, .device-rig { opacity: 1; transform: none; transition: none; }
+  .reveal[data-reveal="flutter"] { transform: none; }
+  .story-wipe { clip-path: none; }
+}

@@ -29,7 +29,7 @@ export function LabNotebook() {
         </Reveal>
         <KineticHeading text="Twelve weeks at the bench." highlight="the bench." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#0A2E22]" />
 
-        <Reveal variant="tilt" className="mt-10">
+        <Reveal variant="flutter" className="mt-10">
           <div
             className="relative mx-auto max-w-3xl"
             onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}

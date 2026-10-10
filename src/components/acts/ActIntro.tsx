@@ -5,6 +5,7 @@ import { PROJECTS } from "../../data/projects";
 import { KineticHeading } from "../fx/KineticHeading";
 import { Reveal } from "../fx/Reveal";
 import { useScrollScene } from "../fx/useScrollScene";
+import { CountUp } from "../fx/CountUp";
 
 type Side = "software" | "hardware";
 
@@ -85,11 +86,11 @@ export function ActIntro({ side }: { side: Side }) {
             </p>
             <div className="mt-6 flex gap-8 font-mono">
               <div>
-                <div className="font-serif text-4xl text-neutral-50">{flagships}</div>
+                <div className="font-serif text-4xl text-neutral-50"><CountUp value={flagships} /></div>
                 <div className="text-[10px] tracking-widest uppercase text-neutral-400 mt-1">Flagship {software ? "platforms" : "builds"}</div>
               </div>
               <div>
-                <div className="font-serif text-4xl text-neutral-50">{total}</div>
+                <div className="font-serif text-4xl text-neutral-50"><CountUp value={total} /></div>
                 <div className="text-[10px] tracking-widest uppercase text-neutral-400 mt-1">Projects in this act</div>
               </div>
             </div>
