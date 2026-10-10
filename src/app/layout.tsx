@@ -83,9 +83,12 @@ export default function RootLayout({
                   }
                 } catch (e) {}
                 try {
-                  // Intro curtain plays once per session and never for reduced motion
+                  // Intro curtain plays once per session and never for reduced motion.
+                  // The flag is written here, before React loads, so it never depends on hydration timing.
                   if (sessionStorage.getItem('kma-intro-seen') === '1' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     document.documentElement.classList.add('intro-seen');
+                  } else {
+                    sessionStorage.setItem('kma-intro-seen', '1');
                   }
                 } catch (e) {
                   document.documentElement.classList.add('intro-seen');

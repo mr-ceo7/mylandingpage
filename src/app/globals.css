@@ -210,7 +210,7 @@ body {
   transform: translateX(calc(var(--pass, 0) * 6%));
 }
 
-/* Hero: copper traces draw in on load, then the hero eases back as it scrolls away */
+/* Hero: copper traces draw in on load, then the hero drifts down slightly as it scrolls away */
 @keyframes trace-draw {
   from { stroke-dashoffset: 1; }
   to { stroke-dashoffset: 0; }
@@ -220,10 +220,10 @@ body {
   stroke-dashoffset: 1;
   animation: trace-draw 1.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
+/* No fade: the hero content stays opaque so the traces never show through the photo */
 .hero-exit {
-  opacity: calc(1 - var(--exit, 0) * 0.5);
-  transform: translateY(calc(var(--exit, 0) * 70px));
-  transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+  transform: translateY(calc(var(--exit, 0) * 60px));
+  transition: transform 0.18s ease-out;
 }
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(26px); }

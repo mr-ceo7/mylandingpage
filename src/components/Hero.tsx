@@ -58,11 +58,11 @@ export function Hero() {
       {/* Board texture: faint grid of drill points */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-[0.12] pointer-events-none"
         style={{ backgroundImage: "radial-gradient(#E3B23C 1px, transparent 1.2px)", backgroundSize: "28px 28px" }}
       />
-      {/* Copper traces */}
-      <svg aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full pointer-events-none">
+      {/* Copper traces (behind everything; tablet and up only, since a phone-width crop blows them up across the copy) */}
+      <svg aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 z-0 w-full h-full pointer-events-none hidden sm:block">
         {traces.map((d, i) => (
           <path
             key={d}
@@ -83,7 +83,7 @@ export function Hero() {
         ))}
       </svg>
 
-      <div className="hero-exit relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="hero-exit relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header rule */}
         <div className="rise-in flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4 mb-10 sm:mb-12">
           <div className="flex items-center gap-3 text-[10px] font-mono tracking-widest uppercase">
