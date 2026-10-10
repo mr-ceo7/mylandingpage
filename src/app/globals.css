@@ -368,3 +368,95 @@ html.dark .handoff {
   .handoff-bar { opacity: 0.35; transform: none; transition: none; }
   .handoff { --h: 0.5; transition: none; }
 }
+
+/* ==========================================================================
+   v2 sections
+   ========================================================================== */
+
+/* Desk hero: terminal lines type in, LEDs blink, a pulse runs down the jumper wire */
+@keyframes line-in { from { opacity: 0; transform: translateX(-6px); clip-path: inset(0 100% 0 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
+.hero-line { opacity: 0; animation: line-in 0.5s steps(14, end) forwards; }
+html:not(.intro-seen) .hero-line { animation-delay: calc(1.2s + var(--d, 0s)); }
+.hero-caret { animation: cursor-blink 1s steps(1) infinite; }
+@keyframes led-blink { 0%, 100% { opacity: 0.35; box-shadow: none; } 40%, 60% { opacity: 1; box-shadow: 0 0 12px 3px currentColor; } }
+.led { animation: led-blink 1.6s ease-in-out infinite; }
+@keyframes wire-pulse { from { stroke-dashoffset: 1; } to { stroke-dashoffset: -1; } }
+.wire-pulse { stroke-dasharray: 0.12 0.88; animation: wire-pulse 1.8s linear infinite; }
+@keyframes desk-in { from { opacity: 0; transform: translateY(40px) rotate(var(--r, 0deg)); } to { opacity: 1; transform: none; } }
+.desk-laptop { animation: desk-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+.desk-board { --r: 6deg; animation: desk-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s both; }
+.desk-photo { animation: desk-in 0.9s cubic-bezier(0.3, 1.3, 0.5, 1) 0.6s both; }
+html:not(.intro-seen) .desk-laptop { animation-delay: 1.35s; }
+html:not(.intro-seen) .desk-board { animation-delay: 1.55s; }
+html:not(.intro-seen) .desk-photo { animation-delay: 1.8s; }
+/* As the hero scrolls away, the laptop and board drift apart toward their acts */
+.desk-scene { transform: translateY(calc(var(--exit, 0) * 40px)); }
+
+/* Device showcase: screenshot pans inside the laptop as the scene passes; phone floats against it */
+.screen-pan { transform: translateY(calc(var(--pass, 0) * -6%)) scale(1.12); transition: transform 0.18s ease-out; }
+@keyframes screen-fade { from { opacity: 0; } to { opacity: 1; } }
+.screen-fade { animation: screen-fade 0.45s ease-out; }
+.device-phone { transform: translateY(calc(var(--pass, 0) * -28px)) rotate(calc(4deg - var(--pass, 0) * 3deg)); transition: transform 0.18s ease-out; }
+.device-laptop { transform: rotate(calc(var(--pass, 0) * -1deg)); transition: transform 0.18s ease-out; }
+
+/* App grid icons and the window that opens out of them */
+@keyframes icon-pop { from { opacity: 0; transform: scale(0.6); } 70% { transform: scale(1.06); } to { opacity: 1; transform: none; } }
+.app-icon { animation: icon-pop 0.45s cubic-bezier(0.3, 1.3, 0.5, 1) both; }
+@keyframes window-pop { from { opacity: 0; transform: translateY(40px) scale(0.92); } to { opacity: 1; transform: none; } }
+.window-pop { animation: window-pop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1) both; }
+@keyframes backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+.window-backdrop { animation: backdrop-in 0.25s ease-out both; }
+
+/* Exploded build: plates start stacked, then separate with scroll; labels slide out */
+.exploded { --t: clamp(0, calc((var(--enter, 0) - 0.2) / 0.7), 1); }
+.explode-plate {
+  top: calc(var(--i) * (14px + var(--t) * 30px));
+  transition: top 0.2s ease-out;
+}
+.explode-label {
+  opacity: var(--t);
+  transform: translate(calc((1 - var(--t)) * -16px), -50%);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Lab notebook page turn */
+@keyframes turn-next { from { opacity: 0; transform: perspective(1200px) rotateY(-18deg) translateX(40px); transform-origin: left center; } to { opacity: 1; transform: none; } }
+@keyframes turn-prev { from { opacity: 0; transform: perspective(1200px) rotateY(18deg) translateX(-40px); transform-origin: right center; } to { opacity: 1; transform: none; } }
+.turn-next { animation: turn-next 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.turn-prev { animation: turn-prev 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* Photo story captions slide up as each photo reaches the middle of the screen */
+.story-caption {
+  --c: clamp(0, calc((var(--enter, 0) - 0.35) / 0.5), 1);
+  opacity: var(--c);
+  transform: translateY(calc((1 - var(--c)) * 40px));
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Rule diagrams */
+@keyframes rule-break { 0%, 40% { opacity: 1; } 50%, 90% { opacity: 0.15; } 100% { opacity: 1; } }
+.rule-break { animation: rule-break 2.4s linear infinite; }
+@keyframes rule-draw { from { stroke-dashoffset: 1; } 70%, to { stroke-dashoffset: 0; } }
+.rule-wave, .rule-check { stroke-dasharray: 1; animation: rule-draw 2.6s ease-in-out infinite; }
+@keyframes rule-frame { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+.rule-frame { animation: rule-frame 1.2s ease-in-out infinite; }
+.skill-leaf { transition: transform 0.2s ease-out; }
+.skill-leaf:hover { transform: translateY(-2px); }
+
+/* Business card flip */
+.card-stage { perspective: 1400px; }
+.card-flip { transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.3, 1.2, 0.4, 1); }
+.card-flip.is-flipped { transform: rotateY(180deg); }
+.card-flip:not(.is-flipped):hover { transform: rotateY(-8deg) rotateX(4deg); }
+.card-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.card-back { transform: rotateY(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line, .desk-laptop, .desk-board, .desk-photo, .app-icon, .window-pop, .window-backdrop, .turn-next, .turn-prev, .screen-fade { animation: none; opacity: 1; }
+  .led, .wire-pulse, .hero-caret, .rule-break, .rule-wave, .rule-check, .rule-frame { animation: none; }
+  .rule-wave, .rule-check { stroke-dashoffset: 0; }
+  .screen-pan, .device-phone, .device-laptop, .desk-scene { transform: none; transition: none; }
+  .exploded { --t: 1; }
+  .story-caption { opacity: 1; transform: none; }
+  .card-flip { transition: none; }
+}
