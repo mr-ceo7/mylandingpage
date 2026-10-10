@@ -217,7 +217,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "sharpboyz-v3",
-    title: "Sharpboyz calcOS Platform & Emulator",
+    title: "Sharpbrains calcOS Platform & Emulator",
     subtitle: "Campus AI Calculator Web Experience, Store & In-Browser Emulator",
     category: "web",
     categoryLabel: "Production Web Platforms",
@@ -230,49 +230,66 @@ export const PROJECTS: Project[] = [
       "Integrated campus ordering pipeline and FAQ documentation system"
     ],
     techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Canvas Emulator", "Vercel"],
-    liveUrl: "https://calcos.xn--jhb4c.com/",
+    liveUrl: "https://sharpbrains.xn--jhb4c.com/",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     flagshipRank: 2,
     shots: [
       {
-        "label": "Account & credits",
-        "desktop": "/flagships/calcos/account-desktop.jpg",
-        "mobile": "/flagships/calcos/account-mobile.jpg"
+        "label": "Landing",
+        "desktop": "/flagships/calcos/landing-desktop.jpg",
+        "mobile": "/flagships/calcos/landing-mobile.jpg"
       },
       {
         "label": "In-browser demo",
         "desktop": "/flagships/calcos/demo-desktop.jpg",
         "mobile": "/flagships/calcos/demo-mobile.jpg"
+      },
+      {
+        "label": "Account & credits",
+        "desktop": "/flagships/calcos/account-desktop.jpg",
+        "mobile": "/flagships/calcos/account-mobile.jpg"
       }
     ],
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/flagships/calcos/account-desktop.jpg",
+    screenshot: "/flagships/calcos/landing-desktop.jpg",
     carouselSlides: [
       {
-        "src": "/flagships/calcos/account-desktop.jpg",
-        "caption": "Account & credits (desktop)",
-        "alt": "Sharpboyz calcOS Platform & Emulator: Account & credits on desktop",
-        "tag": "ACCOUNT & CREDITS"
+        "src": "/flagships/calcos/landing-desktop.jpg",
+        "caption": "Landing (desktop)",
+        "alt": "Sharpbrains calcOS Platform & Emulator: Landing on desktop",
+        "tag": "LANDING"
       },
       {
-        "src": "/flagships/calcos/account-mobile.jpg",
-        "caption": "Account & credits (mobile)",
-        "alt": "Sharpboyz calcOS Platform & Emulator: Account & credits on mobile",
-        "tag": "ACCOUNT & CREDITS"
+        "src": "/flagships/calcos/landing-mobile.jpg",
+        "caption": "Landing (mobile)",
+        "alt": "Sharpbrains calcOS Platform & Emulator: Landing on mobile",
+        "tag": "LANDING"
       },
       {
         "src": "/flagships/calcos/demo-desktop.jpg",
         "caption": "In-browser demo (desktop)",
-        "alt": "Sharpboyz calcOS Platform & Emulator: In-browser demo on desktop",
+        "alt": "Sharpbrains calcOS Platform & Emulator: In-browser demo on desktop",
         "tag": "IN-BROWSER DEMO"
       },
       {
         "src": "/flagships/calcos/demo-mobile.jpg",
         "caption": "In-browser demo (mobile)",
-        "alt": "Sharpboyz calcOS Platform & Emulator: In-browser demo on mobile",
+        "alt": "Sharpbrains calcOS Platform & Emulator: In-browser demo on mobile",
         "tag": "IN-BROWSER DEMO"
+      },
+      {
+        "src": "/flagships/calcos/account-desktop.jpg",
+        "caption": "Account & credits (desktop)",
+        "alt": "Sharpbrains calcOS Platform & Emulator: Account & credits on desktop",
+        "tag": "ACCOUNT & CREDITS"
+      },
+      {
+        "src": "/flagships/calcos/account-mobile.jpg",
+        "caption": "Account & credits (mobile)",
+        "alt": "Sharpbrains calcOS Platform & Emulator: Account & credits on mobile",
+        "tag": "ACCOUNT & CREDITS"
       }
     ]
   },
@@ -698,11 +715,6 @@ export const PROJECTS: Project[] = [
     flagshipRank: 1,
     shots: [
       {
-        "label": "Sign in",
-        "desktop": "/flagships/jeffytab/login-desktop.jpg",
-        "mobile": "/flagships/jeffytab/login-mobile.jpg"
-      },
-      {
         "label": "Tab room",
         "desktop": "/flagships/jeffytab/tabroom-desktop.jpg",
         "mobile": "/flagships/jeffytab/tabroom-mobile.jpg"
@@ -711,24 +723,17 @@ export const PROJECTS: Project[] = [
         "label": "Tabby AI",
         "desktop": "/flagships/jeffytab/tabby-ai-desktop.jpg",
         "mobile": "/flagships/jeffytab/tabby-ai-mobile.jpg"
+      },
+      {
+        "label": "Sign in",
+        "desktop": "/flagships/jeffytab/login-desktop.jpg",
+        "mobile": "/flagships/jeffytab/login-mobile.jpg"
       }
     ],
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/flagships/jeffytab/login-desktop.jpg",
+    screenshot: "/flagships/jeffytab/tabroom-desktop.jpg",
     carouselSlides: [
-      {
-        "src": "/flagships/jeffytab/login-desktop.jpg",
-        "caption": "Sign in (desktop)",
-        "alt": "JeffyTab Debate Adjudication Suite: Sign in on desktop",
-        "tag": "SIGN IN"
-      },
-      {
-        "src": "/flagships/jeffytab/login-mobile.jpg",
-        "caption": "Sign in (mobile)",
-        "alt": "JeffyTab Debate Adjudication Suite: Sign in on mobile",
-        "tag": "SIGN IN"
-      },
       {
         "src": "/flagships/jeffytab/tabroom-desktop.jpg",
         "caption": "Tab room (desktop)",
@@ -752,6 +757,18 @@ export const PROJECTS: Project[] = [
         "caption": "Tabby AI (mobile)",
         "alt": "JeffyTab Debate Adjudication Suite: Tabby AI on mobile",
         "tag": "TABBY AI"
+      },
+      {
+        "src": "/flagships/jeffytab/login-desktop.jpg",
+        "caption": "Sign in (desktop)",
+        "alt": "JeffyTab Debate Adjudication Suite: Sign in on desktop",
+        "tag": "SIGN IN"
+      },
+      {
+        "src": "/flagships/jeffytab/login-mobile.jpg",
+        "caption": "Sign in (mobile)",
+        "alt": "JeffyTab Debate Adjudication Suite: Sign in on mobile",
+        "tag": "SIGN IN"
       }
     ]
   },
@@ -1101,7 +1118,7 @@ export const PROJECTS: Project[] = [
       "Precision key matrix tapping enabling native calculator keypad interaction"
     ],
     techStack: ["Casio fx-991ES Plus", "ESP8266/ESP32", "Micro-OLED", "C/C++", "Hardware Reverse-Engineering"],
-    liveUrl: "https://sharpboyz-v3.vercel.app",
+    liveUrl: "https://sharpbrains.xn--jhb4c.com/",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
     deploymentPlatform: "Custom Embedded Hardware Mod",
