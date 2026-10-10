@@ -81,7 +81,7 @@ export function ScienceMentorship() {
         <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold block mb-1">
               SECTION 04 // FIELD LEADERSHIP & MENTORSHIP
             </span>
             <KineticHeading
@@ -118,7 +118,7 @@ export function ScienceMentorship() {
                 />
 
                 {/* Tag Overlay */}
-                <div className="absolute top-3 left-3 bg-neutral-950/85 backdrop-blur-sm border border-neutral-700 px-2.5 py-1 text-[10px] font-mono tracking-widest text-[#E39A5C] uppercase">
+                <div className="absolute top-3 left-3 bg-neutral-950/85 backdrop-blur-sm border border-neutral-700 px-2.5 py-1 text-[10px] font-mono tracking-widest text-accent-hi uppercase">
                   {MENTORSHIP_PHOTOS[selectedPhoto].tag}
                 </div>
 
@@ -185,7 +185,7 @@ export function ScienceMentorship() {
           <Reveal variant="right" delay={120} className="lg:col-span-5">
 <div className="space-y-6">
             <div className="border border-neutral-300 dark:border-neutral-800 p-6 bg-neutral-50/70 dark:bg-neutral-900/40 space-y-4">
-              <div className="flex items-center gap-2 text-[#9A4E1C] dark:text-[#E39A5C]">
+              <div className="flex items-center gap-2 text-accent dark:text-accent-hi">
                 <Award className="w-4 h-4" />
                 <span className="text-[10px] font-mono tracking-widest uppercase font-semibold">
                   COMPETITIVE ENGINEERING PEDAGOGY
@@ -207,7 +207,7 @@ export function ScienceMentorship() {
               {/* Mentorship Core Pillars */}
               <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 space-y-3">
                 <div className="flex items-start gap-3">
-                  <Wrench className="w-4 h-4 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
+                  <Wrench className="w-4 h-4 text-accent dark:text-accent-hi mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 uppercase">
                       Hands-On Circuit Prototyping
@@ -219,7 +219,7 @@ export function ScienceMentorship() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <BookOpen className="w-4 h-4 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
+                  <BookOpen className="w-4 h-4 text-accent dark:text-accent-hi mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 uppercase">
                       Embedded Software Foundations
@@ -231,7 +231,7 @@ export function ScienceMentorship() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Users className="w-4 h-4 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
+                  <Users className="w-4 h-4 text-accent dark:text-accent-hi mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 uppercase">
                       National Exhibition Defense
@@ -252,7 +252,7 @@ export function ScienceMentorship() {
                   href="https://ksef-display-board.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center min-h-[44px] sm:min-h-[36px] py-1 text-xs font-mono text-[#9A4E1C] dark:text-[#E39A5C] hover:underline uppercase"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-[36px] py-1 text-xs font-mono text-accent dark:text-accent-hi hover:underline uppercase"
                 >
                   KSEF Display Board &rarr;
                 </a>

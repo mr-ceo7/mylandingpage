@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-neutral-200 dark:border-neutral-800">
           {/* Colophon Left */}
           <div className="md:col-span-6 space-y-3">
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold block">
               COLOPHON & PROVENANCE
             </span>
             <div className="font-serif text-2xl text-neutral-950 dark:text-neutral-50 font-normal">
@@ -45,32 +45,32 @@ export function Footer() {
               NAVIGATION & INDEX
             </span>
             <div>
-              <a href="#flagship" className="hover:text-[#9A4E1C] dark:hover:text-[#E39A5C] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
+              <a href="#flagship" className="hover:text-accent dark:hover:text-accent-hi transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → FLAGSHIP ARCHITECTURES
               </a>
             </div>
             <div>
-              <a href="#archive" className="hover:text-[#9A4E1C] dark:hover:text-[#E39A5C] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
+              <a href="#archive" className="hover:text-accent dark:hover:text-accent-hi transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → VERCEL DEPLOYMENT ARCHIVE
               </a>
             </div>
             <div>
-              <a href="#hardware" className="hover:text-[#9A4E1C] dark:hover:text-[#E39A5C] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
+              <a href="#hardware" className="hover:text-accent dark:hover:text-accent-hi transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → HARDWARE & FIELD REPORTS
               </a>
             </div>
             <div>
-              <a href="#mentorship" className="hover:text-[#9A4E1C] dark:hover:text-[#E39A5C] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
+              <a href="#mentorship" className="hover:text-accent dark:hover:text-accent-hi transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → STEM MENTORSHIP & YSK
               </a>
             </div>
             <div>
-              <a href="#philosophy" className="hover:text-[#9A4E1C] dark:hover:text-[#E39A5C] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
+              <a href="#philosophy" className="hover:text-accent dark:hover:text-accent-hi transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → SYSTEMS PHILOSOPHY
               </a>
             </div>
             <div>
-              <a href="#contact" className="hover:text-[#9A4E1C] dark:hover:text-[#E39A5C] transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
+              <a href="#contact" className="hover:text-accent dark:hover:text-accent-hi transition-colors py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] flex items-center">
                 → DIRECT CONTACT
               </a>
             </div>

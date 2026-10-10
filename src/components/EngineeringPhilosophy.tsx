@@ -57,7 +57,7 @@ export function EngineeringPhilosophy() {
         <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold block mb-1">
               SECTION 05 // PRINCIPLES
             </span>
             <KineticHeading
@@ -80,7 +80,7 @@ export function EngineeringPhilosophy() {
               className="border border-neutral-300 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-900/40 p-6 sm:p-8 space-y-4"
             >
               <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3">
-                <span className="text-xs font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
+                <span className="text-xs font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold">
                   RULE // {p.num}
                 </span>
                 <span className="text-[10px] font-mono text-neutral-400 uppercase">
@@ -113,7 +113,7 @@ export function EngineeringPhilosophy() {
             {skillMatrix.map((col, i) => (
               <Reveal key={col.domain} delay={i * 90}>
               <div className="space-y-3">
-                <div className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-1">
+                <div className="text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-1">
                   {col.domain}
                 </div>
                 <ul className="space-y-1.5">

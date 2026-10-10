@@ -44,7 +44,7 @@ export function ProjectModal({
         {/* Header Bar */}
         <div className="flex items-start justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4 gap-3">
           <div>
-            <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
+            <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold">
               <span>SPECIFICATION SHEET</span>
               <span className="text-neutral-400">/</span>
               <span>{project.categoryLabel}</span>
@@ -139,7 +139,7 @@ export function ProjectModal({
                   key={idx}
                   className="flex items-start gap-2.5 p-3 border border-neutral-200 dark:border-neutral-800 bg-neutral-50/60 dark:bg-neutral-900/40"
                 >
-                  <Terminal className="w-3.5 h-3.5 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
+                  <Terminal className="w-3.5 h-3.5 text-accent dark:text-accent-hi mt-0.5 flex-shrink-0" />
                   <span className="text-xs text-neutral-800 dark:text-neutral-200 font-sans leading-normal">
                     {detail}
                   </span>

@@ -11,9 +11,9 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "FLAGSHIP SYSTEMS", href: "#flagship" },
-    { label: "VERCEL ARCHIVE", href: "#archive" },
-    { label: "HARDWARE LAB", href: "#hardware" },
+    { label: "SOFTWARE", href: "#software" },
+    { label: "HARDWARE", href: "#hardware-act" },
+    { label: "LAB", href: "#hardware" },
     { label: "MENTORSHIP", href: "#mentorship" },
     { label: "PRINCIPLES", href: "#philosophy" },
     { label: "CONTACT", href: "#contact" }

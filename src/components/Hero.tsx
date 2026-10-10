@@ -2,7 +2,7 @@
 
 import { type CSSProperties } from "react";
 import Image from "next/image";
-import { ArrowDown, ExternalLink, Terminal, Cpu, Layers } from "lucide-react";
+import { ArrowDown, Terminal, Cpu, Layers } from "lucide-react";
 import { useScrollScene } from "./fx/useScrollScene";
 
 // Copper routes behind the hero: right-angle traces ending in vias, drawn in on load
@@ -21,6 +21,7 @@ const vias = [
 const components = [
   {
     ref: "U2",
+    side: "software",
     icon: Terminal,
     label: "Academic clearinghouse",
     title: "UoN Student Portal",
@@ -28,6 +29,7 @@ const components = [
   },
   {
     ref: "U3",
+    side: "hardware",
     icon: Cpu,
     label: "Embedded hardware",
     title: "RP2040 & ESP32",
@@ -35,6 +37,7 @@ const components = [
   },
   {
     ref: "U4",
+    side: "software",
     icon: Layers,
     label: "Production stack",
     title: "React 19 & Next.js",
@@ -83,6 +86,15 @@ export function Hero() {
         ))}
       </svg>
 
+      {/* Software side: Electric Blue panel with a faint editor-minimap texture, cut on a diagonal (desktop) */}
+      <div
+        aria-hidden="true"
+        className="hidden lg:block absolute inset-y-0 left-0 w-[60%] z-0 bg-[#0147BA]"
+        style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}
+      >
+        <div className="absolute inset-0 opacity-[0.16]" style={{ backgroundImage: "repeating-linear-gradient(180deg, transparent 0 22px, #F3E6CE 22px 26px)", maskImage: "linear-gradient(90deg, #000 0 30%, transparent 75%)", WebkitMaskImage: "linear-gradient(90deg, #000 0 30%, transparent 75%)" }} />
+      </div>
+
       <div className="hero-exit relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header rule */}
         <div className="rise-in flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4 mb-10 sm:mb-12">
@@ -99,14 +111,16 @@ export function Hero() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
-          {/* Left: headline and story */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Left: headline and story (the software side) */}
+          <div className="relative lg:col-span-7 space-y-8">
+            {/* Phones: the blue runs full-bleed behind the copy; the chip below stays on green */}
+            <div aria-hidden="true" className="lg:hidden absolute -inset-x-4 sm:-inset-x-6 -top-48 -bottom-10 -z-10 bg-[#0147BA]" />
             <div className="space-y-4">
-              <span className="rise-in block text-xs font-mono tracking-widest uppercase text-[#E39A5C] font-semibold" style={rise(0.05)}>
+              <span className="rise-in block text-xs font-mono tracking-widest uppercase text-[#FFC2AE] font-semibold" style={rise(0.05)}>
                 Full-stack software & systems / IoT engineer
               </span>
               <h1 className="rise-in font-serif text-4xl sm:text-5xl lg:text-[64px] tracking-tight text-neutral-50 leading-[1.08]" style={rise(0.12)}>
-                From bare-metal firmware to <span className="italic text-[#E3B23C]">production web platforms.</span>
+                From <span className="italic text-[#E3B23C]">bare-metal firmware</span> to <span className="italic text-[#FFC2AE]">production web platforms.</span>
               </h1>
             </div>
 
@@ -118,18 +132,18 @@ export function Hero() {
 
             <div className="rise-in flex flex-col sm:flex-row items-stretch sm:items-center gap-3" style={rise(0.28)}>
               <a
-                href="#flagship"
-                className="group inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase bg-[#C46A2B] text-[#FBF8F1] hover:bg-[#B05B1F] transition-colors"
+                href="#software"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase bg-[#F3E6CE] text-[#081F4D] hover:bg-[#FFC2AE] transition-colors"
               >
-                <span>See flagship work</span>
+                <span>See the software</span>
                 <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
               </a>
               <a
-                href="#archive"
-                className="group inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-700 hover:border-[#E3B23C] text-neutral-200 transition-colors"
+                href="#hardware-act"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-[#E3B23C]/70 hover:border-[#E3B23C] hover:bg-[#E3B23C]/10 text-neutral-50 transition-colors"
               >
-                <span>Vercel deployment index (20+)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>See the hardware</span>
+                <Cpu className="w-3.5 h-3.5 transition-transform group-hover:rotate-90" />
               </a>
             </div>
 
@@ -140,16 +154,20 @@ export function Hero() {
                 return (
                   <div
                     key={c.ref}
-                    className="rise-in group relative p-4 bg-neutral-950/60 border border-neutral-800 hover:border-[#C46A2B] transition-colors"
+                    className={`rise-in group relative p-4 border transition-all duration-300 hover:-translate-y-1 ${
+                      c.side === "software"
+                        ? "bg-[#081F4D]/60 border-[#2F64C9] hover:border-[#FFC2AE]"
+                        : "bg-[#0B2219]/80 border-[#2A5443] hover:border-[#C46A2B]"
+                    }`}
                     style={rise(0.36 + i * 0.08)}
                   >
-                    <span className="absolute -top-2.5 right-3 px-1.5 bg-surface font-mono text-[10px] tracking-widest text-[#E3B23C]">{c.ref}</span>
-                    <div className="flex items-center gap-2 mb-2 text-neutral-400">
-                      <Icon className="w-3.5 h-3.5 text-[#E39A5C]" />
+                    <span className={`absolute -top-2.5 right-3 px-1.5 font-mono text-[10px] tracking-widest ${c.side === "software" ? "bg-[#0147BA] text-[#FFC2AE]" : "bg-[#0B2219] text-[#E3B23C]"}`}>{c.ref}</span>
+                    <div className={`flex items-center gap-2 mb-2 ${c.side === "software" ? "text-[#C9D4EE]" : "text-neutral-400"}`}>
+                      <Icon className={`w-3.5 h-3.5 ${c.side === "software" ? "text-[#FFC2AE]" : "text-accent-hi"}`} />
                       <span className="text-[10px] font-mono tracking-widest uppercase">{c.label}</span>
                     </div>
                     <div className="font-serif text-xl text-neutral-50">{c.title}</div>
-                    <div className="text-xs text-neutral-400 mt-1 leading-relaxed">{c.body}</div>
+                    <div className={`text-xs mt-1 leading-relaxed ${c.side === "software" ? "text-[#C9D4EE]" : "text-neutral-400"}`}>{c.body}</div>
                   </div>
                 );
               })}
@@ -188,7 +206,7 @@ export function Hero() {
 
             {/* Datasheet */}
             <div className="rise-in border border-neutral-800 bg-neutral-950/60 p-4 text-[11px] font-mono space-y-2 max-w-[400px] mx-auto" style={rise(0.3)}>
-              <div className="text-[10px] tracking-widest uppercase text-[#E39A5C] pb-1">Datasheet</div>
+              <div className="text-[10px] tracking-widest uppercase text-accent-hi pb-1">Datasheet</div>
               {specs.map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 border-b border-neutral-800 pb-1">
                   <span className="text-neutral-400 uppercase">{k}</span>

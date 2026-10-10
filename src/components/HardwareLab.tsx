@@ -51,7 +51,7 @@ export function HardwareLab() {
         <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold block mb-1">
               SECTION 03 / HARDWARE LAB
             </span>
             <KineticHeading
@@ -149,7 +149,7 @@ export function HardwareLab() {
           <Reveal variant="right" delay={120} className="lg:col-span-5">
 <div className="space-y-6">
             <div className="border border-neutral-300 dark:border-neutral-800 p-6 bg-neutral-50/70 dark:bg-neutral-900/40 space-y-4">
-              <div className="flex items-center gap-2 text-[#9A4E1C] dark:text-[#E39A5C]">
+              <div className="flex items-center gap-2 text-accent dark:text-accent-hi">
                 <Cpu className="w-4 h-4" />
                 <span className="text-[10px] font-mono tracking-widest uppercase font-semibold">
                   CAPSTONE HARDWARE ARCHITECTURE
@@ -223,7 +223,7 @@ export function HardwareLab() {
                 className="border border-neutral-300 dark:border-neutral-800 bg-neutral-50/60 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
               >
                 <div>
-                  <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-[#9A4E1C] dark:text-[#E39A5C] font-semibold mb-2">
+                  <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-accent dark:text-accent-hi font-semibold mb-2">
                     <span>{report.week}</span>
                     <span className="text-neutral-400 font-normal">ACADEMY LOG</span>
                   </div>
@@ -256,7 +256,7 @@ export function HardwareLab() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] sm:min-h-[36px] text-[10px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900/80 text-neutral-900 dark:text-neutral-100 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors w-full justify-center"
                   >
-                    <Download className="w-3 h-3 text-[#9A4E1C] dark:text-[#E39A5C]" />
+                    <Download className="w-3 h-3 text-accent dark:text-accent-hi" />
                     <span>DOWNLOAD LAB REPORT (PDF)</span>
                   </a>
                 </div>

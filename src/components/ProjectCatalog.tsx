@@ -9,21 +9,36 @@ import { KineticHeading } from "./fx/KineticHeading";
 import { Reveal } from "./fx/Reveal";
 
 type CategoryFilter = "all" | "ai" | "web" | "hardware";
+type Side = "software" | "hardware";
 
-export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Project) => void }) {
+interface ProjectCatalogProps {
+  side: Side;
+  id: string;
+  kicker: string;
+  title: string;
+  highlight: string;
+  intro: string;
+  onSelectProject: (p: Project) => void;
+}
+
+export function ProjectCatalog({ side, id, kicker, title, highlight, intro, onSelectProject }: ProjectCatalogProps) {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
 
-  const categories = [
-    { id: "all", label: "ALL SYSTEMS" },
-    { id: "ai", label: "AI & DEV PLATFORMS" },
-    { id: "web", label: "PRODUCTION WEB PLATFORMS" },
-    { id: "hardware", label: "HARDWARE & IOT" }
-  ];
-
+  // Each act lists only its own side's projects; the software act can also split web from AI
+  const categories =
+    side === "software"
+      ? [
+          { id: "all", label: "ALL SOFTWARE" },
+          { id: "ai", label: "AI & DEV PLATFORMS" },
+          { id: "web", label: "PRODUCTION WEB PLATFORMS" },
+        ]
+      : [];
   const filteredProjects = useMemo(() => {
     return PROJECTS.filter((project) => {
+      const onThisSide = side === "hardware" ? project.category === "hardware" : project.category !== "hardware";
+      if (!onThisSide) return false;
       const matchesCategory =
         activeCategory === "all" || project.category === activeCategory;
       const query = searchQuery.toLowerCase().trim();
@@ -36,30 +51,30 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
 
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, side]);
 
   // Show 6 to start; filtering or searching always shows every match
   const isNarrowed = activeCategory !== "all" || searchQuery.trim() !== "";
   const visibleProjects = showAll || isNarrowed ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
-    <section id="archive" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-surface py-20 transition-colors">
+    <section id={id} className="w-full bg-surface py-20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-8 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
-              SECTION 02 / DEPLOYMENT REGISTER
+            <span className="text-[10px] font-mono tracking-widest uppercase text-accent dark:text-accent-hi font-semibold block mb-1">
+              {kicker}
             </span>
             <KineticHeading
-              text={"Everything I've Shipped"}
-              highlight="Shipped"
+              text={title}
+              highlight={highlight}
               className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal"
             />
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
-            Live deployments, web apps, developer tools and firmware builds. Filter by type or search for a stack.
+            {intro}
           </p>
         </div>
         </Reveal>
@@ -67,6 +82,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
         {/* Filter Bar & Search */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           {/* Category Tabs */}
+          {categories.length > 0 && (
           <div className="flex items-center gap-1.5 border border-neutral-300 dark:border-neutral-800 p-1 bg-neutral-50 dark:bg-neutral-900 overflow-x-auto no-scrollbar touch-pan-x flex-nowrap sm:flex-wrap">
             {categories.map((cat) => (
               <button
@@ -83,6 +99,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
               </button>
             ))}
           </div>
+          )}
 
           {/* Search Box */}
           <div className="relative min-w-[240px] sm:min-w-[260px]">
@@ -100,7 +117,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
         {/* Results Counter */}
         <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-neutral-500 dark:text-neutral-400 uppercase mb-6 pb-2 border-b border-neutral-200 dark:border-neutral-800">
           <span>CATALOG INDEX: {filteredProjects.length} RECORDS MATCHED</span>
-          <span>LOCATION: MR-CEO7 WORKSPACE</span>
+          <span>{side === "software" ? "~/MR-CEO7/SOFTWARE" : "BENCH: MR-CEO7 HARDWARE"}</span>
         </div>
 
         {/* Project Cards Grid */}
@@ -108,12 +125,32 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
           {visibleProjects.map((project, i) => (
             <Reveal key={project.id} delay={(i % 3) * 110}>
             <div
-              className="group border border-neutral-300 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
+              className="group h-full border border-neutral-300 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-900/40 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] transition-all duration-300"
             >
+              {side === "software" ? (
+                /* Editor tab: file path of the project */
+                <div className="flex items-center gap-2 px-4 py-2 border-b border-neutral-300 dark:border-neutral-800 bg-neutral-200/60 dark:bg-neutral-950/50 text-[10px] font-mono">
+                  <span className="text-accent dark:text-accent-hi">{"</>"}</span>
+                  <span className="truncate text-neutral-600 dark:text-neutral-300">~/mr-ceo7/{project.id}</span>
+                </div>
+              ) : (
+                /* Breadboard strip: drill grid with a pin row */
+                <div
+                  className="relative h-7 border-b border-neutral-300 dark:border-neutral-800"
+                  style={{ backgroundImage: "radial-gradient(rgba(227,178,60,0.55) 1.2px, transparent 1.5px)", backgroundSize: "10px 10px" }}
+                >
+                  <div className="absolute inset-x-6 bottom-0 flex justify-between">
+                    {Array.from({ length: 8 }).map((_, k) => (
+                      <span key={k} className="w-2 h-3 bg-[#C46A2B] group-hover:bg-[#E3B23C] transition-colors" style={{ transitionDelay: `${k * 25}ms` }} />
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
                 {/* Meta Header */}
                 <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-neutral-500 dark:text-neutral-400 uppercase mb-3">
-                  <span className="text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
+                  <span className="text-accent dark:text-accent-hi font-semibold">
                     {project.categoryLabel}
                   </span>
                   <span>{project.year}</span>
@@ -132,22 +169,27 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                     <span className="truncate max-w-[180px]">
                       {project.liveUrl ? project.liveUrl.replace("https://", "") : "telemetry station"}
                     </span>
-                    <span className="uppercase text-[#E39A5C]">SNAPSHOT</span>
+                    <span className="uppercase text-accent-hi">SNAPSHOT</span>
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-xl font-normal text-neutral-950 dark:text-neutral-50 group-hover:text-[#9A4E1C] dark:group-hover:text-[#E39A5C] transition-colors">
+                <h3 className="font-serif text-xl font-normal text-neutral-950 dark:text-neutral-50 group-hover:text-accent dark:group-hover:text-accent-hi transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 mt-1 mb-3">
                   {project.subtitle}
                 </p>
 
-                {/* Summary */}
-                <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed line-clamp-3 mb-4">
-                  {project.description}
-                </p>
+                {/* Summary (software cards show an editor line-number gutter) */}
+                <div className={side === "software" ? "flex gap-3 mb-4" : "mb-4"}>
+                  {side === "software" && (
+                    <span aria-hidden="true" className="select-none text-[10px] leading-[1.6rem] font-mono text-neutral-400 dark:text-neutral-500 text-right">1<br />2<br />3</span>
+                  )}
+                  <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+                </div>
               </div>
 
               <div>
@@ -176,7 +218,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                     className="text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4 flex items-center gap-1.5 py-2 min-h-[44px]"
                   >
                     <span>SPEC SHEET</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#9A4E1C] dark:text-[#E39A5C]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-accent dark:text-accent-hi" />
                   </button>
 
                   <div className="flex items-center gap-1">
@@ -205,6 +247,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                   </div>
                 </div>
               </div>
+              </div>
             </div>
             </Reveal>
           ))}
@@ -215,7 +258,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
             <button
               type="button"
               onClick={() => setShowAll((v) => !v)}
-              className="group inline-flex items-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-700 hover:border-[#E3B23C] text-neutral-100 transition-colors cursor-pointer"
+              className="group inline-flex items-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-400 dark:border-neutral-700 hover:border-accent dark:hover:border-accent-hi text-neutral-900 dark:text-neutral-100 transition-colors cursor-pointer"
             >
               {showAll ? "Show fewer" : `Show all ${filteredProjects.length} projects`}
               <span className={`transition-transform ${showAll ? "rotate-180" : ""}`}>↓</span>

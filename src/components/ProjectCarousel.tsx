@@ -96,7 +96,7 @@ export function ProjectCarousel({
             >
               {isAutoPlaying ? (
                 <>
-                  <Pause className="w-3 h-3 text-[#9A4E1C] dark:text-[#E39A5C]" />
+                  <Pause className="w-3 h-3 text-accent dark:text-accent-hi" />
                   <span className="hidden sm:inline">SLIDESHOW:</span> ACTIVE
                 </>
               ) : (
@@ -119,7 +119,7 @@ export function ProjectCarousel({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-[#9A4E1C] dark:text-[#E39A5C] min-h-[36px] py-1 px-1"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-accent dark:text-accent-hi min-h-[36px] py-1 px-1"
             >
               <span>VISIT</span>
               <ExternalLink className="w-2.5 h-2.5" />
@@ -200,7 +200,7 @@ export function ProjectCarousel({
       {/* Caption & Documentary Context Bar */}
       <div className="p-3 sm:p-3.5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50/80 dark:bg-neutral-900/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="space-y-0.5">
-          <div className="text-[10px] font-mono tracking-widest text-[#9A4E1C] dark:text-[#E39A5C] font-semibold uppercase">
+          <div className="text-[10px] font-mono tracking-widest text-accent dark:text-accent-hi font-semibold uppercase">
             DOCUMENTARY DISPATCH // {currentSlide.tag || `SCREEN 0${currentIndex + 1}`}
           </div>
           <p className="text-xs font-mono text-neutral-700 dark:text-neutral-300 leading-normal">
@@ -219,7 +219,7 @@ export function ProjectCarousel({
                 aria-label={`Switch to screen ${idx + 1}: ${slide.tag}`}
                 className={`relative w-12 h-10 sm:w-14 sm:h-9 min-h-[40px] sm:min-h-[36px] border overflow-hidden transition-all flex-shrink-0 ${
                   currentIndex === idx
-                    ? "border-neutral-950 dark:border-neutral-50 ring-1 ring-[#9A4E1C] dark:ring-[#E39A5C] opacity-100"
+                    ? "border-neutral-950 dark:border-neutral-50 ring-1 ring-accent dark:ring-accent-hi opacity-100"
                     : "border-neutral-300 dark:border-neutral-700 opacity-50 hover:opacity-100"
                 }`}
               >

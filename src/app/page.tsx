@@ -16,6 +16,8 @@ import { Band } from "@/components/fx/Band";
 import { TraceTicker } from "@/components/fx/TraceTicker";
 import { SmoothScroll } from "@/components/fx/SmoothScroll";
 import { IntroCurtain } from "@/components/fx/IntroCurtain";
+import { ActIntro } from "@/components/acts/ActIntro";
+import { Handoff } from "@/components/acts/Handoff";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -28,42 +30,86 @@ export default function Home() {
       {/* Top Header & Masthead */}
       <Navbar />
 
-      {/* Sections alternate solder-cream and PCB-green bands joined by curved edges */}
+      {/* Two acts in one scroll: Software (Electric Blue / Tangerine / Warm Cream), a handoff,
+          then Hardware (PCB green / copper / solder cream). Shared sections close the page. */}
       <main className="flex-grow">
-        {/* Section 00: Hero */}
-        <Band tone="green" next="cream">
+        {/* Hero: software on blue, hardware on green */}
+        <Band tone="green" next="blue">
           <Hero />
         </Band>
 
-        {/* Crossed strips of selected work over the green → cream seam */}
+        {/* Crossed strips of selected work over the hero → Act I seam */}
         <TraceTicker />
 
-        {/* Section 01: Flagship Engineering Deep Dives */}
-        <Band tone="cream" next="green">
-          <FlagshipProjects onSelectProject={(p) => setSelectedProject(p)} />
-        </Band>
+        {/* ── Act I · Software ── */}
+        <div className="act-software">
+          <Band tone="blue" next="cream">
+            <ActIntro side="software" />
+          </Band>
+          <Band tone="cream" next="blue">
+            <FlagshipProjects
+              side="software"
+              id="flagship"
+              kicker="Act I / Flagship platforms"
+              title="Software, in Depth"
+              highlight="in Depth"
+              intro="The platforms I am proudest of: the problem, the architecture, and the decisions behind it."
+              onSelectProject={(p) => setSelectedProject(p)}
+            />
+          </Band>
+          <Band tone="blue" next="cream">
+            <ProjectCatalog
+              side="software"
+              id="archive"
+              kicker="Act I / Deployment register"
+              title="Everything I've Shipped"
+              highlight="Shipped"
+              intro="Live web apps, AI tools and developer products. Filter by type or search for a stack."
+              onSelectProject={(p) => setSelectedProject(p)}
+            />
+          </Band>
+        </div>
 
-        {/* Section 02: Full Deployment Registry */}
+        {/* The seam between the acts: code becomes copper */}
+        <Handoff />
+
+        {/* ── Act II · Hardware ── */}
         <Band tone="green" next="cream">
-          <ProjectCatalog onSelectProject={(p) => setSelectedProject(p)} />
+          <ActIntro side="hardware" />
         </Band>
-
-        {/* Section 03: Embedded Hardware & Gearbox Academy Lab Archive */}
+        <Band tone="cream" next="green">
+          <FlagshipProjects
+            side="hardware"
+            id="flagship-hardware"
+            kicker="Act II / Flagship builds"
+            title="Hardware, in Depth"
+            highlight="in Depth"
+            intro="Two builds from firmware up: the boards, the bus protocols, and the decisions behind them."
+            onSelectProject={(p) => setSelectedProject(p)}
+          />
+        </Band>
+        <Band tone="green" next="cream">
+          <ProjectCatalog
+            side="hardware"
+            id="archive-hardware"
+            kicker="Act II / The bench"
+            title="Everything I've Built"
+            highlight="Built"
+            intro="Robots, trackers, sensors and attendance terminals. Search by part, bus or sensor."
+            onSelectProject={(p) => setSelectedProject(p)}
+          />
+        </Band>
         <Band tone="cream" next="green">
           <HardwareLab />
         </Band>
-
-        {/* Section 04: Science Competitions & Field Mentorship (Young Scientists Kenya) */}
         <Band tone="green" next="cream">
           <ScienceMentorship />
         </Band>
 
-        {/* Section 05: Engineering Principles */}
+        {/* ── Shared ── */}
         <Band tone="cream" next="green">
           <EngineeringPhilosophy />
         </Band>
-
-        {/* Section 06: Contact, with the footer on the same green band */}
         <Band tone="green">
           <ContactSection />
           <Footer />
