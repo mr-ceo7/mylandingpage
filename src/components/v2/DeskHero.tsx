@@ -1,14 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { PROJECTS } from "../../data/projects";
+import { CountUp } from "../fx/CountUp";
 import { useScrollScene } from "../fx/useScrollScene";
 
 const buildLines = [
   { text: "$ npm run build", cls: "text-[#F3E6CE]" },
-  { text: "  compiling…", cls: "text-[#C9D4EE]" },
-  { text: "  ✓ build passed", cls: "text-[#E3B23C]" },
-  { text: "$ vercel deploy --prod", cls: "text-[#F3E6CE]" },
-  { text: "  ✓ live on the edge", cls: "text-[#FFC2AE]" },
+  { text: "✓ build passed", cls: "text-[#E3B23C]" },
+  { text: "✓ live", cls: "text-[#FFC2AE]" },
+];
+
+// The laptop shows the real flagships, one after another, in showcase order
+const SCREENS = PROJECTS.filter((p) => p.isFlagship && p.category !== "hardware" && p.shots?.length)
+  .sort((a, b) => (a.flagshipRank ?? 99) - (b.flagshipRank ?? 99))
+  .map((p) => ({ name: p.title.split(" — ")[0], slug: p.shots![0].desktop.split("/")[2], shot: p.shots![0] }));
+
+const STATS = [
+  { value: SCREENS.length, label: "Platforms live" },
+  { value: PROJECTS.length, label: "Projects" },
+  { value: PROJECTS.filter((p) => p.category === "hardware").length, label: "Hardware builds" },
 ];
 
 /**
@@ -17,6 +29,13 @@ const buildLines = [
  */
 export function DeskHero() {
   const ref = useScrollScene<HTMLElement>();
+  const [screen, setScreen] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => setScreen((n) => (n + 1) % SCREENS.length), 3400);
+    return () => clearInterval(id);
+  }, []);
+  const current = SCREENS[screen];
 
   return (
     <section ref={ref} className="relative w-full overflow-hidden bg-[#F2EBDD] pt-24 pb-24 sm:pt-28 sm:pb-32">
@@ -47,15 +66,20 @@ export function DeskHero() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E34F33]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#F3E6CE]/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#F3E6CE]/40" />
-                  <span className="ml-2 font-mono text-[10px] text-[#F3E6CE]/80">~/mr-ceo7 — build</span>
+                  <span className="ml-2 truncate font-mono text-[10px] text-[#F3E6CE]/85">
+                    ~/shipped/{current.slug} — {current.shot.label.toLowerCase()}
+                  </span>
                 </div>
-                <div className="aspect-[16/9] px-4 py-3 font-mono text-[11px] sm:text-sm leading-relaxed">
-                  {buildLines.map((l, i) => (
-                    <div key={l.text} className={`hero-line ${l.cls}`} style={{ animationDelay: `${0.6 + i * 0.55}s` }}>
-                      {l.text}
-                    </div>
-                  ))}
-                  <span className="hero-caret inline-block w-2 h-4 mt-1 bg-[#FFC2AE]" />
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#01358C]">
+                  <Image key={current.shot.desktop} src={current.shot.desktop} alt={`${current.name}: ${current.shot.label}`} fill priority={screen === 0} quality={90} sizes="(max-width: 640px) 92vw, 680px" className="object-cover object-top screen-fade" />
+                  {/* The build that shipped it, typing out in the corner */}
+                  <div className="absolute left-2 bottom-2 sm:left-4 sm:bottom-4 px-2.5 py-1.5 sm:px-3 sm:py-2 bg-[#012A70]/92 font-mono text-[9px] sm:text-xs leading-relaxed shadow-lg">
+                    {buildLines.map((l, i) => (
+                      <div key={l.text} className={`hero-line ${l.cls}`} style={{ animationDelay: `${0.6 + i * 0.55}s` }}>
+                        {l.text}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               {/* Base */}
@@ -69,7 +93,7 @@ export function DeskHero() {
             <a
               href="#hardware-act"
               aria-label="Enter the hardware act"
-              className="desk-board group col-span-10 col-start-3 sm:col-span-5 sm:col-start-auto relative z-20 -mt-6 sm:mt-0 sm:-ml-10 block"
+              className="desk-board group col-span-7 sm:col-span-5 sm:col-start-auto relative z-20 -mt-6 sm:mt-0 sm:-ml-10 block"
             >
               <div
                 className="relative rounded-md border-2 border-[#CFC3A8] bg-[#F8F3E8] p-3 sm:p-4 shadow-[0_22px_44px_rgba(10,46,34,0.35)] -rotate-2 transition-transform duration-500 group-hover:rotate-0 group-hover:-translate-y-1.5"
@@ -105,16 +129,26 @@ export function DeskHero() {
           </div>
 
           {/* Polaroid of Kassim leaning on the desk */}
-          <figure className="desk-photo absolute -top-10 -right-1 sm:top-auto sm:bottom-24 sm:right-auto sm:-left-4 lg:-left-12 z-30 w-24 sm:w-36 bg-[#FBF8F1] p-1.5 pb-5 sm:p-2 sm:pb-7 shadow-[0_14px_30px_rgba(0,0,0,0.3)] rotate-6 sm:-rotate-6">
-            <div className="relative aspect-square overflow-hidden">
-              <Image src="/images/profile.jpeg" alt="Kassim Musa Abass" fill priority sizes="144px" className="object-cover" />
+          <figure className="desk-photo absolute -bottom-10 right-0 sm:bottom-auto sm:top-0 sm:right-[6%] z-30 w-[42%] sm:w-52 lg:w-60 bg-[#FBF8F1] p-2 pb-7 sm:p-2.5 sm:pb-9 shadow-[0_14px_30px_rgba(0,0,0,0.3)] rotate-3 sm:rotate-6">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image src="/images/profile.jpeg" alt="Kassim Musa Abass" fill priority quality={90} sizes="(max-width: 640px) 42vw, 240px" className="object-cover object-[50%_30%]" />
             </div>
-            <figcaption className="absolute bottom-0.5 sm:bottom-1.5 inset-x-0 text-center font-serif italic text-[10px] sm:text-xs text-[#39483E]">that&apos;s me</figcaption>
+            <figcaption className="absolute bottom-1.5 sm:bottom-2.5 inset-x-0 text-center font-serif italic text-xs sm:text-sm text-[#39483E]">that&apos;s me</figcaption>
           </figure>
 
           {/* Desk surface */}
           <div aria-hidden="true" className="absolute -inset-x-[50vw] -bottom-4 h-10 bg-[#E6DCC8] -z-10" />
         </div>
+
+        {/* Counts straight from the project data */}
+        <dl className="rise-in mt-20 sm:mt-16 grid grid-cols-3 border-y border-[#0A2E22]/20 divide-x divide-[#0A2E22]/20">
+          {STATS.map((s) => (
+            <div key={s.label} className="flex flex-col py-4 text-center">
+              <dt className="order-2 mt-1 font-mono text-[9px] sm:text-[10px] tracking-widest uppercase text-[#4E5B50]">{s.label}</dt>
+              <dd className="font-serif text-4xl sm:text-5xl text-[#01358C]"><CountUp value={s.value} /></dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
