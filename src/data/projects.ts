@@ -62,6 +62,11 @@ export const PROJECTS: Project[] = [
         "label": "Tips & plans",
         "desktop": "/flagships/tambuatips/tips-desktop.jpg",
         "mobile": "/flagships/tambuatips/tips-mobile.jpg"
+      },
+      {
+        "label": "Admin",
+        "desktop": "/flagships/tambuatips/admin-desktop.jpg",
+        "mobile": "/flagships/tambuatips/admin-mobile.jpg"
       }
     ],
     deploymentPlatform: "Custom Domain",
@@ -103,6 +108,18 @@ export const PROJECTS: Project[] = [
         "caption": "Tips & plans (mobile)",
         "alt": "TambuaTips — Sports Predictions Platform: Tips & plans on mobile",
         "tag": "TIPS & PLANS"
+      },
+      {
+        "src": "/flagships/tambuatips/admin-desktop.jpg",
+        "caption": "Admin dashboard (desktop)",
+        "alt": "TambuaTips — Sports Predictions Platform: Admin dashboard on desktop",
+        "tag": "ADMIN"
+      },
+      {
+        "src": "/flagships/tambuatips/admin-mobile.jpg",
+        "caption": "Admin dashboard (mobile)",
+        "alt": "TambuaTips — Sports Predictions Platform: Admin dashboard on mobile",
+        "tag": "ADMIN"
       }
     ]
   },
