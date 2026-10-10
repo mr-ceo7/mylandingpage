@@ -17,6 +17,10 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   isFlagship?: boolean;
+  /** Position among the software flagships (1 = first) */
+  flagshipRank?: number;
+  /** Matching desktop + mobile captures of key pages, for the device showcase */
+  shots?: { label: string; desktop: string; mobile: string }[];
   deploymentPlatform: string;
   year: string;
   screenshot: string;
@@ -24,6 +28,128 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  {
+    id: "tambuatips",
+    title: "TambuaTips — Sports Predictions Platform",
+    subtitle: "Football Tips, Live Fixtures & Subscription Billing",
+    category: "web",
+    categoryLabel: "Production Web Platforms",
+    description:
+      "A football predictions platform with live fixtures, league standings, a sports news feed and tiered VIP tip subscriptions billed in Kenyan shillings, managed from an admin dashboard.",
+    architectureDetails: [
+      "Three tiers (Basic, Standard, Premium VIP) with 2- and 4-week plans priced in KES",
+      "M-Pesa and Paystack payment integration",
+      "Fixtures, standings and news from a sports data API",
+      "Google sign-in; admin dashboard for tips and subscribers"
+    ],
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "FastAPI", "SQLAlchemy", "MySQL (TiDB)", "M-Pesa", "Paystack"],
+    liveUrl: "https://tambuatips.com",
+    githubUrl: "https://github.com/mr-ceo7",
+    isFlagship: true,
+    flagshipRank: 4,
+    shots: [
+      {
+        "label": "Home",
+        "desktop": "/flagships/tambuatips/home-desktop.jpg",
+        "mobile": "/flagships/tambuatips/home-mobile.jpg"
+      },
+      {
+        "label": "News",
+        "desktop": "/flagships/tambuatips/news-desktop.jpg",
+        "mobile": "/flagships/tambuatips/news-mobile.jpg"
+      },
+      {
+        "label": "Tips & plans",
+        "desktop": "/flagships/tambuatips/tips-desktop.jpg",
+        "mobile": "/flagships/tambuatips/tips-mobile.jpg"
+      }
+    ],
+    deploymentPlatform: "Custom Domain",
+    year: "2026",
+    screenshot: "/flagships/tambuatips/home-desktop.jpg",
+    carouselSlides: [
+      {
+        "src": "/flagships/tambuatips/home-desktop.jpg",
+        "caption": "Home (desktop)",
+        "alt": "TambuaTips — Sports Predictions Platform: Home on desktop",
+        "tag": "HOME"
+      },
+      {
+        "src": "/flagships/tambuatips/home-mobile.jpg",
+        "caption": "Home (mobile)",
+        "alt": "TambuaTips — Sports Predictions Platform: Home on mobile",
+        "tag": "HOME"
+      },
+      {
+        "src": "/flagships/tambuatips/news-desktop.jpg",
+        "caption": "News (desktop)",
+        "alt": "TambuaTips — Sports Predictions Platform: News on desktop",
+        "tag": "NEWS"
+      },
+      {
+        "src": "/flagships/tambuatips/news-mobile.jpg",
+        "caption": "News (mobile)",
+        "alt": "TambuaTips — Sports Predictions Platform: News on mobile",
+        "tag": "NEWS"
+      },
+      {
+        "src": "/flagships/tambuatips/tips-desktop.jpg",
+        "caption": "Tips & plans (desktop)",
+        "alt": "TambuaTips — Sports Predictions Platform: Tips & plans on desktop",
+        "tag": "TIPS & PLANS"
+      },
+      {
+        "src": "/flagships/tambuatips/tips-mobile.jpg",
+        "caption": "Tips & plans (mobile)",
+        "alt": "TambuaTips — Sports Predictions Platform: Tips & plans on mobile",
+        "tag": "TIPS & PLANS"
+      }
+    ]
+  },
+  {
+    id: "winvirahisi",
+    title: "WinviRahisi — Over 2.5 & 3.5 Goals Tips",
+    subtitle: "Daily Goals-Market Predictions & VIP Plans",
+    category: "web",
+    categoryLabel: "Production Web Platforms",
+    description:
+      "A focused football tips site for the Over 2.5 and Over 3.5 goals markets: daily free picks, VIP plans in KES (1, 2 and 4 weeks), and an archive of past tips.",
+    architectureDetails: [
+      "Free tips feed with locked VIP picks that open on subscription",
+      "1/2/4-week VIP plans in KES, with M-Pesa and Paystack payments",
+      "Tip archive for an open results history",
+      "Google sign-in; FastAPI backend on SQLite"
+    ],
+    techStack: ["React", "TypeScript", "Vite", "React Router", "Tailwind CSS", "FastAPI", "SQLite", "M-Pesa", "Paystack"],
+    liveUrl: "https://www.winvirahisi.com",
+    githubUrl: "https://github.com/mr-ceo7",
+    isFlagship: true,
+    flagshipRank: 5,
+    shots: [
+      {
+        "label": "Free & VIP tips",
+        "desktop": "/flagships/winvirahisi/home-desktop.jpg",
+        "mobile": "/flagships/winvirahisi/home-mobile.jpg"
+      }
+    ],
+    deploymentPlatform: "Custom Domain",
+    year: "2026",
+    screenshot: "/flagships/winvirahisi/home-desktop.jpg",
+    carouselSlides: [
+      {
+        "src": "/flagships/winvirahisi/home-desktop.jpg",
+        "caption": "Free & VIP tips (desktop)",
+        "alt": "WinviRahisi — Over 2.5 & 3.5 Goals Tips: Free & VIP tips on desktop",
+        "tag": "FREE & VIP TIPS"
+      },
+      {
+        "src": "/flagships/winvirahisi/home-mobile.jpg",
+        "caption": "Free & VIP tips (mobile)",
+        "alt": "WinviRahisi — Over 2.5 & 3.5 Goals Tips: Free & VIP tips on mobile",
+        "tag": "FREE & VIP TIPS"
+      }
+    ]
+  },
   {
     id: "galvaniy-labs",
     title: "Galvaniy Labs — Virtual Physics Laboratory",
@@ -41,7 +167,7 @@ export const PROJECTS: Project[] = [
     techStack: ["React 19", "TypeScript", "Vite", "OpenAPI", "IndexedDB", "Tailwind CSS", "Vercel"],
     liveUrl: "https://galvaniy-labs.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
+    isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2026",
     screenshot: "/projects/galvaniy-labs-virtual/slide_1.png",
@@ -87,36 +213,49 @@ export const PROJECTS: Project[] = [
       "Integrated campus ordering pipeline and FAQ documentation system"
     ],
     techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Canvas Emulator", "Vercel"],
-    liveUrl: "https://sharpboyz-v3.vercel.app",
+    liveUrl: "https://calcos.xn--jhb4c.com/",
     githubUrl: "https://github.com/mr-ceo7",
     isFlagship: true,
+    flagshipRank: 2,
+    shots: [
+      {
+        "label": "Account & credits",
+        "desktop": "/flagships/calcos/account-desktop.jpg",
+        "mobile": "/flagships/calcos/account-mobile.jpg"
+      },
+      {
+        "label": "In-browser demo",
+        "desktop": "/flagships/calcos/demo-desktop.jpg",
+        "mobile": "/flagships/calcos/demo-mobile.jpg"
+      }
+    ],
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/projects/calcos-website/slide_1.png",
+    screenshot: "/flagships/calcos/account-desktop.jpg",
     carouselSlides: [
       {
-        src: "/projects/calcos-website/slide_1.png",
-        caption: "calcOS Campus AI Calculator hero interface and hardware highlights.",
-        alt: "calcOS Campus AI Calculator hero interface",
-        tag: "HERO LANDING"
+        "src": "/flagships/calcos/account-desktop.jpg",
+        "caption": "Account & credits (desktop)",
+        "alt": "Sharpboyz calcOS Platform & Emulator: Account & credits on desktop",
+        "tag": "ACCOUNT & CREDITS"
       },
       {
-        src: "/projects/calcos-website/slide_2.png",
-        caption: "Hardware craftsmanship breakdown showing stealth chassis and tactile prompting keys.",
-        alt: "calcOS hardware craftsmanship view",
-        tag: "HARDWARE CRAFT"
+        "src": "/flagships/calcos/account-mobile.jpg",
+        "caption": "Account & credits (mobile)",
+        "alt": "Sharpboyz calcOS Platform & Emulator: Account & credits on mobile",
+        "tag": "ACCOUNT & CREDITS"
       },
       {
-        src: "/projects/calcos-website/slide_3.png",
-        caption: "In-browser live Casio fx-991ES Plus interactive emulator running calcOS.",
-        alt: "In-browser calcOS emulator",
-        tag: "WEB EMULATOR"
+        "src": "/flagships/calcos/demo-desktop.jpg",
+        "caption": "In-browser demo (desktop)",
+        "alt": "Sharpboyz calcOS Platform & Emulator: In-browser demo on desktop",
+        "tag": "IN-BROWSER DEMO"
       },
       {
-        src: "/projects/calcos-website/slide_4.png",
-        caption: "Campus store order workflow and hardware specification matrix.",
-        alt: "calcOS order and store page",
-        tag: "STORE & CHECKOUT"
+        "src": "/flagships/calcos/demo-mobile.jpg",
+        "caption": "In-browser demo (mobile)",
+        "alt": "Sharpboyz calcOS Platform & Emulator: In-browser demo on mobile",
+        "tag": "IN-BROWSER DEMO"
       }
     ]
   },
@@ -171,48 +310,79 @@ export const PROJECTS: Project[] = [
 
   {
     id: "royal-mint",
-    title: "Royal Mint (Exam Timetable Portal)",
-    subtitle: "University Academic Schedule & Examination Distribution Engine",
+    title: "Smart Timetable — Exam Timetables for 9 Kenyan Universities",
+    subtitle: "Exam Schedules, Personal Timetables & AI Quick Revision",
     category: "web",
     categoryLabel: "Production Web Platforms",
     description:
-      "A high-concurrency schedule distribution system serving university students. Parses complex faculty timetable spreadsheets into structured, instant searchable mobile schedules.",
+      "An exam timetable portal for nine Kenyan universities, including UoN, JKUAT, KU and DeKUT. Students add their unit codes to get a personal exam schedule, then open Quick Revision for AI-generated flashcards, quizzes and notes on each unit.",
     architectureDetails: [
+      "Quick Revision per unit: AI-generated flashcards with Cards, Quiz, Notes and Chat tabs",
       "Client-side schedule search filtering across faculty, course codes, and lecture venues",
       "Offline-first PWA caching for access in areas with weak campus connectivity",
       "Custom domain configuration with automatic SSL termination"
     ],
     techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI"],
-    liveUrl: "https://www.royalmint.app",
+    liveUrl: "https://www.examtimetables.xn--jhb4c.com/",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
+    isFlagship: true,
+    flagshipRank: 6,
+    shots: [
+      {
+        "label": "University picker",
+        "desktop": "/flagships/examtimetables/home-desktop.jpg",
+        "mobile": "/flagships/examtimetables/home-mobile.jpg"
+      },
+      {
+        "label": "UoN timetable",
+        "desktop": "/flagships/examtimetables/uon-desktop.jpg",
+        "mobile": "/flagships/examtimetables/uon-mobile.jpg"
+      },
+      {
+        "label": "Quick Revision",
+        "desktop": "/flagships/examtimetables/revision-desktop.jpg",
+        "mobile": "/flagships/examtimetables/revision-mobile.jpg"
+      }
+    ],
     deploymentPlatform: "Vercel CLI + Custom Domain",
     year: "2025",
-    screenshot: "/projects/smart-exam-timetable/slide_1.png",
+    screenshot: "/flagships/examtimetables/home-desktop.jpg",
     carouselSlides: [
       {
-        src: "/projects/smart-exam-timetable/slide_1.png",
-        caption: "Multi-university portal selection interface supporting Catholic University, DeKUT, JKUAT, KU, and Maseno.",
-        alt: "Smart Exam Timetable institution selector",
-        tag: "INSTITUTION SELECTOR"
+        "src": "/flagships/examtimetables/home-desktop.jpg",
+        "caption": "University picker (desktop)",
+        "alt": "Royal Mint (Exam Timetable Portal): University picker on desktop",
+        "tag": "UNIVERSITY PICKER"
       },
       {
-        src: "/projects/smart-exam-timetable/slide_2.png",
-        caption: "Dense academic examination schedule matrix parsed by department and date.",
-        alt: "Academic examination schedule grid",
-        tag: "EXAM SCHEDULE MATRIX"
+        "src": "/flagships/examtimetables/home-mobile.jpg",
+        "caption": "University picker (mobile)",
+        "alt": "Royal Mint (Exam Timetable Portal): University picker on mobile",
+        "tag": "UNIVERSITY PICKER"
       },
       {
-        src: "/projects/smart-exam-timetable/slide_3.png",
-        caption: "Mobile department and course code search view with venue allocations.",
-        alt: "Mobile timetable search view",
-        tag: "MOBILE TIMETABLE"
+        "src": "/flagships/examtimetables/uon-desktop.jpg",
+        "caption": "UoN timetable (desktop)",
+        "alt": "Royal Mint (Exam Timetable Portal): UoN timetable on desktop",
+        "tag": "UON TIMETABLE"
       },
       {
-        src: "/projects/smart-exam-timetable/slide_4.png",
-        caption: "Live exam session filtering and classroom seat distribution.",
-        alt: "Exam session room allocations",
-        tag: "SESSION ALLOCATIONS"
+        "src": "/flagships/examtimetables/uon-mobile.jpg",
+        "caption": "UoN timetable (mobile)",
+        "alt": "Royal Mint (Exam Timetable Portal): UoN timetable on mobile",
+        "tag": "UON TIMETABLE"
+      },
+      {
+        "src": "/flagships/examtimetables/revision-desktop.jpg",
+        "caption": "Quick Revision (desktop)",
+        "alt": "Royal Mint (Exam Timetable Portal): Quick Revision on desktop",
+        "tag": "QUICK REVISION"
+      },
+      {
+        "src": "/flagships/examtimetables/revision-mobile.jpg",
+        "caption": "Quick Revision (mobile)",
+        "alt": "Royal Mint (Exam Timetable Portal): Quick Revision on mobile",
+        "tag": "QUICK REVISION"
       }
     ]
   },
@@ -268,7 +438,7 @@ export const PROJECTS: Project[] = [
     techStack: ["React", "TypeScript", "Tailwind CSS", "Google OAuth SSO", "Vercel"],
     liveUrl: "https://studentaffairs-six.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
+    isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
     screenshot: "/projects/uon-student-affairs/slide_1.png",
@@ -364,7 +534,7 @@ export const PROJECTS: Project[] = [
     techStack: ["React", "TypeScript", "Tailwind CSS", "IndexedDB", "Vercel CLI"],
     liveUrl: "https://nubianfit.vercel.app",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: true,
+    isFlagship: false,
     deploymentPlatform: "Vercel CLI",
     year: "2025",
     screenshot: "/projects/nubianfit/slide_1.png",
@@ -412,28 +582,81 @@ export const PROJECTS: Project[] = [
     techStack: ["React", "TypeScript", "Tailwind CSS", "Vercel CLI + Custom DNS"],
     liveUrl: "https://globaloratorsproject.com",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
+    isFlagship: true,
+    flagshipRank: 3,
+    shots: [
+      {
+        "label": "Public site",
+        "desktop": "/flagships/globalorators/home-desktop.jpg",
+        "mobile": "/flagships/globalorators/home-mobile.jpg"
+      },
+      {
+        "label": "Orator app",
+        "desktop": "/flagships/globalorators/orator-app-desktop.jpg",
+        "mobile": "/flagships/globalorators/orator-app-mobile.jpg"
+      },
+      {
+        "label": "Coach app",
+        "desktop": "/flagships/globalorators/coach-dashboard-desktop.jpg",
+        "mobile": "/flagships/globalorators/coach-dashboard-mobile.jpg"
+      },
+      {
+        "label": "Speaker roster",
+        "desktop": "/flagships/globalorators/coach-roster-desktop.jpg",
+        "mobile": "/flagships/globalorators/coach-roster-mobile.jpg"
+      }
+    ],
     deploymentPlatform: "Vercel CLI + Custom Domain",
     year: "2026",
-    screenshot: "/projects/global-orators/slide_1.png",
+    screenshot: "/flagships/globalorators/home-desktop.jpg",
     carouselSlides: [
       {
-        src: "/projects/global-orators/slide_1.png",
-        caption: "Speaker & Debater Command dispatch desk showing fluency metrics and coaching tips.",
-        alt: "Speaker & Debater Command dispatch desk",
-        tag: "DEBATER COMMAND"
+        "src": "/flagships/globalorators/home-desktop.jpg",
+        "caption": "Public site (desktop)",
+        "alt": "Global Orators Coach & Debate Suite: Public site on desktop",
+        "tag": "PUBLIC SITE"
       },
       {
-        src: "/projects/global-orators/slide_2.png",
-        caption: "Mobile speaker roster management with track filtering and onboarding actions.",
-        alt: "Mobile speaker roster management",
-        tag: "MOBILE ROSTER"
+        "src": "/flagships/globalorators/home-mobile.jpg",
+        "caption": "Public site (mobile)",
+        "alt": "Global Orators Coach & Debate Suite: Public site on mobile",
+        "tag": "PUBLIC SITE"
       },
       {
-        src: "/projects/global-orators/slide_3.png",
-        caption: "Public speaking organization portal and international event registration page.",
-        alt: "Global Orators public portal",
-        tag: "PUBLIC PLATFORM"
+        "src": "/flagships/globalorators/orator-app-desktop.jpg",
+        "caption": "Orator app (desktop)",
+        "alt": "Global Orators Coach & Debate Suite: Orator app on desktop",
+        "tag": "ORATOR APP"
+      },
+      {
+        "src": "/flagships/globalorators/orator-app-mobile.jpg",
+        "caption": "Orator app (mobile)",
+        "alt": "Global Orators Coach & Debate Suite: Orator app on mobile",
+        "tag": "ORATOR APP"
+      },
+      {
+        "src": "/flagships/globalorators/coach-dashboard-desktop.jpg",
+        "caption": "Coach app (desktop)",
+        "alt": "Global Orators Coach & Debate Suite: Coach app on desktop",
+        "tag": "COACH APP"
+      },
+      {
+        "src": "/flagships/globalorators/coach-dashboard-mobile.jpg",
+        "caption": "Coach app (mobile)",
+        "alt": "Global Orators Coach & Debate Suite: Coach app on mobile",
+        "tag": "COACH APP"
+      },
+      {
+        "src": "/flagships/globalorators/coach-roster-desktop.jpg",
+        "caption": "Speaker roster (desktop)",
+        "alt": "Global Orators Coach & Debate Suite: Speaker roster on desktop",
+        "tag": "SPEAKER ROSTER"
+      },
+      {
+        "src": "/flagships/globalorators/coach-roster-mobile.jpg",
+        "caption": "Speaker roster (mobile)",
+        "alt": "Global Orators Coach & Debate Suite: Speaker roster on mobile",
+        "tag": "SPEAKER ROSTER"
       }
     ]
   },
@@ -452,36 +675,66 @@ export const PROJECTS: Project[] = [
       "Responsive tab director command console with light/dark tournament modes"
     ],
     techStack: ["React", "TypeScript", "WebSockets", "Tailwind CSS", "Vercel CLI"],
-    liveUrl: "https://jeffytab.vercel.app",
+    liveUrl: "https://jeffytabs.xn--jhb4c.com/login",
     githubUrl: "https://github.com/mr-ceo7",
-    isFlagship: false,
+    isFlagship: true,
+    flagshipRank: 1,
+    shots: [
+      {
+        "label": "Sign in",
+        "desktop": "/flagships/jeffytab/login-desktop.jpg",
+        "mobile": "/flagships/jeffytab/login-mobile.jpg"
+      },
+      {
+        "label": "Tab room",
+        "desktop": "/flagships/jeffytab/tabroom-desktop.jpg",
+        "mobile": "/flagships/jeffytab/tabroom-mobile.jpg"
+      },
+      {
+        "label": "Tabby AI",
+        "desktop": "/flagships/jeffytab/tabby-ai-desktop.jpg",
+        "mobile": "/flagships/jeffytab/tabby-ai-mobile.jpg"
+      }
+    ],
     deploymentPlatform: "Vercel CLI",
     year: "2026",
-    screenshot: "/projects/jeffytab/slide_1.png",
+    screenshot: "/flagships/jeffytab/login-desktop.jpg",
     carouselSlides: [
       {
-        src: "/projects/jeffytab/slide_1.png",
-        caption: "JeffyTab adjudication landing interface and Director login portal.",
-        alt: "JeffyTab director login portal",
-        tag: "DIRECTOR PORTAL"
+        "src": "/flagships/jeffytab/login-desktop.jpg",
+        "caption": "Sign in (desktop)",
+        "alt": "JeffyTab Debate Adjudication Suite: Sign in on desktop",
+        "tag": "SIGN IN"
       },
       {
-        src: "/projects/jeffytab/slide_2.png",
-        caption: "Tournament dashboard showing active competitions, team registrations, and judge pools.",
-        alt: "Tournament dashboard overview",
-        tag: "TOURNAMENT HUB"
+        "src": "/flagships/jeffytab/login-mobile.jpg",
+        "caption": "Sign in (mobile)",
+        "alt": "JeffyTab Debate Adjudication Suite: Sign in on mobile",
+        "tag": "SIGN IN"
       },
       {
-        src: "/projects/jeffytab/slide_3.png",
-        caption: "Live WebSocket Tab Room Command releasing Round 4 Outround motions.",
-        alt: "Live Tab Room Command round view",
-        tag: "LIVE TAB ROOM"
+        "src": "/flagships/jeffytab/tabroom-desktop.jpg",
+        "caption": "Tab room (desktop)",
+        "alt": "JeffyTab Debate Adjudication Suite: Tab room on desktop",
+        "tag": "TAB ROOM"
       },
       {
-        src: "/projects/jeffytab/slide_4.png",
-        caption: "Tournament navigation drawer showing draw allocations, ballots, and break standings.",
-        alt: "Tournament draw and ballot allocations menu",
-        tag: "BALLOT ALLOCATIONS"
+        "src": "/flagships/jeffytab/tabroom-mobile.jpg",
+        "caption": "Tab room (mobile)",
+        "alt": "JeffyTab Debate Adjudication Suite: Tab room on mobile",
+        "tag": "TAB ROOM"
+      },
+      {
+        "src": "/flagships/jeffytab/tabby-ai-desktop.jpg",
+        "caption": "Tabby AI (desktop)",
+        "alt": "JeffyTab Debate Adjudication Suite: Tabby AI on desktop",
+        "tag": "TABBY AI"
+      },
+      {
+        "src": "/flagships/jeffytab/tabby-ai-mobile.jpg",
+        "caption": "Tabby AI (mobile)",
+        "alt": "JeffyTab Debate Adjudication Suite: Tabby AI on mobile",
+        "tag": "TABBY AI"
       }
     ]
   },

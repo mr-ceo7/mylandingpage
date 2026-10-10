@@ -8,15 +8,19 @@ import { KineticHeading } from "../fx/KineticHeading";
 import { Reveal } from "../fx/Reveal";
 import { useScrollScene } from "../fx/useScrollScene";
 
-const slidesOf = (p: Project) => (p.carouselSlides?.length ? p.carouselSlides : [{ src: p.screenshot, alt: p.title, caption: "", tag: "" }]);
+/** Desktop + mobile pairs: the dedicated captures when a project has them, else its slides paired up. */
+const pairsOf = (p: Project) => {
+  if (p.shots?.length) return p.shots.map((s) => ({ label: s.label, desktop: s.desktop, mobile: s.mobile }));
+  const slides = p.carouselSlides?.length ? p.carouselSlides : [{ src: p.screenshot, alt: p.title, caption: "", tag: "" }];
+  return slides.map((s, i) => ({ label: s.tag || `Screen ${i + 1}`, desktop: s.src, mobile: slides[(i + 1) % slides.length].src }));
+};
 
 /** One flagship on a laptop with a phone leaning on it. The screens pan as it scrolls; tap a screen to flip through screenshots. */
 function DeviceScene({ project, index, total, onOpen }: { project: Project; index: number; total: number; onOpen: (p: Project) => void }) {
   const ref = useScrollScene<HTMLDivElement>();
-  const slides = slidesOf(project);
+  const pairs = pairsOf(project);
   const [shot, setShot] = useState(0);
-  const laptop = slides[shot % slides.length];
-  const phone = slides[(shot + 1) % slides.length];
+  const current = pairs[shot % pairs.length];
   const flip = index % 2 === 1;
 
   return (
@@ -26,7 +30,7 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
         <button type="button" onClick={() => setShot((s) => s + 1)} aria-label={`Next screenshot of ${project.title}`} className="device-laptop block w-full text-left cursor-pointer">
           <div className="rounded-t-xl border-[8px] sm:border-[10px] border-[#01358C] bg-[#01358C] shadow-[0_26px_56px_rgba(1,53,140,0.3)]">
             <div className="relative aspect-[16/10] overflow-hidden bg-[#01358C]">
-              <Image key={laptop.src} src={laptop.src} alt={laptop.alt} fill sizes="(max-width: 1024px) 92vw, 640px" className="object-cover object-top screen-pan screen-fade" />
+              <Image key={current.desktop} src={current.desktop} alt={`${project.title}: ${current.label} on desktop`} fill quality={90} sizes="(max-width: 1024px) 92vw, 760px" className={`object-cover object-top screen-fade ${project.shots?.length ? "" : "screen-pan"}`} />
               {/* Stamp lands on the screen as the scene scrolls in */}
               <span aria-hidden="true" className="build-stamp absolute left-3 bottom-3 sm:left-5 sm:bottom-5 whitespace-nowrap border-[3px] border-[#E3B23C] bg-[#01358C]/80 px-2.5 py-1 font-mono font-bold text-[10px] sm:text-sm tracking-widest uppercase text-[#E3B23C]">
                 ✓ build passed
@@ -39,7 +43,7 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
         <button type="button" onClick={() => setShot((s) => s + 1)} aria-label={`Next screenshot of ${project.title}`} className="device-phone absolute right-0 bottom-0 w-[30%] sm:w-[26%] cursor-pointer">
           <div className="rounded-[18px] border-[5px] border-[#0A2E22] bg-[#0A2E22] shadow-[0_18px_36px_rgba(0,0,0,0.4)]">
             <div className="relative aspect-[9/19] overflow-hidden rounded-[12px] bg-[#01358C]">
-              <Image key={phone.src} src={phone.src} alt={phone.alt} fill sizes="160px" className="object-cover object-top screen-fade" />
+              <Image key={current.mobile} src={current.mobile} alt={`${project.title}: ${current.label} on mobile`} fill quality={90} sizes="(max-width: 1024px) 30vw, 220px" className="object-cover object-top screen-fade" />
             </div>
           </div>
         </button>
@@ -68,12 +72,22 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
             </a>
           )}
         </div>
-        {slides.length > 1 && (
-          <div className="mt-5 flex items-center gap-2" aria-hidden="true">
-            {slides.map((s, i) => (
-              <span key={s.src + i} className={`h-1 rounded-full transition-all duration-300 ${i === shot % slides.length ? "w-6 bg-[#E34F33]" : "w-2 bg-[#0147BA]/30"}`} />
+        {pairs.length > 1 && (
+          <div className="mt-5 flex flex-wrap gap-1.5" role="tablist" aria-label={`${project.title} screens`}>
+            {pairs.map((pg, i) => (
+              <button
+                key={pg.label}
+                type="button"
+                role="tab"
+                aria-selected={i === shot % pairs.length}
+                onClick={() => setShot(i)}
+                className={`px-3 min-h-[36px] font-mono text-[10px] tracking-widest uppercase border transition-colors cursor-pointer ${
+                  i === shot % pairs.length ? "bg-[#E34F33] border-[#E34F33] text-[#FCF8F0]" : "border-[#0147BA]/30 text-[#0147BA] hover:border-[#0147BA]"
+                }`}
+              >
+                {pg.label}
+              </button>
             ))}
-            <span className="ml-2 font-mono text-[10px] text-[#2A4F96]">tap the screen</span>
           </div>
         )}
       </div>
@@ -82,7 +96,7 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
 }
 
 export function DeviceShowcase({ onOpen }: { onOpen: (p: Project) => void }) {
-  const flagships = PROJECTS.filter((p) => p.isFlagship && p.category !== "hardware");
+  const flagships = PROJECTS.filter((p) => p.isFlagship && p.category !== "hardware").sort((a, b) => (a.flagshipRank ?? 99) - (b.flagshipRank ?? 99));
   return (
     <section id="flagship" className="w-full bg-[#F3E6CE] py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
