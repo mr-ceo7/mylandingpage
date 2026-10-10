@@ -80,7 +80,7 @@ export function BusinessCard() {
               </div>
               {/* Hardware face */}
               <div
-                className="card-face card-back absolute inset-0 flex flex-col p-6 bg-[#0B2219] shadow-[0_28px_60px_rgba(0,0,0,0.45)]"
+                className="card-face card-back absolute inset-0 flex flex-col p-6 bg-[#0A2E22] shadow-[0_28px_60px_rgba(0,0,0,0.45)]"
                 style={{ backgroundImage: "linear-gradient(90deg, transparent 0 70%, rgba(196,106,43,0.35) 70% 71%, transparent 71%), linear-gradient(0deg, transparent 0 30%, rgba(196,106,43,0.35) 30% 31.5%, transparent 31.5%)" }}
               >
                 <div className="flex items-start justify-between">

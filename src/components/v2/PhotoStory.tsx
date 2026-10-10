@@ -12,7 +12,7 @@ function StoryFrame({ photo, index }: { photo: (typeof MENTORSHIP_PHOTOS)[number
     <figure ref={ref} className="story-frame relative">
       <div className="relative aspect-[4/5] sm:aspect-[16/9] overflow-hidden">
         <Image src={photo.src} alt={photo.alt} fill sizes="100vw" className="object-cover parallax-img" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0B2219] via-[#0B2219]/10 to-transparent" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0A2E22] via-[#0A2E22]/10 to-transparent" />
       </div>
       <figcaption className="story-caption absolute inset-x-0 bottom-0 px-5 sm:px-10 pb-6 sm:pb-10 max-w-3xl">
         <span className="font-mono text-[10px] tracking-widest uppercase text-[#E3B23C]">
@@ -27,7 +27,7 @@ function StoryFrame({ photo, index }: { photo: (typeof MENTORSHIP_PHOTOS)[number
 /** Mentorship as a documentary: full-width photos one after another, captions sliding in as each arrives. */
 export function PhotoStory() {
   return (
-    <section id="mentorship" className="w-full bg-[#0B2219] pt-20 sm:pt-28 pb-20">
+    <section id="mentorship" className="w-full bg-[#0A2E22] pt-20 sm:pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <Reveal>
           <span className="font-mono text-[10px] tracking-widest uppercase text-[#E3B23C]">Act II · Young Scientists Kenya & KSEF</span>

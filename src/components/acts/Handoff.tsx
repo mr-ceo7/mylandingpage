@@ -35,7 +35,7 @@ export function Handoff() {
       </svg>
 
       <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
-        <div className="inline-block bg-[#0B2219] text-[#F8F3E8] px-6 sm:px-10 py-8 shadow-[0_24px_60px_rgba(0,0,0,0.35)] border border-[#2A5443]">
+        <div className="inline-block bg-[#0A2E22] text-[#F8F3E8] px-6 sm:px-10 py-8 shadow-[0_24px_60px_rgba(0,0,0,0.35)] border border-[#2A5443]">
           <span className="block text-[10px] font-mono tracking-widest uppercase text-[#E3B23C]">Same engineer, one layer down</span>
           <h2 className="mt-3 font-serif text-4xl sm:text-5xl tracking-tight">From code to copper.</h2>
           <p className="mt-4 text-sm sm:text-base text-[#CFC3A8] leading-relaxed">

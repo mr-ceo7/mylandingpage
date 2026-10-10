@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "../Icons";
-import { ThemeToggle } from "../ThemeToggle";
 
 type Act = "intro" | "software" | "hardware" | "both";
 
@@ -31,10 +30,10 @@ const LINKS = [
 ];
 
 const STYLE: Record<Act, { pill: string; label: string; bar: string }> = {
-  intro: { pill: "bg-[#FBF8F1]/90 text-[#0B2219] border-[#CFC3A8] dark:bg-[#0B2219]/90 dark:text-[#F8F3E8] dark:border-[#2A5443]", label: "Portfolio", bar: "bg-[#C46A2B]" },
+  intro: { pill: "bg-[#FBF8F1]/90 text-[#0A2E22] border-[#CFC3A8]", label: "Portfolio", bar: "bg-[#C46A2B]" },
   software: { pill: "bg-[#0147BA]/95 text-[#F3E6CE] border-[#2F64C9]", label: "Software", bar: "bg-[#E34F33]" },
   hardware: { pill: "bg-[#0F3D2E]/95 text-[#F8F3E8] border-[#2A5443]", label: "Hardware", bar: "bg-[#E3B23C]" },
-  both: { pill: "bg-[#FBF8F1]/90 text-[#0B2219] border-[#CFC3A8] dark:bg-[#0B2219]/90 dark:text-[#F8F3E8] dark:border-[#2A5443]", label: "Both sides", bar: "bg-[#C46A2B]" },
+  both: { pill: "bg-[#FBF8F1]/90 text-[#0A2E22] border-[#CFC3A8]", label: "Both sides", bar: "bg-[#C46A2B]" },
 };
 
 /** A floating pill that takes the colors of the act you're in, with a reading-progress line and a full-screen menu. */
@@ -115,7 +114,7 @@ export function PillNav() {
 
       {/* Full-screen menu */}
       {open && (
-        <div className="menu-sheet fixed inset-0 z-40 bg-[#0B2219] text-[#F8F3E8] pt-24 pb-10 px-6 overflow-y-auto" data-lenis-prevent>
+        <div className="menu-sheet fixed inset-0 z-40 bg-[#0A2E22] text-[#F8F3E8] pt-24 pb-10 px-6 overflow-y-auto" data-lenis-prevent>
           <ul className="max-w-xl mx-auto space-y-1">
             {LINKS.map((l, i) => (
               <li key={l.href} className="menu-item" style={{ animationDelay: `${60 + i * 45}ms` }}>
@@ -130,7 +129,6 @@ export function PillNav() {
             ))}
           </ul>
           <div className="max-w-xl mx-auto mt-8 flex flex-wrap items-center gap-3">
-            <ThemeToggle />
             <a href="https://github.com/mr-ceo7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 min-h-[44px] border border-[#2A5443] font-mono text-[11px] tracking-widest uppercase">
               <GithubIcon className="w-4 h-4" /> github.com/mr-ceo7 <ArrowUpRight className="w-3.5 h-3.5" />
             </a>

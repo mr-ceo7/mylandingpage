@@ -23,12 +23,12 @@ export function AppWindow({ project, tone, onClose, onFullSpec }: { project: Pro
 
   if (!project) return null;
   const sw = tone === "software";
-  const frame = sw ? "bg-[#F9F1E2] text-[#081F4D] border-[#0147BA]" : "bg-[#0B2219] text-[#F8F3E8] border-[#C46A2B]";
+  const frame = sw ? "bg-[#F9F1E2] text-[#01358C] border-[#0147BA]" : "bg-[#0A2E22] text-[#F8F3E8] border-[#C46A2B]";
   const bar = sw ? "bg-[#0147BA] text-[#F3E6CE]" : "bg-[#0F3D2E] text-[#E3B23C]";
   const chip = sw ? "border-[#0147BA]/30 text-[#0A3C9A]" : "border-[#E3B23C]/40 text-[#E3B23C]";
 
   return (
-    <div className="fixed inset-0 z-[90] flex items-end sm:items-center justify-center bg-black/55 backdrop-blur-sm window-backdrop" onClick={onClose}>
+    <div className="fixed inset-0 z-[90] flex items-end sm:items-center justify-center bg-[#0A2E22]/60 backdrop-blur-sm window-backdrop" onClick={onClose}>
       <div
         role="dialog"
         aria-modal="true"

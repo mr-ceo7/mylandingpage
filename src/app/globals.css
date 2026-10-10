@@ -15,7 +15,7 @@
   --color-neutral-700: #39483E;
   --color-neutral-800: #2A5443;
   --color-neutral-900: #164536;
-  --color-neutral-950: #0B2219;
+  --color-neutral-950: #0A2E22;
   /* Page / section surface (overridden per theme and per band below) */
   --color-surface: #F2EBDD;
   --color-copper: #C46A2B;
@@ -30,22 +30,19 @@
 
 :root {
   --background: #F2EBDD;
-  --foreground: #0B2219;
+  --foreground: #0A2E22;
   --band-cream: #F2EBDD;
   --band-green: #0F3D2E;
   --band-blue: #0147BA;
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
-/* Band colors follow the page theme only (green bands also carry .dark, so this is scoped to <html>) */
-html.dark {
-  --band-cream: #0B2219;
-}
+
 
 .dark {
-  --background: #0B2219;
+  --background: #0A2E22;
   --foreground: #F8F3E8;
-  --color-surface: #0B2219;
+  --color-surface: #0A2E22;
   /* Lift the muted grays so secondary text stays readable on green */
   --color-neutral-400: #A9B39E;
   --color-neutral-500: #8E9C88;
@@ -288,13 +285,13 @@ html:not(.intro-seen) .hero-trace { animation-delay: 1.3s; }
   --color-neutral-100: #F9F1E2;
   --color-neutral-200: #E9DAC0;
   --color-neutral-300: #D3C09F;
-  --color-neutral-400: #8C93A8;
-  --color-neutral-500: #5A6480;
-  --color-neutral-600: #434D69;
-  --color-neutral-700: #313B56;
+  --color-neutral-400: #7F98C9;
+  --color-neutral-500: #2A4F96;
+  --color-neutral-600: #24447F;
+  --color-neutral-700: #01358C;
   --color-neutral-800: #2F64C9;
   --color-neutral-900: #0A3C9A;
-  --color-neutral-950: #081F4D;
+  --color-neutral-950: #01358C;
   --color-surface: #F3E6CE;
   --color-accent: #B23A21;
   --color-accent-hi: #FFC2AE;
@@ -306,13 +303,7 @@ html:not(.intro-seen) .hero-trace { animation-delay: 1.3s; }
   --color-neutral-400: #C9D4EE;
   --color-neutral-500: #B3C2E6;
 }
-/* Page dark mode: cream bands of the software act turn deep navy */
-html.dark .act-software {
-  --color-surface: #081F4D;
-  --band-cream: #081F4D;
-  --color-neutral-400: #AEBBDA;
-  --color-neutral-500: #93A3C9;
-}
+
 .act-software .kinetic-mark path {
   stroke: #E34F33;
 }
@@ -344,9 +335,7 @@ html.dark .act-software {
   background-color: color-mix(in srgb, var(--handoff-to) calc(var(--h) * 100%), var(--handoff-from));
   transition: background-color 0.18s ease-out;
 }
-html.dark .handoff {
-  --handoff-from: #081F4D;
-}
+
 .handoff-bar {
   opacity: calc(1 - clamp(0, calc((var(--h) - 0.2) / 0.5), 1));
   transform: translateX(calc(clamp(0, calc((var(--h) - 0.2) / 0.5), 1) * -60px));

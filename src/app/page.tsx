@@ -28,7 +28,7 @@ export default function Home() {
   const windowTone = windowProject?.category === "hardware" ? "hardware" : "software";
 
   return (
-    <div className="min-h-screen flex flex-col bg-surface text-neutral-900 dark:text-neutral-100 transition-colors selection:bg-copper selection:text-white">
+    <div className="min-h-screen flex flex-col bg-surface text-neutral-900 transition-colors selection:bg-copper selection:text-[#F2EBDD]">
       <IntroCurtain />
       <SmoothScroll />
       <PillNav />

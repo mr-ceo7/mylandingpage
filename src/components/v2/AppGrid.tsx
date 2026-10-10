@@ -38,7 +38,7 @@ export function AppGrid({ onOpen }: { onOpen: (p: Project) => void }) {
 
         {/* Home screen */}
         <Reveal variant="scale" className="mt-10">
-          <div className="mx-auto max-w-3xl rounded-[28px] bg-[#081F4D]/70 border border-[#2F64C9] p-5 sm:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.35)]">
+          <div className="mx-auto max-w-3xl rounded-[28px] bg-[#01358C]/70 border border-[#2F64C9] p-5 sm:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.35)]">
             <div className="flex items-center justify-between font-mono text-[10px] tracking-widest text-[#C9D4EE]">
               <span>mr-ceo7</span>
               <div className="flex gap-1 rounded-full bg-[#0147BA]/60 p-1">
@@ -47,7 +47,7 @@ export function AppGrid({ onOpen }: { onOpen: (p: Project) => void }) {
                     key={t.id}
                     type="button"
                     onClick={() => setFilter(t.id)}
-                    className={`px-3 min-h-[32px] rounded-full uppercase cursor-pointer transition-colors ${filter === t.id ? "bg-[#F3E6CE] text-[#081F4D]" : "text-[#C9D4EE] hover:text-[#F9F1E2]"}`}
+                    className={`px-3 min-h-[32px] rounded-full uppercase cursor-pointer transition-colors ${filter === t.id ? "bg-[#F3E6CE] text-[#01358C]" : "text-[#C9D4EE] hover:text-[#F9F1E2]"}`}
                   >
                     {t.label}
                   </button>
@@ -61,7 +61,7 @@ export function AppGrid({ onOpen }: { onOpen: (p: Project) => void }) {
                     <Image src={p.screenshot} alt="" fill sizes="80px" className="object-cover object-top scale-125" />
                     <span className={`absolute inset-0 ${p.category === "ai" ? "bg-[#E34F33]/70" : "bg-[#0147BA]/65"}`} />
                     <span className="absolute inset-0 flex items-center justify-center font-serif text-2xl text-[#FCF8F0]">{initials(p.title)}</span>
-                    {p.isFlagship && <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[#F3E6CE] ring-2 ring-[#081F4D]" title="Flagship" />}
+                    {p.isFlagship && <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[#F3E6CE] ring-2 ring-[#01358C]" title="Flagship" />}
                   </span>
                   <span className="max-w-[88px] text-center text-[11px] leading-tight text-[#F9F1E2] line-clamp-2">{shortName(p.title)}</span>
                 </button>

@@ -61,7 +61,7 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
               onClick={() => (i === active ? onOpen(p) : step(i - active))}
               className={`snap-center shrink-0 w-[72vw] sm:w-[340px] text-left cursor-pointer transition-all duration-300 ${i === active ? "scale-100 opacity-100" : "scale-[0.86] opacity-60"}`}
             >
-              <div className="relative bg-[#14161A] text-[#F8F3E8] p-3 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
+              <div className="relative bg-[#0A2E22] text-[#F8F3E8] p-3 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                 {/* Pins */}
                 <div aria-hidden="true" className="absolute -left-2 inset-y-6 flex flex-col justify-between">{Array.from({ length: 6 }).map((_, k) => <span key={k} className={`w-2 h-2.5 bg-[#B9B2A0] ${i === active ? "pin-chase" : ""}`} style={{ animationDelay: `${k * 0.12}s` }} />)}</div>
                 <div aria-hidden="true" className="absolute -right-2 inset-y-6 flex flex-col justify-between">{Array.from({ length: 6 }).map((_, k) => <span key={k} className={`w-2 h-2.5 bg-[#B9B2A0] ${i === active ? "pin-chase" : ""}`} style={{ animationDelay: `${k * 0.12}s` }} />)}</div>

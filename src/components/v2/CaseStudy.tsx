@@ -30,8 +30,8 @@ export function CaseStudy({ project, onClose }: { project: Project | null; onClo
   const hw = project.category === "hardware";
   const slides = project.carouselSlides?.length ? project.carouselSlides : [{ src: project.screenshot, alt: project.title, caption: "", tag: "" }];
   const t = hw
-    ? { bg: "bg-[#0B2219]", text: "text-[#F8F3E8]", muted: "text-[#CFC3A8]", kicker: "text-[#E3B23C]", rule: "border-[#2A5443]", chip: "border-[#E3B23C]/40 text-[#E3B23C]", cta: "bg-[#C46A2B] text-[#FBF8F1]", num: "text-[#C46A2B]" }
-    : { bg: "bg-[#F3E6CE]", text: "text-[#081F4D]", muted: "text-[#313B56]", kicker: "text-[#B23A21]", rule: "border-[#0147BA]/20", chip: "border-[#0147BA]/30 text-[#0A3C9A]", cta: "bg-[#0147BA] text-[#F3E6CE]", num: "text-[#E34F33]" };
+    ? { bg: "bg-[#0A2E22]", text: "text-[#F8F3E8]", muted: "text-[#CFC3A8]", kicker: "text-[#E3B23C]", rule: "border-[#2A5443]", chip: "border-[#E3B23C]/40 text-[#E3B23C]", cta: "bg-[#C46A2B] text-[#FBF8F1]", num: "text-[#C46A2B]" }
+    : { bg: "bg-[#F3E6CE]", text: "text-[#01358C]", muted: "text-[#01358C]", kicker: "text-[#B23A21]", rule: "border-[#0147BA]/20", chip: "border-[#0147BA]/30 text-[#0A3C9A]", cta: "bg-[#0147BA] text-[#F3E6CE]", num: "text-[#E34F33]" };
 
   return (
     <div role="dialog" aria-modal="true" aria-label={`${project.title} case study`} className={`case-sheet fixed inset-0 z-[95] ${t.bg} ${t.text}`}>
@@ -49,7 +49,7 @@ export function CaseStudy({ project, onClose }: { project: Project | null; onClo
         {/* Hero screenshot */}
         <div className="relative h-[46vh] sm:h-[60vh] overflow-hidden">
           <Image src={slides[0].src} alt={slides[0].alt} fill priority sizes="100vw" className="object-cover case-hero-img" />
-          <div aria-hidden="true" className={`absolute inset-0 ${hw ? "bg-gradient-to-t from-[#0B2219] via-[#0B2219]/30" : "bg-gradient-to-t from-[#F3E6CE] via-[#F3E6CE]/20"} to-transparent`} />
+          <div aria-hidden="true" className={`absolute inset-0 ${hw ? "bg-gradient-to-t from-[#0A2E22] via-[#0A2E22]/30" : "bg-gradient-to-t from-[#F3E6CE] via-[#F3E6CE]/20"} to-transparent`} />
         </div>
 
         <div className="relative -mt-20 max-w-3xl mx-auto px-5 sm:px-8 pb-24">

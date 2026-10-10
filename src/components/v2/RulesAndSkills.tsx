@@ -67,12 +67,12 @@ export function RulesAndSkills() {
   const shared = SKILLS.filter((s) => SIDE[s.domain] === "shared");
 
   return (
-    <section id="philosophy" className="w-full bg-[#F2EBDD] dark:bg-[#0B2219] py-20 sm:py-28 overflow-x-clip">
+    <section id="philosophy" className="w-full bg-[#F2EBDD] py-20 sm:py-28 overflow-x-clip">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <Reveal>
-          <span className="font-mono text-[10px] tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C]">Both sides · Principles</span>
+          <span className="font-mono text-[10px] tracking-widest uppercase text-[#9A4E1C]">Both sides · Principles</span>
         </Reveal>
-        <KineticHeading text="Four rules I don't break." highlight="don't break." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#0B2219] dark:text-[#F8F3E8]" />
+        <KineticHeading text="Four rules I don't break." highlight="don't break." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#0A2E22]" />
 
         {/* Swipeable rule cards */}
         <div
@@ -86,13 +86,13 @@ export function RulesAndSkills() {
           className="mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-2"
         >
           {PRINCIPLES.map((p, i) => (
-            <article key={p.num} className="snap-start shrink-0 w-[86%] sm:w-[calc(50%-8px)] lg:w-[calc(33%-10px)] bg-[#FBF8F1] dark:bg-[#102E23] border border-[#CFC3A8] dark:border-[#2A5443] p-6 flex flex-col">
-              <span className="font-mono text-[11px] tracking-widest text-[#9A4E1C] dark:text-[#E39A5C]">RULE {p.num}</span>
-              <div className="mt-4 rounded-sm bg-[#0B2219] px-3 py-2">
+            <article key={p.num} className="snap-start shrink-0 w-[86%] sm:w-[calc(50%-8px)] lg:w-[calc(33%-10px)] bg-[#FBF8F1] border border-[#CFC3A8] p-6 flex flex-col">
+              <span className="font-mono text-[11px] tracking-widest text-[#9A4E1C]">RULE {p.num}</span>
+              <div className="mt-4 rounded-sm bg-[#0A2E22] px-3 py-2">
                 <RuleDiagram n={i} />
               </div>
-              <h3 className="mt-5 font-serif text-2xl leading-snug text-[#0B2219] dark:text-[#F8F3E8]">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#39483E] dark:text-[#CFC3A8]">{p.description}</p>
+              <h3 className="mt-5 font-serif text-2xl leading-snug text-[#0A2E22]">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#39483E]">{p.description}</p>
             </article>
           ))}
         </div>
@@ -100,18 +100,18 @@ export function RulesAndSkills() {
           {PRINCIPLES.map((p, i) => (
             <button key={p.num} type="button" onClick={() => toCard(i)} aria-label={`Rule ${p.num}`} className={`h-2 rounded-full transition-all cursor-pointer ${i === active ? "w-8 bg-[#C46A2B]" : "w-2 bg-[#C46A2B]/35"}`} />
           ))}
-          <span className="ml-2 font-mono text-[10px] tracking-widest uppercase text-[#66705F] dark:text-[#A9B39E]">swipe</span>
+          <span className="ml-2 font-mono text-[10px] tracking-widest uppercase text-[#66705F]">swipe</span>
         </div>
 
         {/* Skill tree */}
         <Reveal className="mt-20">
-          <h3 className="font-serif text-3xl text-center text-[#0B2219] dark:text-[#F8F3E8]">The toolkit, as a tree</h3>
+          <h3 className="font-serif text-3xl text-center text-[#0A2E22]">The toolkit, as a tree</h3>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-start">
             {/* Software branch */}
             <div className="space-y-5 md:text-right">
               {software.map((s) => (
                 <div key={s.domain}>
-                  <div className="font-mono text-[10px] tracking-widest text-[#0147BA] dark:text-[#8FB0F0]">{s.domain}</div>
+                  <div className="font-mono text-[10px] tracking-widest text-[#0147BA]">{s.domain}</div>
                   <div className="mt-2 flex flex-wrap gap-1.5 md:justify-end">
                     {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] bg-[#0147BA] text-[#F3E6CE]">{it}</span>)}
                   </div>
@@ -121,14 +121,14 @@ export function RulesAndSkills() {
             {/* Trunk */}
             <div className="flex md:flex-col items-center justify-center gap-3 order-first md:order-none">
               <span className="hidden md:block w-px h-24 bg-gradient-to-b from-[#0147BA] to-[#0F3D2E]" />
-              <span className="px-4 py-2 rounded-full bg-[#0B2219] text-[#E3B23C] font-mono text-[10px] tracking-widest">KASSIM</span>
+              <span className="px-4 py-2 rounded-full bg-[#0A2E22] text-[#E3B23C] font-mono text-[10px] tracking-widest">KASSIM</span>
               <span className="hidden md:block w-px h-24 bg-gradient-to-b from-[#0F3D2E] to-[#C46A2B]" />
             </div>
             {/* Hardware branch */}
             <div className="space-y-5">
               {hardware.map((s) => (
                 <div key={s.domain}>
-                  <div className="font-mono text-[10px] tracking-widest text-[#0F3D2E] dark:text-[#7FC8A3]">{s.domain}</div>
+                  <div className="font-mono text-[10px] tracking-widest text-[#0F3D2E]">{s.domain}</div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] bg-[#0F3D2E] text-[#F8F3E8]">{it}</span>)}
                   </div>
@@ -139,9 +139,9 @@ export function RulesAndSkills() {
           {/* Roots: shared toolchain */}
           {shared.map((s) => (
             <div key={s.domain} className="mt-8 text-center">
-              <div className="font-mono text-[10px] tracking-widest text-[#9A4E1C] dark:text-[#E39A5C]">ROOTS · {s.domain}</div>
+              <div className="font-mono text-[10px] tracking-widest text-[#9A4E1C]">ROOTS · {s.domain}</div>
               <div className="mt-2 flex flex-wrap gap-1.5 justify-center">
-                {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] border border-[#C46A2B] text-[#9A4E1C] dark:text-[#E39A5C]">{it}</span>)}
+                {s.items.map((it) => <span key={it} className="skill-leaf px-2 py-1 text-[11px] border border-[#C46A2B] text-[#9A4E1C]">{it}</span>)}
               </div>
             </div>
           ))}

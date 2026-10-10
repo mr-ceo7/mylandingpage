@@ -75,7 +75,7 @@ export function TraceTicker() {
     <div className="relative z-20 h-0" role="region" aria-label="Selected work">
       <div className="absolute left-0 right-0 -top-12 h-24 overflow-x-clip">
         <div className="absolute -left-8 -right-8 top-0">
-          <Strip className="bg-[#E3B23C] text-[#0B2219] rotate-[2deg] shadow-[0_6px_16px_rgba(0,0,0,0.2)]" direction={-1} />
+          <Strip className="bg-[#E3B23C] text-[#0A2E22] rotate-[2deg] shadow-[0_6px_16px_rgba(0,0,0,0.2)]" direction={-1} />
         </div>
         <div className="absolute -left-8 -right-8 top-11">
           <Strip className="bg-[#C46A2B] text-[#FBF8F1] -rotate-[1.8deg] shadow-[0_10px_24px_rgba(0,0,0,0.3)]" direction={1} />

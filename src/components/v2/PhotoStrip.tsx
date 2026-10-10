@@ -31,7 +31,7 @@ export function PhotoStrip({ photos, tone, aspect = "aspect-[16/10]" }: { photos
       >
         {photos.map((p, i) => (
           <figure key={p.src + i} className="snap-center shrink-0 w-full">
-            <div className={`relative ${aspect} w-full overflow-hidden bg-black/30`}>
+            <div className={`relative ${aspect} w-full overflow-hidden bg-[#0A2E22]/40`}>
               <Image src={p.src} alt={p.alt} fill sizes="(max-width: 768px) 100vw, 640px" className="object-cover" />
             </div>
             {p.caption && <figcaption className="pt-2 text-[11px] leading-snug opacity-80">{p.caption}</figcaption>}
