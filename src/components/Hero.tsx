@@ -1,157 +1,207 @@
+"use client";
+
+import { type CSSProperties } from "react";
 import Image from "next/image";
 import { ArrowDown, ExternalLink, Terminal, Cpu, Layers } from "lucide-react";
+import { useScrollScene } from "./fx/useScrollScene";
+
+// Copper routes behind the hero: right-angle traces ending in vias, drawn in on load
+const traces = [
+  "M -20 120 H 260 V 220 H 520",
+  "M -20 340 H 140 V 470 H 430 V 560",
+  "M 1460 90 H 1180 V 180 H 980",
+  "M 1460 520 H 1290 V 400 H 1060",
+  "M 600 -20 V 60 H 820 V 130",
+  "M 380 700 V 640 H 700 V 600",
+];
+const vias = [
+  [520, 220], [430, 560], [980, 180], [1060, 400], [820, 130], [700, 600],
+];
+
+const components = [
+  {
+    ref: "U2",
+    icon: Terminal,
+    label: "Academic clearinghouse",
+    title: "UoN Student Portal",
+    body: "Institutional claims, administrative resolution queues & Google SSO.",
+  },
+  {
+    ref: "U3",
+    icon: Cpu,
+    label: "Embedded hardware",
+    title: "RP2040 & ESP32",
+    body: "Gearbox Academy RFID attendance, C/C++ interrupt routines & dual-core tasking.",
+  },
+  {
+    ref: "U4",
+    icon: Layers,
+    label: "Production stack",
+    title: "React 19 & Next.js",
+    body: "Over 18 active deployments with Vercel CLI, sub-second LCP & typed APIs.",
+  },
+];
+
+const specs = [
+  ["Primary tools", "C++, TS, Python, Kotlin"],
+  ["Hardware cadence", "Gearbox Academy grad"],
+  ["Hosting runtime", "Vercel Edge & AWS ECS"],
+];
 
 export function Hero() {
-  return (
-    <section className="relative w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-16 sm:py-24 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Micro-mono Header Kicker (No Status Dots, No Emojis) */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-4 mb-12">
-          <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
-              DISPATCH REF: AGY-PORTFOLIO-2026
-            </span>
-            <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-800 dark:text-neutral-200 font-semibold">
-              NAIROBI, KENYA
-            </span>
-          </div>
+  // --exit drives the hero easing back as it scrolls away
+  const ref = useScrollScene<HTMLElement>();
+  const rise = (delay: number) => ({ "--rise-delay": `${delay}s` }) as CSSProperties;
 
-          <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
-            <span>VERCEL CLI DEPLOYMENTS: 20+</span>
-            <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            <span>HARDWARE CAPSTONES: ACTIVE</span>
+  return (
+    <section ref={ref} className="relative w-full bg-surface pt-14 sm:pt-20 pb-10 sm:pb-16 overflow-hidden transition-colors">
+      {/* Board texture: faint grid of drill points */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        style={{ backgroundImage: "radial-gradient(#E3B23C 1px, transparent 1.2px)", backgroundSize: "28px 28px" }}
+      />
+      {/* Copper traces */}
+      <svg aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full pointer-events-none">
+        {traces.map((d, i) => (
+          <path
+            key={d}
+            d={d}
+            pathLength={1}
+            className="hero-trace"
+            style={{ animationDelay: `${0.15 * i}s` }}
+            fill="none"
+            stroke="#C46A2B"
+            strokeOpacity={0.55}
+            strokeWidth={3}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ))}
+        {vias.map(([cx, cy]) => (
+          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={7} fill="none" stroke="#E3B23C" strokeOpacity={0.6} strokeWidth={3} />
+        ))}
+      </svg>
+
+      <div className="hero-exit relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header rule */}
+        <div className="rise-in flex flex-wrap items-center justify-between gap-4 border-b border-neutral-800 pb-4 mb-10 sm:mb-12">
+          <div className="flex items-center gap-3 text-[10px] font-mono tracking-widest uppercase">
+            <span className="text-neutral-400">Portfolio 2026</span>
+            <span className="text-neutral-700">/</span>
+            <span className="text-neutral-200 font-semibold">Nairobi, Kenya</span>
+          </div>
+          <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-neutral-400">
+            <span>Vercel CLI deployments: 20+</span>
+            <span className="text-neutral-700">/</span>
+            <span>Hardware capstones: active</span>
           </div>
         </div>
 
-        {/* Main Editorial Hero Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-          {/* Left Column: Commanding Display Typography & Narrative */}
-          <div className="lg:col-span-8 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+          {/* Left: headline and story */}
+          <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <span className="text-xs font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block">
-                FULL-STACK SOFTWARE & SYSTEMS / IOT ENGINEER
+              <span className="rise-in block text-xs font-mono tracking-widest uppercase text-[#E39A5C] font-semibold" style={rise(0.05)}>
+                Full-stack software & systems / IoT engineer
               </span>
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-neutral-950 dark:text-neutral-50 leading-[1.12]">
-                Architecting resilient transactional rails, production cloud interfaces, and bare-metal microcontroller firmware.
+              <h1 className="rise-in font-serif text-4xl sm:text-5xl lg:text-[64px] tracking-tight text-neutral-50 leading-[1.08]" style={rise(0.12)}>
+                From bare-metal firmware to <span className="italic text-[#E3B23C]">production web platforms.</span>
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed font-sans max-w-3xl">
-              I am Kassim Musa Abass (<span className="font-mono text-neutral-900 dark:text-neutral-100 font-semibold">@mr-ceo7</span>). 
-              My work spans both sides of the physical-digital boundary: from low-level C/C++ firmware and SPI bus protocols on Raspberry Pi Pico and ESP32 hardware, 
-              to institutional platforms, community financial ledgers, and high-frequency web applications deployed worldwide via Vercel.
+            <p className="rise-in text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl" style={rise(0.2)}>
+              I am Kassim Musa Abass (<span className="font-mono text-neutral-100 font-semibold">@mr-ceo7</span>). My work spans both sides of the
+              physical-digital boundary: low-level C/C++ firmware and SPI bus protocols on Raspberry Pi Pico and ESP32 hardware, and the institutional
+              platforms and web applications I deploy on Vercel.
             </p>
 
-            {/* Direct Architecture Metric Cards (Micro-Mono Editorial Grid) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-neutral-200 dark:border-neutral-800">
-              <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/40">
-                <div className="flex items-center gap-2 mb-2 text-neutral-500 dark:text-neutral-400">
-                  <Terminal className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-mono tracking-widest uppercase">ACADEMIC CLEARINGHOUSE</span>
-                </div>
-                <div className="font-serif text-xl font-medium text-neutral-900 dark:text-neutral-100">
-                  UoN Student Portal
-                </div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                  Institutional grade claims, administrative resolution queues & Google SSO.
-                </div>
-              </div>
-
-              <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/40">
-                <div className="flex items-center gap-2 mb-2 text-neutral-500 dark:text-neutral-400">
-                  <Cpu className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-mono tracking-widest uppercase">EMBEDDED HARDWARE</span>
-                </div>
-                <div className="font-serif text-xl font-medium text-neutral-900 dark:text-neutral-100">
-                  RP2040 & ESP32
-                </div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                  Gearbox Academy RFID attendance, C/C++ interrupt routines & dual-core tasking.
-                </div>
-              </div>
-
-              <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/40">
-                <div className="flex items-center gap-2 mb-2 text-neutral-500 dark:text-neutral-400">
-                  <Layers className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-mono tracking-widest uppercase">PRODUCTION STACK</span>
-                </div>
-                <div className="font-serif text-xl font-medium text-neutral-900 dark:text-neutral-100">
-                  React 19 & Next.js
-                </div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
-                  Over 18 active deployments with Vercel CLI, sub-second LCP & typed APIs.
-                </div>
-              </div>
-            </div>
-
-            {/* Action Bar */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+            <div className="rise-in flex flex-col sm:flex-row items-stretch sm:items-center gap-3" style={rise(0.28)}>
               <a
                 href="#flagship"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase bg-neutral-900 text-neutral-50 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200 transition-colors w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase bg-[#C46A2B] text-[#FBF8F1] hover:bg-[#B05B1F] transition-colors"
               >
-                <span>EXPLORE FLAGSHIP ARCHITECTURES</span>
-                <ArrowDown className="w-3.5 h-3.5" />
+                <span>See flagship work</span>
+                <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
               </a>
-
               <a
                 href="#archive"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-neutral-200 text-neutral-800 dark:text-neutral-200 transition-colors w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-700 hover:border-[#E3B23C] text-neutral-200 transition-colors"
               >
-                <span>VERCEL DEPLOYMENT INDEX (20+)</span>
+                <span>Vercel deployment index (20+)</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
+
+            {/* Highlights as components on the board */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              {components.map((c, i) => {
+                const Icon = c.icon;
+                return (
+                  <div
+                    key={c.ref}
+                    className="rise-in group relative p-4 bg-neutral-950/60 border border-neutral-800 hover:border-[#C46A2B] transition-colors"
+                    style={rise(0.36 + i * 0.08)}
+                  >
+                    <span className="absolute -top-2.5 right-3 px-1.5 bg-surface font-mono text-[10px] tracking-widest text-[#E3B23C]">{c.ref}</span>
+                    <div className="flex items-center gap-2 mb-2 text-neutral-400">
+                      <Icon className="w-3.5 h-3.5 text-[#E39A5C]" />
+                      <span className="text-[10px] font-mono tracking-widest uppercase">{c.label}</span>
+                    </div>
+                    <div className="font-serif text-xl text-neutral-50">{c.title}</div>
+                    <div className="text-xs text-neutral-400 mt-1 leading-relaxed">{c.body}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Right Column: Documentary Portrait & Engineering Profile Card */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="border border-neutral-300 dark:border-neutral-800 p-3 bg-neutral-100/80 dark:bg-neutral-900/60">
-              <div className="relative aspect-[4/5] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-                <Image
-                  src="/images/profile.jpeg"
-                  alt="Kassim Musa Abass in engineering workshop"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 360px"
-                  className="object-cover grayscale contrast-110"
-                />
+          {/* Right: portrait as U1, a chip package with copper pins, plus its datasheet */}
+          <div className="lg:col-span-5 lg:pl-6 space-y-5">
+            <div className="rise-in relative mx-auto max-w-[400px] px-5 py-5" style={rise(0.18)}>
+              {/* Pins */}
+              <div aria-hidden="true" className="absolute inset-x-10 top-0 flex justify-between">
+                {Array.from({ length: 8 }).map((_, i) => <span key={i} className="w-2.5 h-5 bg-[#C46A2B] rounded-b-[2px]" />)}
               </div>
-
-              {/* Documentary Caption */}
-              <div className="pt-3 pb-1 border-t border-neutral-200 dark:border-neutral-800 mt-3 space-y-1">
-                <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-neutral-500 dark:text-neutral-400 uppercase">
-                  <span>FIGURE 01: ENGINEER PROFILE</span>
-                  <span>NAIROBI, KE</span>
+              <div aria-hidden="true" className="absolute inset-x-10 bottom-0 flex justify-between">
+                {Array.from({ length: 8 }).map((_, i) => <span key={i} className="w-2.5 h-5 bg-[#C46A2B] rounded-t-[2px]" />)}
+              </div>
+              {/* Package body */}
+              <div className="relative bg-neutral-950 border border-neutral-800 p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+                <span aria-hidden="true" className="absolute top-3 left-3 z-10 w-3 h-3 rounded-full border-2 border-[#E3B23C]" />
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-900">
+                  <Image
+                    src="/images/profile.jpeg"
+                    alt="Kassim Musa Abass in engineering workshop"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 380px"
+                    className="object-cover"
+                  />
                 </div>
-                <p className="text-xs text-neutral-700 dark:text-neutral-300 font-sans leading-normal">
-                  Kassim Musa Abass. Systems engineer, firmware developer, and builder of autonomous transaction systems.
-                </p>
+                <div className="flex items-center justify-between pt-3 text-[10px] font-mono tracking-widest uppercase">
+                  <span className="text-[#E3B23C]">U1 · KMA-2026</span>
+                  <span className="text-neutral-400">Nairobi, KE</span>
+                </div>
               </div>
             </div>
 
-            {/* Quick Field Specs */}
-            <div className="border border-neutral-200 dark:border-neutral-800 p-4 text-[11px] font-mono space-y-2 bg-[#faf9f5] dark:bg-[#0d0f11]">
-              <div className="flex justify-between border-b border-neutral-200/80 dark:border-neutral-800/80 pb-1">
-                <span className="text-neutral-500">PRIMARY TOOLS</span>
-                <span className="text-neutral-900 dark:text-neutral-100 font-medium">C++, TS, PYTHON, KOTLIN</span>
-              </div>
-              <div className="flex justify-between border-b border-neutral-200/80 dark:border-neutral-800/80 pb-1">
-                <span className="text-neutral-500">HARDWARE CADENCE</span>
-                <span className="text-neutral-900 dark:text-neutral-100 font-medium">GEARBOX ACADEMY GRAD</span>
-              </div>
-              <div className="flex justify-between border-b border-neutral-200/80 dark:border-neutral-800/80 pb-1">
-                <span className="text-neutral-500">HOSTING RUNTIME</span>
-                <span className="text-neutral-900 dark:text-neutral-100 font-medium">VERCEL EDGE & AWS ECS</span>
-              </div>
+            {/* Datasheet */}
+            <div className="rise-in border border-neutral-800 bg-neutral-950/60 p-4 text-[11px] font-mono space-y-2 max-w-[400px] mx-auto" style={rise(0.3)}>
+              <div className="text-[10px] tracking-widest uppercase text-[#E39A5C] pb-1">Datasheet</div>
+              {specs.map(([k, v]) => (
+                <div key={k} className="flex justify-between gap-4 border-b border-neutral-800 pb-1">
+                  <span className="text-neutral-400 uppercase">{k}</span>
+                  <span className="text-neutral-100 font-medium uppercase text-right">{v}</span>
+                </div>
+              ))}
               <div className="flex justify-between items-center py-0.5">
-                <span className="text-neutral-500">SOURCE CODE</span>
+                <span className="text-neutral-400 uppercase">Source code</span>
                 <a
                   href="https://github.com/mr-ceo7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-950 dark:text-neutral-50 font-semibold underline underline-offset-2 hover:text-[#b94a28] inline-flex items-center min-h-[36px] py-1"
+                  className="text-neutral-50 font-semibold underline underline-offset-2 hover:text-[#E3B23C] inline-flex items-center min-h-[36px] py-1"
                 >
                   GITHUB.COM/MR-CEO7 ↗
                 </a>

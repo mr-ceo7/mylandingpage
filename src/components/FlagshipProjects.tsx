@@ -1,40 +1,48 @@
-import { ExternalLink, Terminal, CheckCircle2, ArrowRight } from "lucide-react";
+"use client";
+
+import { ExternalLink, Terminal, ArrowRight } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { PROJECTS, Project } from "../data/projects";
 import { ProjectCarousel } from "./ProjectCarousel";
+import { KineticHeading } from "./fx/KineticHeading";
+import { Reveal } from "./fx/Reveal";
 
 export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Project) => void }) {
   const flagships = PROJECTS.filter((p) => p.isFlagship);
 
   return (
-    <section id="flagship" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-20 transition-colors">
+    <section id="flagship" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-surface py-20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
               SECTION 01 / CASE STUDIES
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
-              Flagship Engineering Architectures
-            </h2>
+            <KineticHeading
+              text="Flagship Projects, in Depth"
+              highlight="in Depth"
+              className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal"
+            />
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
-            Detailed dissections of core transaction engines, low-level microcontroller systems, and high-frequency production web platforms.
+            How the six projects I am proudest of are built: the problem, the architecture, and the decisions behind it.
           </p>
         </div>
+        </Reveal>
 
         {/* Flagship Cards Grid */}
         <div className="space-y-16">
           {flagships.map((project, idx) => (
+            <Reveal key={project.id} variant={idx % 2 === 0 ? "left" : "right"}>
             <article
-              key={project.id}
-              className="border border-neutral-300 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/40 p-4 sm:p-8 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
+              className="border border-neutral-300 dark:border-neutral-800 bg-neutral-50/60 dark:bg-neutral-900/40 p-4 sm:p-8 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
             >
               {/* Dossier Meta Top Bar */}
               <div className="flex flex-wrap items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4 mb-6 gap-2">
                 <div className="flex items-center gap-3 text-[10px] font-mono tracking-widest uppercase">
-                  <span className="text-[#b94a28] dark:text-[#e06d44] font-semibold">
+                  <span className="text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
                     DOSSIER 0{idx + 1}
                   </span>
                   <span className="text-neutral-300 dark:text-neutral-700">/</span>
@@ -152,7 +160,7 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
                       key={i}
                       className="flex items-start gap-2.5 p-3 border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/50"
                     >
-                      <Terminal className="w-3.5 h-3.5 text-[#b94a28] dark:text-[#e06d44] mt-0.5 flex-shrink-0" />
+                      <Terminal className="w-3.5 h-3.5 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
                       <span className="text-xs text-neutral-700 dark:text-neutral-300 font-sans leading-normal">
                         {detail}
                       </span>
@@ -161,6 +169,7 @@ export function FlagshipProjects({ onSelectProject }: { onSelectProject: (p: Pro
                 </div>
               </div>
             </article>
+            </Reveal>
           ))}
         </div>
       </div>

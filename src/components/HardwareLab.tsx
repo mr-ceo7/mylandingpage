@@ -2,11 +2,16 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { Cpu, FileText, Download, ExternalLink, HardDrive, Zap, ChevronLeft, ChevronRight } from "lucide-react";
-import { LAB_REPORTS, HARDWARE_PHOTOS, LabReport } from "../data/hardwareReports";
+import { Cpu, FileText, Download, ChevronLeft, ChevronRight } from "lucide-react";
+import { LAB_REPORTS, HARDWARE_PHOTOS } from "../data/hardwareReports";
+import { KineticHeading } from "./fx/KineticHeading";
+import { Reveal } from "./fx/Reveal";
 
 export function HardwareLab() {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const [logbookOpen, setLogbookOpen] = useState(false);
+  // Three reports to start; the rest are one tap away
+  const visibleReports = logbookOpen ? LAB_REPORTS : LAB_REPORTS.slice(0, 3);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -40,27 +45,32 @@ export function HardwareLab() {
   };
 
   return (
-    <section id="hardware" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-20 transition-colors">
+    <section id="hardware" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-surface py-20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
-              SECTION 03 / PHYSICAL TELEMETRY
+            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
+              SECTION 03 / HARDWARE LAB
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
-              Embedded Systems & Hardware Laboratory
-            </h2>
+            <KineticHeading
+              text="Embedded Systems & Hardware Laboratory"
+              highlight="Hardware Laboratory"
+              className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal"
+            />
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
             Documented engineering fieldwork from the Gearbox Academy Embedded Systems curriculum, featuring firmware architectures, bench schematics, and capstone telemetry.
           </p>
         </div>
+        </Reveal>
 
         {/* Featured Hardware Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           {/* Left Column: Interactive Hardware Photo Gallery */}
-          <div className="lg:col-span-7 space-y-4">
+          <Reveal variant="left" className="lg:col-span-7">
+<div className="space-y-4">
             <div className="border border-neutral-300 dark:border-neutral-800 p-3 bg-neutral-100/70 dark:bg-neutral-900/50">
               <div
                 className="relative aspect-[16/10] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-950 touch-pan-y"
@@ -133,11 +143,13 @@ export function HardwareLab() {
               ))}
             </div>
           </div>
+          </Reveal>
 
           {/* Right Column: Hardware Specification Breakdown */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="border border-neutral-300 dark:border-neutral-800 p-6 bg-white/70 dark:bg-neutral-900/40 space-y-4">
-              <div className="flex items-center gap-2 text-[#b94a28] dark:text-[#e06d44]">
+          <Reveal variant="right" delay={120} className="lg:col-span-5">
+<div className="space-y-6">
+            <div className="border border-neutral-300 dark:border-neutral-800 p-6 bg-neutral-50/70 dark:bg-neutral-900/40 space-y-4">
+              <div className="flex items-center gap-2 text-[#9A4E1C] dark:text-[#E39A5C]">
                 <Cpu className="w-4 h-4" />
                 <span className="text-[10px] font-mono tracking-widest uppercase font-semibold">
                   CAPSTONE HARDWARE ARCHITECTURE
@@ -190,13 +202,14 @@ export function HardwareLab() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
 
         {/* Laboratory Curriculum & Field Reports */}
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-2">
             <h3 className="text-xs font-mono tracking-widest uppercase text-neutral-800 dark:text-neutral-200 font-semibold">
-              FIELD DISPATCHES: 12-WEEK EMBEDDED CURRICULUM LOGS
+              LAB LOGBOOK: 12-WEEK EMBEDDED CURRICULUM
             </h3>
             <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400">
               GEARBOX ACADEMY REPOSITORY
@@ -204,13 +217,13 @@ export function HardwareLab() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {LAB_REPORTS.map((report) => (
+            {visibleReports.map((report, i) => (
+              <Reveal key={report.week} delay={(i % 3) * 110}>
               <div
-                key={report.week}
-                className="border border-neutral-300 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
+                className="border border-neutral-300 dark:border-neutral-800 bg-neutral-50/60 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
               >
                 <div>
-                  <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-[#b94a28] dark:text-[#e06d44] font-semibold mb-2">
+                  <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-[#9A4E1C] dark:text-[#E39A5C] font-semibold mb-2">
                     <span>{report.week}</span>
                     <span className="text-neutral-400 font-normal">ACADEMY LOG</span>
                   </div>
@@ -243,13 +256,27 @@ export function HardwareLab() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] sm:min-h-[36px] text-[10px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900/80 text-neutral-900 dark:text-neutral-100 hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors w-full justify-center"
                   >
-                    <Download className="w-3 h-3 text-[#b94a28] dark:text-[#e06d44]" />
+                    <Download className="w-3 h-3 text-[#9A4E1C] dark:text-[#E39A5C]" />
                     <span>DOWNLOAD LAB REPORT (PDF)</span>
                   </a>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
+
+          {LAB_REPORTS.length > 3 && (
+            <div className="flex justify-center pt-2">
+              <button
+                type="button"
+                onClick={() => setLogbookOpen((v) => !v)}
+                className="inline-flex items-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-400 dark:border-neutral-700 hover:border-[#C46A2B] text-neutral-900 dark:text-neutral-100 transition-colors cursor-pointer"
+              >
+                {logbookOpen ? "Close the logbook" : `Open the full logbook (${LAB_REPORTS.length} reports)`}
+                <span className={`transition-transform ${logbookOpen ? "rotate-180" : ""}`}>↓</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

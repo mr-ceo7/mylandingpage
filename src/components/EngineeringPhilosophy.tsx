@@ -1,4 +1,7 @@
-import { Cpu, Server, Globe, Shield, Terminal, ArrowRight } from "lucide-react";
+"use client";
+
+import { KineticHeading } from "./fx/KineticHeading";
+import { Reveal } from "./fx/Reveal";
 
 export function EngineeringPhilosophy() {
   const principles = [
@@ -48,32 +51,36 @@ export function EngineeringPhilosophy() {
   ];
 
   return (
-    <section id="philosophy" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-20 transition-colors">
+    <section id="philosophy" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-surface py-20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
-              SECTION 05 // TECHNICAL MANIFESTO
+            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
+              SECTION 05 // PRINCIPLES
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
-              Systems Engineering Discipline
-            </h2>
+            <KineticHeading
+              text="How I Build Things"
+              highlight="Build Things"
+              className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal"
+            />
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
-            The technical invariants and architectural philosophies governing every line of code deployed across hardware and cloud.
+            The rules I follow on every project, from firmware on a microcontroller to services in the cloud.
           </p>
         </div>
+        </Reveal>
 
         {/* Principles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {principles.map((p) => (
+          {principles.map((p, i) => (
+            <Reveal key={p.num} variant={i % 2 === 0 ? "left" : "right"}>
             <div
-              key={p.num}
-              className="border border-neutral-300 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/40 p-6 sm:p-8 space-y-4"
+              className="border border-neutral-300 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-900/40 p-6 sm:p-8 space-y-4"
             >
               <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3">
-                <span className="text-xs font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold">
+                <span className="text-xs font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
                   RULE // {p.num}
                 </span>
                 <span className="text-[10px] font-mono text-neutral-400 uppercase">
@@ -87,6 +94,7 @@ export function EngineeringPhilosophy() {
                 {p.description}
               </p>
             </div>
+            </Reveal>
           ))}
         </div>
 
@@ -102,9 +110,10 @@ export function EngineeringPhilosophy() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skillMatrix.map((col) => (
-              <div key={col.domain} className="space-y-3">
-                <div className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-1">
+            {skillMatrix.map((col, i) => (
+              <Reveal key={col.domain} delay={i * 90}>
+              <div className="space-y-3">
+                <div className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-1">
                   {col.domain}
                 </div>
                 <ul className="space-y-1.5">
@@ -119,6 +128,7 @@ export function EngineeringPhilosophy() {
                   ))}
                 </ul>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,33 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
 
-export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-  const [mounted, setMounted] = useState(false);
+type Theme = "light" | "dark";
 
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored);
-      document.documentElement.classList.toggle("dark", stored === "dark");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
-  }, []);
+// The <html> class is the source of truth (set before paint by the script in layout.tsx),
+// so the toggle subscribes to it instead of keeping its own copy in state.
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  return () => observer.disconnect();
+}
+const getTheme = (): Theme => (document.documentElement.classList.contains("dark") ? "dark" : "light");
+// Unknown during server rendering: show the neutral placeholder until hydrated
+const getServerTheme = (): Theme | null => null;
+
+export function ThemeToggle() {
+  const theme = useSyncExternalStore<Theme | null>(subscribe, getTheme, getServerTheme);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
     document.documentElement.classList.toggle("dark", nextTheme === "dark");
   };
 
-  if (!mounted) {
+  if (theme === null) {
     return (
       <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-1 min-h-[44px] sm:min-h-[32px] text-[11px] font-mono tracking-widest uppercase border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-500 opacity-70">
         <Moon className="w-3.5 h-3.5" />

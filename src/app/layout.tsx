@@ -82,12 +82,20 @@ export default function RootLayout({
                     document.documentElement.classList.remove('dark');
                   }
                 } catch (e) {}
+                try {
+                  // Intro curtain plays once per session and never for reduced motion
+                  if (sessionStorage.getItem('kma-intro-seen') === '1' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.documentElement.classList.add('intro-seen');
+                  }
+                } catch (e) {
+                  document.documentElement.classList.add('intro-seen');
+                }
               })();
             `,
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-[#faf9f5] dark:bg-[#0d0f11] text-neutral-900 dark:text-neutral-100 transition-colors">
+      <body className="min-h-full flex flex-col font-sans bg-surface text-neutral-900 dark:text-neutral-100 transition-colors">
         {children}
       </body>
     </html>

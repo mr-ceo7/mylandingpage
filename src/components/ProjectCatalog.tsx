@@ -2,15 +2,18 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Search, ExternalLink, Filter, Code2, ArrowUpRight } from "lucide-react";
+import { Search, ExternalLink, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { PROJECTS, Project } from "../data/projects";
+import { KineticHeading } from "./fx/KineticHeading";
+import { Reveal } from "./fx/Reveal";
 
 type CategoryFilter = "all" | "ai" | "web" | "hardware";
 
 export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Project) => void }) {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showAll, setShowAll] = useState(false);
 
   const categories = [
     { id: "all", label: "ALL SYSTEMS" },
@@ -35,28 +38,36 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
     });
   }, [activeCategory, searchQuery]);
 
+  // Show 6 to start; filtering or searching always shows every match
+  const isNarrowed = activeCategory !== "all" || searchQuery.trim() !== "";
+  const visibleProjects = showAll || isNarrowed ? filteredProjects : filteredProjects.slice(0, 6);
+
   return (
-    <section id="archive" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-20 transition-colors">
+    <section id="archive" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-surface py-20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-8 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
               SECTION 02 / DEPLOYMENT REGISTER
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
-              Active Vercel & Embedded Systems Archive
-            </h2>
+            <KineticHeading
+              text={"Everything I've Shipped"}
+              highlight="Shipped"
+              className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal"
+            />
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
-            Complete inventory of live deployments, edge web applications, developer gateways, and firmware builds created on this machine.
+            Live deployments, web apps, developer tools and firmware builds. Filter by type or search for a stack.
           </p>
         </div>
+        </Reveal>
 
         {/* Filter Bar & Search */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
           {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 border border-neutral-300 dark:border-neutral-800 p-1 bg-white dark:bg-neutral-900 overflow-x-auto no-scrollbar touch-pan-x flex-nowrap sm:flex-wrap">
+          <div className="flex items-center gap-1.5 border border-neutral-300 dark:border-neutral-800 p-1 bg-neutral-50 dark:bg-neutral-900 overflow-x-auto no-scrollbar touch-pan-x flex-nowrap sm:flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -81,7 +92,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="SEARCH BY TECH, KEYWORD, PROTOCOL..."
-              className="w-full pl-9 pr-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-[40px] text-xs font-mono bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors"
+              className="w-full pl-9 pr-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-[40px] text-xs font-mono bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors"
             />
           </div>
         </div>
@@ -94,15 +105,15 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+          {visibleProjects.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 3) * 110}>
             <div
-              key={project.id}
-              className="group border border-neutral-300 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
+              className="group border border-neutral-300 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-900/40 p-5 flex flex-col justify-between hover:border-neutral-900 dark:hover:border-neutral-200 transition-colors"
             >
               <div>
                 {/* Meta Header */}
                 <div className="flex items-center justify-between text-[10px] font-mono tracking-widest text-neutral-500 dark:text-neutral-400 uppercase mb-3">
-                  <span className="text-[#b94a28] dark:text-[#e06d44] font-semibold">
+                  <span className="text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
                     {project.categoryLabel}
                   </span>
                   <span>{project.year}</span>
@@ -121,12 +132,12 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                     <span className="truncate max-w-[180px]">
                       {project.liveUrl ? project.liveUrl.replace("https://", "") : "telemetry station"}
                     </span>
-                    <span className="uppercase text-[#e06d44]">SNAPSHOT</span>
+                    <span className="uppercase text-[#E39A5C]">SNAPSHOT</span>
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-xl font-normal text-neutral-950 dark:text-neutral-50 group-hover:text-[#b94a28] dark:group-hover:text-[#e06d44] transition-colors">
+                <h3 className="font-serif text-xl font-normal text-neutral-950 dark:text-neutral-50 group-hover:text-[#9A4E1C] dark:group-hover:text-[#E39A5C] transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 mt-1 mb-3">
@@ -165,7 +176,7 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                     className="text-[10px] font-mono tracking-widest uppercase text-neutral-900 dark:text-neutral-100 hover:underline underline-offset-4 flex items-center gap-1.5 py-2 min-h-[44px]"
                   >
                     <span>SPEC SHEET</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#b94a28] dark:text-[#e06d44]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#9A4E1C] dark:text-[#E39A5C]" />
                   </button>
 
                   <div className="flex items-center gap-1">
@@ -195,8 +206,22 @@ export function ProjectCatalog({ onSelectProject }: { onSelectProject: (p: Proje
                 </div>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
+
+        {!isNarrowed && filteredProjects.length > 6 && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="group inline-flex items-center gap-2 px-5 py-3 min-h-[44px] text-xs font-mono tracking-widest uppercase border border-neutral-700 hover:border-[#E3B23C] text-neutral-100 transition-colors cursor-pointer"
+            >
+              {showAll ? "Show fewer" : `Show all ${filteredProjects.length} projects`}
+              <span className={`transition-transform ${showAll ? "rotate-180" : ""}`}>↓</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

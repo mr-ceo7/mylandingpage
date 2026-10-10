@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
-import { X, ExternalLink, Terminal, CheckCircle2, Cpu } from "lucide-react";
+import { X, ExternalLink, Terminal } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { Project } from "../data/projects";
 import { ProjectCarousel } from "./ProjectCarousel";
@@ -39,13 +38,13 @@ export function ProjectModal({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-[#faf9f5] dark:bg-[#0d0f11] border border-neutral-300 dark:border-neutral-700 shadow-2xl p-4 sm:p-8 space-y-5 sm:space-y-6"
+        className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-surface border border-neutral-300 dark:border-neutral-700 shadow-2xl p-4 sm:p-8 space-y-5 sm:space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
         <div className="flex items-start justify-between border-b border-neutral-200 dark:border-neutral-800 pb-4 gap-3">
           <div>
-            <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold">
+            <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold">
               <span>SPECIFICATION SHEET</span>
               <span className="text-neutral-400">/</span>
               <span>{project.categoryLabel}</span>
@@ -138,9 +137,9 @@ export function ProjectModal({
               {project.architectureDetails.map((detail, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2.5 p-3 border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/40"
+                  className="flex items-start gap-2.5 p-3 border border-neutral-200 dark:border-neutral-800 bg-neutral-50/60 dark:bg-neutral-900/40"
                 >
-                  <Terminal className="w-3.5 h-3.5 text-[#b94a28] dark:text-[#e06d44] mt-0.5 flex-shrink-0" />
+                  <Terminal className="w-3.5 h-3.5 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
                   <span className="text-xs text-neutral-800 dark:text-neutral-200 font-sans leading-normal">
                     {detail}
                   </span>

@@ -96,7 +96,7 @@ export function ProjectCarousel({
             >
               {isAutoPlaying ? (
                 <>
-                  <Pause className="w-3 h-3 text-[#b94a28] dark:text-[#e06d44]" />
+                  <Pause className="w-3 h-3 text-[#9A4E1C] dark:text-[#E39A5C]" />
                   <span className="hidden sm:inline">SLIDESHOW:</span> ACTIVE
                 </>
               ) : (
@@ -119,7 +119,7 @@ export function ProjectCarousel({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-[#b94a28] dark:text-[#e06d44] min-h-[36px] py-1 px-1"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors flex items-center gap-1 font-semibold text-[#9A4E1C] dark:text-[#E39A5C] min-h-[36px] py-1 px-1"
             >
               <span>VISIT</span>
               <ExternalLink className="w-2.5 h-2.5" />
@@ -143,7 +143,7 @@ export function ProjectCarousel({
               className={`px-2.5 py-1 text-[10px] font-mono tracking-wider uppercase transition-colors flex-shrink-0 min-h-[36px] sm:min-h-[30px] flex items-center ${
                 currentIndex === idx
                   ? "bg-neutral-950 text-neutral-50 dark:bg-neutral-100 dark:text-neutral-950 font-semibold"
-                  : "bg-white/80 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
+                  : "bg-neutral-50/80 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
               }`}
             >
               {slide.tag || `PART 0${idx + 1}`}
@@ -198,9 +198,9 @@ export function ProjectCarousel({
       </div>
 
       {/* Caption & Documentary Context Bar */}
-      <div className="p-3 sm:p-3.5 border-t border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div className="p-3 sm:p-3.5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50/80 dark:bg-neutral-900/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div className="space-y-0.5">
-          <div className="text-[10px] font-mono tracking-widest text-[#b94a28] dark:text-[#e06d44] font-semibold uppercase">
+          <div className="text-[10px] font-mono tracking-widest text-[#9A4E1C] dark:text-[#E39A5C] font-semibold uppercase">
             DOCUMENTARY DISPATCH // {currentSlide.tag || `SCREEN 0${currentIndex + 1}`}
           </div>
           <p className="text-xs font-mono text-neutral-700 dark:text-neutral-300 leading-normal">
@@ -219,7 +219,7 @@ export function ProjectCarousel({
                 aria-label={`Switch to screen ${idx + 1}: ${slide.tag}`}
                 className={`relative w-12 h-10 sm:w-14 sm:h-9 min-h-[40px] sm:min-h-[36px] border overflow-hidden transition-all flex-shrink-0 ${
                   currentIndex === idx
-                    ? "border-neutral-950 dark:border-neutral-50 ring-1 ring-[#b94a28] dark:ring-[#e06d44] opacity-100"
+                    ? "border-neutral-950 dark:border-neutral-50 ring-1 ring-[#9A4E1C] dark:ring-[#E39A5C] opacity-100"
                     : "border-neutral-300 dark:border-neutral-700 opacity-50 hover:opacity-100"
                 }`}
               >

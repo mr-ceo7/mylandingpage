@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { Award, Users, BookOpen, Wrench, ChevronLeft, ChevronRight } from "lucide-react";
+import { KineticHeading } from "./fx/KineticHeading";
+import { Reveal } from "./fx/Reveal";
 
 interface MentorshipPhoto {
   src: string;
@@ -73,27 +75,32 @@ export function ScienceMentorship() {
   };
 
   return (
-    <section id="mentorship" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] py-20 transition-colors">
+    <section id="mentorship" className="w-full border-b border-neutral-200 dark:border-neutral-800 bg-surface py-20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        <Reveal>
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-300 dark:border-neutral-800 pb-6 mb-12 gap-4">
           <div>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-[#b94a28] dark:text-[#e06d44] font-semibold block mb-1">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C] font-semibold block mb-1">
               SECTION 04 // FIELD LEADERSHIP & MENTORSHIP
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal">
-              Science Competitions & STEM Mentorship
-            </h2>
+            <KineticHeading
+              text="Science Competitions & STEM Mentorship"
+              highlight="STEM Mentorship"
+              className="font-serif text-3xl sm:text-4xl text-neutral-950 dark:text-neutral-50 tracking-tight font-normal"
+            />
           </div>
           <p className="text-xs font-mono text-neutral-500 dark:text-neutral-400 max-w-md">
             Training and mentoring high school engineering teams across Kenya, guiding students from initial breadboard prototypes to the Young Scientists Kenya (YSK) national exhibition stage.
           </p>
         </div>
+        </Reveal>
 
         {/* Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Photo Carousel with Editorial Frame */}
-          <div className="lg:col-span-7 space-y-4">
+          <Reveal variant="left" className="lg:col-span-7">
+<div className="space-y-4">
             <div className="border border-neutral-300 dark:border-neutral-800 p-3 bg-neutral-100/70 dark:bg-neutral-900/50">
               <div
                 className="relative aspect-[4/3] w-full border border-neutral-200 dark:border-neutral-800 overflow-hidden bg-neutral-950 touch-pan-y"
@@ -111,7 +118,7 @@ export function ScienceMentorship() {
                 />
 
                 {/* Tag Overlay */}
-                <div className="absolute top-3 left-3 bg-neutral-950/85 backdrop-blur-sm border border-neutral-700 px-2.5 py-1 text-[10px] font-mono tracking-widest text-[#e06d44] uppercase">
+                <div className="absolute top-3 left-3 bg-neutral-950/85 backdrop-blur-sm border border-neutral-700 px-2.5 py-1 text-[10px] font-mono tracking-widest text-[#E39A5C] uppercase">
                   {MENTORSHIP_PHOTOS[selectedPhoto].tag}
                 </div>
 
@@ -172,11 +179,13 @@ export function ScienceMentorship() {
               ))}
             </div>
           </div>
+          </Reveal>
 
           {/* Right Column: Mentorship Pillars & Outcomes */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="border border-neutral-300 dark:border-neutral-800 p-6 bg-white/70 dark:bg-neutral-900/40 space-y-4">
-              <div className="flex items-center gap-2 text-[#b94a28] dark:text-[#e06d44]">
+          <Reveal variant="right" delay={120} className="lg:col-span-5">
+<div className="space-y-6">
+            <div className="border border-neutral-300 dark:border-neutral-800 p-6 bg-neutral-50/70 dark:bg-neutral-900/40 space-y-4">
+              <div className="flex items-center gap-2 text-[#9A4E1C] dark:text-[#E39A5C]">
                 <Award className="w-4 h-4" />
                 <span className="text-[10px] font-mono tracking-widest uppercase font-semibold">
                   COMPETITIVE ENGINEERING PEDAGOGY
@@ -198,7 +207,7 @@ export function ScienceMentorship() {
               {/* Mentorship Core Pillars */}
               <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 space-y-3">
                 <div className="flex items-start gap-3">
-                  <Wrench className="w-4 h-4 text-[#b94a28] dark:text-[#e06d44] mt-0.5 flex-shrink-0" />
+                  <Wrench className="w-4 h-4 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 uppercase">
                       Hands-On Circuit Prototyping
@@ -210,7 +219,7 @@ export function ScienceMentorship() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <BookOpen className="w-4 h-4 text-[#b94a28] dark:text-[#e06d44] mt-0.5 flex-shrink-0" />
+                  <BookOpen className="w-4 h-4 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 uppercase">
                       Embedded Software Foundations
@@ -222,7 +231,7 @@ export function ScienceMentorship() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Users className="w-4 h-4 text-[#b94a28] dark:text-[#e06d44] mt-0.5 flex-shrink-0" />
+                  <Users className="w-4 h-4 text-[#9A4E1C] dark:text-[#E39A5C] mt-0.5 flex-shrink-0" />
                   <div>
                     <h4 className="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 uppercase">
                       National Exhibition Defense
@@ -243,13 +252,14 @@ export function ScienceMentorship() {
                   href="https://ksef-display-board.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center min-h-[44px] sm:min-h-[36px] py-1 text-xs font-mono text-[#b94a28] dark:text-[#e06d44] hover:underline uppercase"
+                  className="inline-flex items-center min-h-[44px] sm:min-h-[36px] py-1 text-xs font-mono text-[#9A4E1C] dark:text-[#E39A5C] hover:underline uppercase"
                 >
                   KSEF Display Board &rarr;
                 </a>
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

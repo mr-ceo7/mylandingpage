@@ -15,12 +15,12 @@ export function Navbar() {
     { label: "VERCEL ARCHIVE", href: "#archive" },
     { label: "HARDWARE LAB", href: "#hardware" },
     { label: "MENTORSHIP", href: "#mentorship" },
-    { label: "ENGINEERING PHILOSOPHY", href: "#philosophy" },
+    { label: "PRINCIPLES", href: "#philosophy" },
     { label: "CONTACT", href: "#contact" }
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#faf9f5]/90 dark:bg-[#0d0f11]/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors">
+    <header className="sticky top-0 z-50 w-full bg-surface/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Monogram / Title */}
         <Link href="/" className="flex items-center gap-3 group">
@@ -85,7 +85,7 @@ export function Navbar() {
 
       {/* Unified Mobile Drawer (No double stacked navigation bars) */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-neutral-300 dark:border-neutral-800 bg-[#faf9f5] dark:bg-[#0d0f11] px-4 py-3 space-y-1">
+        <div className="md:hidden border-b border-neutral-300 dark:border-neutral-800 bg-surface px-4 py-3 space-y-1">
           {navItems.map((item) => (
             <a
               key={item.href}
