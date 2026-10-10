@@ -19,7 +19,7 @@ export function DeskHero() {
   const ref = useScrollScene<HTMLElement>();
 
   return (
-    <section ref={ref} className="relative w-full overflow-hidden bg-[#F2EBDD] dark:bg-[#0B2219] pt-10 pb-24 sm:pt-16 sm:pb-32">
+    <section ref={ref} className="relative w-full overflow-hidden bg-[#F2EBDD] dark:bg-[#0B2219] pt-24 pb-24 sm:pt-28 sm:pb-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Name plate */}
         <div className="rise-in text-center">

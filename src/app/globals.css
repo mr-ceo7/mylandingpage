@@ -460,3 +460,22 @@ html:not(.intro-seen) .desk-photo { animation-delay: 1.8s; }
   .story-caption { opacity: 1; transform: none; }
   .card-flip { transition: none; }
 }
+
+/* Pill nav: act label slides in when the act changes; full-screen menu */
+@keyframes nav-act { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.nav-act { animation: nav-act 0.35s ease-out both; }
+@keyframes sheet-down { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+.menu-sheet { animation: sheet-down 0.45s cubic-bezier(0.7, 0, 0.2, 1) both; }
+@keyframes item-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.menu-item { animation: item-in 0.4s ease-out both; }
+
+/* Case study: slides up full-screen, hero image settles, sections rise in */
+@keyframes case-up { from { transform: translateY(100%); } to { transform: none; } }
+.case-sheet { animation: case-up 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes case-hero { from { transform: scale(1.12); } to { transform: scale(1); } }
+.case-hero-img { animation: case-hero 1.2s ease-out both; }
+.case-rise { animation: item-in 0.55s ease-out 0.25s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-act, .menu-sheet, .menu-item, .case-sheet, .case-hero-img, .case-rise { animation: none; }
+}

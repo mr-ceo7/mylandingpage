@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "@/components/Navbar";
-import { ProjectModal } from "@/components/ProjectModal";
+import { PillNav } from "@/components/v2/PillNav";
+import { CaseStudy } from "@/components/v2/CaseStudy";
 import { Project } from "@/data/projects";
 import { Band } from "@/components/fx/Band";
 import { TraceTicker } from "@/components/fx/TraceTicker";
@@ -31,7 +31,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-surface text-neutral-900 dark:text-neutral-100 transition-colors selection:bg-copper selection:text-white">
       <IntroCurtain />
       <SmoothScroll />
-      <Navbar />
+      <PillNav />
 
       {/* Two acts in one scroll: Software (Electric Blue / Tangerine / Warm Cream), a handoff,
           then Hardware (PCB green / copper / solder cream). Principles and contact close the page. */}
@@ -90,7 +90,7 @@ export default function Home() {
           setSpecProject(p);
         }}
       />
-      <ProjectModal project={specProject} onClose={() => setSpecProject(null)} />
+      <CaseStudy project={specProject} onClose={() => setSpecProject(null)} />
     </div>
   );
 }
