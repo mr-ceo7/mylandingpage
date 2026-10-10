@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type CSSProperties } from "react";
+import { type CSSProperties } from "react";
 import { PRINCIPLES, SKILLS } from "../../data/site";
 import { KineticHeading } from "../fx/KineticHeading";
 import { Reveal } from "../fx/Reveal";
@@ -55,13 +55,6 @@ const SIDE: Record<string, "software" | "hardware" | "shared"> = {
 };
 
 export function RulesAndSkills() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-  const toCard = (i: number) => {
-    const el = ref.current;
-    const c = el?.children[i] as HTMLElement | undefined;
-    if (el && c) el.scrollTo({ left: c.offsetLeft - el.offsetLeft, behavior: "smooth" });
-  };
   const software = SKILLS.filter((s) => SIDE[s.domain] === "software");
   const hardware = SKILLS.filter((s) => SIDE[s.domain] === "hardware");
   const shared = SKILLS.filter((s) => SIDE[s.domain] === "shared");
@@ -74,35 +67,24 @@ export function RulesAndSkills() {
         </Reveal>
         <KineticHeading text="Four rules I don't break." highlight="don't break." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#0A2E22]" />
 
-        {/* Swipeable rule cards */}
-        <div
-          ref={ref}
-          data-lenis-prevent
-          onScroll={(e) => {
-            const el = e.currentTarget;
-            const w = (el.children[0] as HTMLElement | undefined)?.offsetWidth ?? 1;
-            setActive(Math.round(el.scrollLeft / (w + 16)));
-          }}
-          className="mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-2"
-        >
+        {/* Rule cards stacked down the page, one per screen, alternating sides */}
+        <div className="mt-12 space-y-10 sm:space-y-16">
           {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.num} variant="right" delay={i * 130} className="snap-start shrink-0 w-[86%] sm:w-[calc(50%-8px)] lg:w-[calc(33%-10px)]">
-            <article className="rule-card h-full bg-[#FBF8F1] border border-[#CFC3A8] p-6 flex flex-col">
-              <span className="font-mono text-[11px] tracking-widest text-[#9A4E1C]">RULE {p.num}</span>
-              <div className="mt-4 rounded-sm bg-[#0A2E22] px-3 py-2">
-                <RuleDiagram n={i} />
-              </div>
-              <h3 className="mt-5 font-serif text-2xl leading-snug text-[#0A2E22]">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#39483E]">{p.description}</p>
-            </article>
+            <Reveal key={p.num} variant={i % 2 === 0 ? "left" : "right"} className={`min-h-[60vh] flex items-center ${i % 2 === 0 ? "justify-start" : "justify-end"}`}>
+              <article className="rule-card w-full sm:w-[82%] lg:w-[70%] bg-[#FBF8F1] border border-[#CFC3A8] p-6 sm:p-10 grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                <div className="md:col-span-2">
+                  <span className="font-mono text-[11px] tracking-widest text-[#9A4E1C]">RULE {p.num}</span>
+                  <div className="mt-4 rounded-sm bg-[#0A2E22] px-3 py-3">
+                    <RuleDiagram n={i} />
+                  </div>
+                </div>
+                <div className="md:col-span-3">
+                  <h3 className="font-serif text-2xl sm:text-3xl leading-snug text-[#0A2E22]">{p.title}</h3>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#39483E]">{p.description}</p>
+                </div>
+              </article>
             </Reveal>
           ))}
-        </div>
-        <div className="mt-4 flex items-center gap-2">
-          {PRINCIPLES.map((p, i) => (
-            <button key={p.num} type="button" onClick={() => toCard(i)} aria-label={`Rule ${p.num}`} className={`h-2 rounded-full transition-all cursor-pointer ${i === active ? "w-8 bg-[#C46A2B]" : "w-2 bg-[#C46A2B]/35"}`} />
-          ))}
-          <span className="ml-2 font-mono text-[10px] tracking-widest uppercase text-[#66705F]">swipe</span>
         </div>
 
         {/* Skill tree */}

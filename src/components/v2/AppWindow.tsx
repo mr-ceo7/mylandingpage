@@ -46,7 +46,7 @@ export function AppWindow({ project, tone, onClose, onFullSpec }: { project: Pro
           </button>
         </div>
         <div className="p-4 sm:p-6 space-y-5">
-          <PhotoStrip photos={slidesOf(project)} tone={tone} />
+          <PhotoStrip photos={slidesOf(project)} tone={tone} reveal={false} />
           <div>
             <div className="font-mono text-[10px] tracking-widest uppercase opacity-70">{project.categoryLabel} · {project.year}</div>
             <h3 className="mt-1 font-serif text-3xl leading-tight">{project.title}</h3>

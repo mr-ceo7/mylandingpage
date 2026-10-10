@@ -88,7 +88,7 @@ export function CaseStudy({ project, onClose }: { project: Project | null; onClo
           <section className={`case-rise mt-12 pt-6 border-t ${t.rule}`} style={{ animationDelay: "0.3s" }}>
             <h3 className={`font-mono text-[10px] tracking-widest uppercase ${t.kicker}`}>{hw ? "On the bench" : "Screens"}</h3>
             <div className="mt-4">
-              <PhotoStrip photos={slides.map((s) => ({ src: s.src, alt: s.alt, caption: s.caption }))} tone={hw ? "hardware" : "software"} />
+              <PhotoStrip photos={slides.map((s) => ({ src: s.src, alt: s.alt, caption: s.caption }))} tone={hw ? "hardware" : "software"} reveal={false} />
             </div>
           </section>
 
