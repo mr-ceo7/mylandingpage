@@ -36,23 +36,23 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
   };
 
   return (
-    <section id="archive-hardware" className="w-full bg-[#F2EBDD] dark:bg-[#0B2219] py-20 sm:py-28 overflow-x-clip">
+    <section id="archive-hardware" className="w-full bg-[#0F3D2E] py-20 sm:py-28 overflow-x-clip">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <Reveal>
-          <span className="font-mono text-[10px] tracking-widest uppercase text-[#9A4E1C] dark:text-[#E39A5C]">Act II · The parts bin</span>
+          <span className="font-mono text-[10px] tracking-widest uppercase text-[#E3B23C]">Act II · The parts bin</span>
         </Reveal>
-        <KineticHeading text="Everything I've built, on one reel." highlight="one reel." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#0B2219] dark:text-[#F8F3E8]" />
+        <KineticHeading text="Everything I've built, on one reel." highlight="one reel." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#F8F3E8]" />
       </div>
 
       {/* Reel tape */}
       <div className="relative mt-10">
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-5 bg-[#E6DCC8] dark:bg-[#164536]" style={{ backgroundImage: "radial-gradient(circle, #F2EBDD 4px, transparent 4.5px)", backgroundSize: "26px 20px", backgroundPosition: "0 0" }} />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-5 bg-[#E6DCC8] dark:bg-[#164536]" style={{ backgroundImage: "radial-gradient(circle, #F2EBDD 4px, transparent 4.5px)", backgroundSize: "26px 20px" }} />
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-5 bg-[#164536]" style={{ backgroundImage: "radial-gradient(circle, #0F3D2E 4px, transparent 4.5px)", backgroundSize: "26px 20px", backgroundPosition: "0 0" }} />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-5 bg-[#164536]" style={{ backgroundImage: "radial-gradient(circle, #0F3D2E 4px, transparent 4.5px)", backgroundSize: "26px 20px" }} />
         <div
           ref={ref}
           data-lenis-prevent
           onScroll={onScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar py-9 px-[14vw] sm:px-[30vw] bg-[#E6DCC8]/50 dark:bg-[#164536]/40"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar py-9 px-[14vw] sm:px-[30vw] bg-[#164536]/50"
         >
           {parts.map((p, i) => (
             <button
@@ -63,8 +63,8 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
             >
               <div className="relative bg-[#14161A] text-[#F8F3E8] p-3 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                 {/* Pins */}
-                <div aria-hidden="true" className="absolute -left-2 inset-y-6 flex flex-col justify-between">{Array.from({ length: 6 }).map((_, k) => <span key={k} className={`w-2 h-2.5 ${i === active ? "bg-[#E3B23C]" : "bg-[#B9B2A0]"} transition-colors`} />)}</div>
-                <div aria-hidden="true" className="absolute -right-2 inset-y-6 flex flex-col justify-between">{Array.from({ length: 6 }).map((_, k) => <span key={k} className={`w-2 h-2.5 ${i === active ? "bg-[#E3B23C]" : "bg-[#B9B2A0]"} transition-colors`} />)}</div>
+                <div aria-hidden="true" className="absolute -left-2 inset-y-6 flex flex-col justify-between">{Array.from({ length: 6 }).map((_, k) => <span key={k} className={`w-2 h-2.5 bg-[#B9B2A0] ${i === active ? "pin-chase" : ""}`} style={{ animationDelay: `${k * 0.12}s` }} />)}</div>
+                <div aria-hidden="true" className="absolute -right-2 inset-y-6 flex flex-col justify-between">{Array.from({ length: 6 }).map((_, k) => <span key={k} className={`w-2 h-2.5 bg-[#B9B2A0] ${i === active ? "pin-chase" : ""}`} style={{ animationDelay: `${k * 0.12}s` }} />)}</div>
                 <div className="flex items-center justify-between font-mono text-[10px] tracking-widest text-[#E3B23C]">
                   <span>U{String(i + 1).padStart(2, "0")}</span>
                   <span className="text-[#A9B39E]">{p.year}</span>
@@ -82,13 +82,13 @@ export function ComponentReel({ onOpen }: { onOpen: (p: Project) => void }) {
       </div>
 
       <div className="mt-6 flex items-center justify-center gap-4">
-        <button type="button" onClick={() => step(-1)} aria-label="Previous part" className="w-11 h-11 flex items-center justify-center border border-[#9A4E1C] text-[#9A4E1C] dark:border-[#E39A5C] dark:text-[#E39A5C] cursor-pointer">
+        <button type="button" onClick={() => step(-1)} aria-label="Previous part" className="w-11 h-11 flex items-center justify-center border border-[#E3B23C]/70 text-[#E3B23C] cursor-pointer">
           <ChevronLeft className="w-5 h-5" />
         </button>
-        <span className="font-mono text-xs tracking-widest text-[#39483E] dark:text-[#CFC3A8]">
+        <span className="font-mono text-xs tracking-widest text-[#CFC3A8]">
           {String(active + 1).padStart(2, "0")} / {String(parts.length).padStart(2, "0")}
         </span>
-        <button type="button" onClick={() => step(1)} aria-label="Next part" className="w-11 h-11 flex items-center justify-center border border-[#9A4E1C] text-[#9A4E1C] dark:border-[#E39A5C] dark:text-[#E39A5C] cursor-pointer">
+        <button type="button" onClick={() => step(1)} aria-label="Next part" className="w-11 h-11 flex items-center justify-center border border-[#E3B23C]/70 text-[#E3B23C] cursor-pointer">
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>

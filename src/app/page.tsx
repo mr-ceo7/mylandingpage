@@ -59,17 +59,19 @@ export default function Home() {
         {/* The seam between the acts: code becomes copper */}
         <Handoff />
 
-        {/* ── Act II · Hardware ── */}
-        <Band tone="green">
+        {/* ── Act II · Hardware ── (alternates green and cream like Act I) */}
+        <Band tone="green" next="cream">
           <ActIntro side="hardware" />
         </Band>
-        <Band tone="green" next="cream">
+        <Band tone="cream" next="green">
           <ExplodedBuilds onOpen={setSpecProject} />
         </Band>
-        <Band tone="cream" next="green">
+        <Band tone="green" next="cream">
           <ComponentReel onOpen={setWindowProject} />
         </Band>
-        <LabNotebook />
+        <Band tone="cream" next="green">
+          <LabNotebook />
+        </Band>
         <Band tone="green" next="cream">
           <PhotoStory />
         </Band>

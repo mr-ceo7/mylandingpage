@@ -27,6 +27,10 @@ function DeviceScene({ project, index, total, onOpen }: { project: Project; inde
           <div className="rounded-t-xl border-[8px] sm:border-[10px] border-[#1C2433] bg-[#1C2433] shadow-[0_26px_56px_rgba(8,31,77,0.3)]">
             <div className="relative aspect-[16/10] overflow-hidden bg-[#081F4D]">
               <Image key={laptop.src} src={laptop.src} alt={laptop.alt} fill sizes="(max-width: 1024px) 92vw, 640px" className="object-cover object-top screen-pan screen-fade" />
+              {/* Stamp lands on the screen as the scene scrolls in */}
+              <span aria-hidden="true" className="build-stamp absolute left-3 bottom-3 sm:left-5 sm:bottom-5 whitespace-nowrap border-[3px] border-[#4CC38A] bg-[#081F4D]/80 px-2.5 py-1 font-mono font-bold text-[10px] sm:text-sm tracking-widest uppercase text-[#7EE2A8]">
+                ✓ build passed
+              </span>
             </div>
           </div>
           <div className="h-3 sm:h-4 -mx-3 sm:-mx-5 rounded-b-xl bg-[#2B3447]" />

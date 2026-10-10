@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Mail, MapPin, RotateCw } from "lucide-react";
 import { GithubIcon } from "../Icons";
 import { KineticHeading } from "../fx/KineticHeading";
@@ -12,6 +12,25 @@ const YEAR = new Date().getFullYear();
 /** Contact as a business card: the software face flips over to a PCB hardware face. Footer underneath. */
 export function BusinessCard() {
   const [flipped, setFlipped] = useState(false);
+  const [nudge, setNudge] = useState(false);
+  const cardRef = useRef<HTMLButtonElement>(null);
+
+  // A one-time wiggle when the card first comes into view, hinting that it flips
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNudge(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.7 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const links = (tone: "sw" | "hw") => {
     const cls = tone === "sw" ? "text-[#F3E6CE] hover:text-[#FFC2AE]" : "text-[#F8F3E8] hover:text-[#E3B23C]";
     return (
@@ -44,9 +63,10 @@ export function BusinessCard() {
           <div className="card-stage mx-auto w-full max-w-[420px] aspect-[1.6/1]">
             <button
               type="button"
+              ref={cardRef}
               onClick={() => setFlipped((f) => !f)}
               aria-label={flipped ? "Show the software side of the card" : "Show the hardware side of the card"}
-              className={`card-flip relative block w-full h-full text-left cursor-pointer ${flipped ? "is-flipped" : ""}`}
+              className={`card-flip relative block w-full h-full text-left cursor-pointer ${flipped ? "is-flipped" : ""} ${nudge && !flipped ? "card-nudge" : ""}`}
             >
               {/* Software face */}
               <div className="card-face absolute inset-0 flex flex-col p-6 bg-[#0147BA] shadow-[0_28px_60px_rgba(0,0,0,0.45)]">

@@ -76,7 +76,9 @@ export function CaseStudy({ project, onClose }: { project: Project | null; onClo
             <ol className="mt-4 space-y-6">
               {project.architectureDetails.map((d, i) => (
                 <li key={i} className="grid grid-cols-[auto_1fr] gap-4">
-                  <span className={`font-serif text-4xl leading-none ${t.num}`}>{String(i + 1).padStart(2, "0")}</span>
+                  <span className={`inline-block overflow-hidden font-serif text-4xl leading-none ${t.num}`}>
+                    <span className="tick-num inline-block" style={{ animationDelay: `${0.45 + i * 0.12}s` }}>{String(i + 1).padStart(2, "0")}</span>
+                  </span>
                   <p className={`pt-1 text-base leading-relaxed ${t.muted}`}>{d}</p>
                 </li>
               ))}

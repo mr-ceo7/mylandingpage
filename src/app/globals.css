@@ -479,3 +479,22 @@ html:not(.intro-seen) .desk-photo { animation-delay: 1.8s; }
 @media (prefers-reduced-motion: reduce) {
   .nav-act, .menu-sheet, .menu-item, .case-sheet, .case-hero-img, .case-rise { animation: none; }
 }
+
+/* Micro-moments */
+.build-stamp {
+  --st: clamp(0, calc((var(--enter, 0) - 0.55) / 0.3), 1);
+  opacity: calc(var(--st) * 0.95);
+  transform: rotate(-8deg) scale(calc(1 + (1 - var(--st)) * 1.4));
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+}
+@keyframes pin-chase { 0%, 100% { background-color: #B9B2A0; box-shadow: none; } 30% { background-color: #E3B23C; box-shadow: 0 0 8px 1px #E3B23C; } }
+.pin-chase { animation: pin-chase 1.2s ease-in-out infinite; }
+@keyframes tick-num { from { transform: translateY(105%); } to { transform: none; } }
+.tick-num { animation: tick-num 0.5s cubic-bezier(0.3, 1.3, 0.5, 1) both; }
+@keyframes card-nudge { 0%, 100% { transform: rotateY(0deg); } 25% { transform: rotateY(-18deg); } 55% { transform: rotateY(10deg); } 80% { transform: rotateY(-4deg); } }
+.card-nudge { animation: card-nudge 1.1s ease-in-out 0.3s backwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .build-stamp { opacity: 0.95; transform: rotate(-8deg); transition: none; }
+  .pin-chase, .tick-num, .card-nudge { animation: none; }
+}

@@ -22,12 +22,12 @@ export function LabNotebook() {
   };
 
   return (
-    <section id="hardware" className="w-full bg-[#0F3D2E] py-20 sm:py-28">
+    <section id="hardware" className="w-full bg-[#F2EBDD] dark:bg-[#0B2219] py-20 sm:py-28">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <Reveal>
-          <span className="font-mono text-[10px] tracking-widest uppercase text-[#E3B23C]">Act II · Gearbox Academy lab notebook</span>
+          <span className="font-mono text-[10px] tracking-widest uppercase text-[#9A4E1C] dark:text-[#E3B23C]">Act II · Gearbox Academy lab notebook</span>
         </Reveal>
-        <KineticHeading text="Twelve weeks at the bench." highlight="the bench." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#F8F3E8]" />
+        <KineticHeading text="Twelve weeks at the bench." highlight="the bench." className="mt-2 font-serif text-4xl sm:text-5xl tracking-tight text-[#0B2219] dark:text-[#F8F3E8]" />
 
         <Reveal variant="tilt" className="mt-10">
           <div
@@ -43,7 +43,7 @@ export function LabNotebook() {
             {/* Spiral binding */}
             <div aria-hidden="true" className="absolute -top-3 inset-x-6 z-20 flex justify-between">
               {Array.from({ length: 14 }).map((_, i) => (
-                <span key={i} className="w-3 h-7 rounded-full border-[3px] border-[#B9B2A0] bg-[#0F3D2E]" />
+                <span key={i} className="w-3 h-7 rounded-full border-[3px] border-[#8A8270] bg-[#F2EBDD] dark:bg-[#0B2219]" />
               ))}
             </div>
             {/* Page */}
@@ -91,15 +91,15 @@ export function LabNotebook() {
 
         {/* Page turner */}
         <div className="mt-6 flex items-center justify-center gap-4">
-          <button type="button" onClick={() => turn(-1)} disabled={page === 0} aria-label="Previous page" className="w-11 h-11 flex items-center justify-center border border-[#E3B23C]/60 text-[#E3B23C] disabled:opacity-30 cursor-pointer">
+          <button type="button" onClick={() => turn(-1)} disabled={page === 0} aria-label="Previous page" className="w-11 h-11 flex items-center justify-center border border-[#9A4E1C]/60 text-[#9A4E1C] dark:border-[#E3B23C]/60 dark:text-[#E3B23C] disabled:opacity-30 cursor-pointer">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <div className="flex gap-1.5" aria-hidden="true">
             {LAB_REPORTS.map((r, i) => (
-              <span key={r.week} className={`h-1.5 rounded-full transition-all ${i === page ? "w-6 bg-[#E3B23C]" : "w-1.5 bg-[#E3B23C]/35"}`} />
+              <span key={r.week} className={`h-1.5 rounded-full transition-all ${i === page ? "w-6 bg-[#C46A2B]" : "w-1.5 bg-[#C46A2B]/35"}`} />
             ))}
           </div>
-          <button type="button" onClick={() => turn(1)} disabled={page === LAB_REPORTS.length - 1} aria-label="Next page" className="w-11 h-11 flex items-center justify-center border border-[#E3B23C]/60 text-[#E3B23C] disabled:opacity-30 cursor-pointer">
+          <button type="button" onClick={() => turn(1)} disabled={page === LAB_REPORTS.length - 1} aria-label="Next page" className="w-11 h-11 flex items-center justify-center border border-[#9A4E1C]/60 text-[#9A4E1C] dark:border-[#E3B23C]/60 dark:text-[#E3B23C] disabled:opacity-30 cursor-pointer">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
